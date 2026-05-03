@@ -151,11 +151,9 @@ function respond(input) {
 }
 
 /* ==================== UI ==================== */
-const css = `#fcht-toggle{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#d4a843,#b8922e);border:none;cursor:pointer;box-shadow:0 4px 20px rgba(212,168,67,0.4);z-index:9999;display:flex;align-items:center;justify-content:center;font-size:28px;transition:all .3s ease;color:#0f2440}
+const css = `#fcht-toggle{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#d4a843,#b8922e);border:none;cursor:pointer;box-shadow:0 4px 20px rgba(212,168,67,0.4);z-index:9999;display:flex;align-items:center;justify-content:center;font-size:28px;transition:opacity .3s ease,transform .3s ease;color:#0f2440;line-height:1}
 #fcht-toggle:hover{transform:scale(1.1)}
-#fcht-toggle.open .ci{display:none}
-#fcht-toggle.open .xi{display:block}
-#fcht-toggle .xi{display:none}
+#fcht-toggle.open{opacity:0;pointer-events:none;transform:scale(0.8)}
 #fcht-pop{position:fixed;bottom:96px;right:24px;width:380px;height:560px;background:#fff;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.2);z-index:9998;display:none;flex-direction:column;overflow:hidden;animation:fsu .3s ease}
 #fcht-pop.open{display:flex}
 @keyframes fsu{from{opacity:0;transform:translateY(20px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
@@ -182,12 +180,12 @@ const css = `#fcht-toggle{position:fixed;bottom:24px;right:24px;width:60px;heigh
 const s = document.createElement('style'); s.textContent = css; document.head.appendChild(s);
 
 document.body.insertAdjacentHTML('beforeend', `
-<button id="fcht-toggle" aria-label="Open safe chat"><span class="ci">💬</span><span class="xi">✕</span></button>
+<button id="fcht-toggle" aria-label="Open safe chat">💬</button>
 <div id="fcht-pop">
   <div id="fcht-phdr">
     <div class="av">🔐</div>
     <div class="ht"><h3>Frantz Safe Assistant</h3><p>Ask about your safe</p></div>
-    <!-- X removed — toggle button closes the popup -->
+    <button class="hc" id="fcht-close" style="margin-left:auto;background:none;border:none;color:rgba(255,255,255,.7);cursor:pointer;font-size:18px;padding:2px 6px;line-height:1">✕</button>
   </div>
   <div id="fcht-msgs">
     <div class="m b"><strong>🔐 Safe Assistant</strong>\nHi! Ask me about safe opening, dial sequences, battery help, or anything safe-related.</div>
@@ -228,7 +226,7 @@ function send() {
 }
 
 toggle.onclick = () => { toggle.classList.toggle('open'); popup.classList.toggle('open'); if (popup.classList.contains('open')) input.focus(); };
-// Close button removed — toggle button closes the popup
+document.getElementById('fcht-close').onclick = () => { toggle.classList.remove('open'); popup.classList.remove('open'); };
 sendBtn.onclick = send;
 input.onkeydown = (e) => { if (e.key === 'Enter') { e.preventDefault(); send(); } };
 document.querySelectorAll('#fcht-qr .qr').forEach(el => { el.onclick = () => { input.value = el.dataset.m; send(); }; });
