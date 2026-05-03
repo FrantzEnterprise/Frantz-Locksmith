@@ -137,7 +137,7 @@ function respond(input) {
 
   // Buying
   if (q.includes("buy")||q.includes("purchase")||q.includes("get a safe")||q.includes("new safe")||q.includes("what safe")||q.includes("recommend")||q.includes("looking for a")) {
-    return "Ask yourself:\n• What will you store? (guns/documents/cash/jewelry)\n• Where will it go? (garage/closet/floor/wall)\n• Main threat? (fire/burglary/both)\n• How often accessed?\n\nGuide: Documents → fire-rated | Guns → Liberty/Cannon/AMSEC | Cash → TL-15/30 | Quick access → digital keypad\n\nCall (916) 534-4900.";
+    return "Buying guide: /blog/choosing-right-safe.html\n\nAsk yourself:\n• What will you store? (guns/documents/cash/jewelry)\n• Where will it go? (garage/closet/floor/wall)\n• Main threat? (fire/burglary/both)\n• How often accessed?\n\nGuide: Documents → fire-rated | Guns → Liberty/Cannon/AMSEC | Cash → TL-15/30 | Quick access → digital keypad\n\nCall (916) 534-4900.";
   }
 
   // Maintenance
