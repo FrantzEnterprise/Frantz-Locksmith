@@ -101,6 +101,35 @@ function respond(input) {
     return "Don't force it!\nCheck:\n• " + K.jammed.check.join("\n• ") + "\n\nWarning: " + K.jammed.warning;
   }
 
+
+  // Rust / corrosion
+  if (q.includes("rust")||q.includes("corrosion")||q.includes("corroded")||q.includes("moisture")||q.includes("water damage")) {
+    return "Common in floor safes where moisture builds up.\nLight surface rust: spray WD-40, work dial back and forth.\nCorroded battery terminals: clean with vinegar on Q-tip.\nSeized lock: do NOT force it.\nPrevention: silica gel packs inside safe. Check floor safes every 6 months.";
+  }
+  // Relocker triggered
+  if (q.includes("relocker")||q.includes("secondary lock")||q.includes("triggered")||q.includes("drilled lock")) {
+    return "Relocker = secondary lock that springs when someone drills or forces the lock.\nSigns: handle turns freely but bolts won't retract.\nThis is NOT a DIY fix.\nCall (916) 534-4900 — I deal with relockers regularly.";
+  }
+  // Broken handle
+  if (q.includes("handle broken")||q.includes("handle won't turn")||q.includes("broken handle")||(q.includes("handle")&&q.includes("broken"))||q.includes("handle spins")) {
+    return "Handle spins freely: linkage is disconnected (broken weld, sheared pin).\nHandle won't turn: locking bar jammed.\nHandle turns but bolts don't move: cam stripped.\nDon't use vice grips — you'll damage the spindle.\nCall (916) 534-4900. Most handle repairs under an hour.";
+  }
+  // Hinge / alignment
+  if (q.includes("hinge")||q.includes("door sag")||q.includes("door misaligned")||(q.includes("door")&&q.includes("won't close"))) {
+    return "Sagging door: safe settled or hinge pins worn.\nTry: shim low corner if on uneven floor.\nLoose hinge screws: tighten them.\nWorn hinge pin: replaceable.\nMost alignment issues fixable on-site.";
+  }
+  // Electronic lock failure
+  if (q.includes("electronic lock")||q.includes("digital lock")||q.includes("keypad not working")||q.includes("won't beep")||(q.includes("beep")&&q.includes("won't open"))||q.includes("solenoid")) {
+    return "No response: dead battery (9V jump), corroded contacts, disconnected cable.\nBeeps but won't open: stuck solenoid (tap while entering code), failed solenoid, pinched wire.\nWorks sometimes: loose wire at hinge, worn keypad.\nIf 9V jump doesn't work, call (916) 534-4900.";
+  }
+  // Biometric
+  if (q.includes("biometric")||q.includes("fingerprint")||q.includes("finger print")||q.includes("scanner not")) {
+    return "Try different finger (index/middle best).\nDry skin? Breathe on scanner.\nDirty? Wipe with dry cloth.\nGreen light but no open? Solenoid failed.\nBatteries drain fast — change every 6 months.\nLeast reliable type — keep backup key accessible.";
+  }
+  // Broken spring
+  if (q.includes("spring")||q.includes("broken spring")||(q.includes("dial")&&q.includes("spins"))||q.includes("no tension")) {
+    return "Dial spins freely with no stop: broken drive cam spring.\nDial doesn't snap back: fatigued return spring.\nCan't dial combo reliably until spring is replaced.\nStraightforward repair: $75-$150.";
+  }
   // Lost key
   if (q.includes("lost key")||q.includes("broken key")||q.includes("key broke")||q.includes("key lost")||q.includes("missing key")) {
     return "• Key code on the key head? Locksmith can cut a new one\n• Tubular keys have code on head — easy to duplicate\n• No code? Locksmith can 'impression' a key or drill the lock\n\nCall (916) 534-4900 — I can often make a key without drilling.";

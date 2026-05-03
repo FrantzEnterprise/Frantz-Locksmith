@@ -359,6 +359,85 @@ function respond(input) {
       "**Call (916) 534-4900** — I can often make a key from the lock itself without drilling.";
   }
 
+  // Rust / corrosion
+  if (q.includes("rust") || q.includes("corrosion") || q.includes("corroded") || q.includes("moisture") || q.includes("water damage") || q.includes("rotten") || q.includes("oxidized")) {
+    return "**Rust and corrosion**\n\n" +
+      "Common in floor safes and old safes where moisture builds up.\n\n" +
+      "• Light surface rust on the dial: spray WD-40, work the dial back and forth\n" +
+      "• Internal rust on wheel pack: needs disassembly and cleaning\n" +
+      "• Corroded battery terminals: clean with vinegar on a Q-tip\n" +
+      "• Rusted hinge pins: lubricate with penetrating oil\n" +
+      "• Seized lock mechanism: do NOT force it — call me\n\n" +
+      "**Prevention:** Silica gel packs inside the safe. Open every few months. For floor safes, check every 6 months.\n\n" +
+      "If rust has seized the lock, call (916) 534-4900.";
+  }
+
+  // Relocker triggered
+  if (q.includes("relocker") || q.includes("secondary lock") || q.includes("triggered") || q.includes("drilled lock")) {
+    return "**Relocker triggered — the safe's last defense**\n\n" +
+      "A relocker is a secondary lock that springs into place when:\n" +
+      "• Someone tries to drill the lock\n" +
+      "• The lock is punched or forced\n" +
+      "• The safe takes a heavy impact\n\n" +
+      "**Signs:** Handle turns freely but bolts won't retract. The safe is locked by a separate mechanism.\n\n" +
+      "**This is not a DIY fix.** Disabling a relocker requires drilling a precise access hole.\n\n" +
+      "Call (916) 534-4900 — I deal with relockers regularly.";
+  }
+
+  // Handle broken
+  if (q.includes("handle broken") || q.includes("handle won't turn") || q.includes("broken handle") || (q.includes("handle") && q.includes("broken")) || q.includes("handle spins")) {
+    return "**Broken or spinning handle**\n\n" +
+      "• **Handle spins freely:** The linkage between handle and bolt mechanism is disconnected — broken weld, sheared pin, or stripped gear.\n" +
+      "• **Handle won't turn:** Locking bar jammed or mechanism seized.\n" +
+      "• **Handle turns but bolts don't move:** Cam or gear has stripped.\n" +
+      "• **Handle feels loose:** A retaining screw or pin worked loose.\n\n" +
+      "**Do not use vice grips or a pipe wrench** — you'll damage the spindle.\n\n" +
+      "Call (916) 534-4900. Most handle repairs take under an hour.";
+  }
+
+  // Hinge / door misalignment
+  if (q.includes("hinge") || q.includes("door sag") || q.includes("door misaligned") || (q.includes("door") && q.includes("won't close"))) {
+    return "**Door misalignment or sagging hinges**\n\n" +
+      "• **Sagging door:** Safe settled or hinge pins worn — bolts don't align with strike holes.\n" +
+      "• **Try shimming:** If on uneven floor, shim the low corner with a metal shim.\n" +
+      "• **Loose hinge screws:** Tighten them (don't strip).\n" +
+      "• **Worn hinge pin:** Can be replaced without replacing the hinge.\n" +
+      "• **Can't lock at all:** Door may need removal and hinge reset.\n\n" +
+      "Most alignment issues are fixable on-site. Call (916) 534-4900.";
+  }
+
+  // Electronic lock failure
+  if (q.includes("electronic lock") || q.includes("digital lock") || q.includes("keypad not working") || q.includes("won't beep") || (q.includes("beep") && q.includes("won't open")) || q.includes("solenoid")) {
+    return "**Electronic/digital lock troubleshooting**\n\n" +
+      "**No response at all:**\n• Dead battery — try 9V jump start\n• Corroded contacts — clean with vinegar\n• Cable disconnected — check connector\n\n" +
+      "**Beeps but won't open:**\n• Stuck solenoid — firm tap while entering code can free it\n• Failed solenoid — needs replacement (common LaGard, S&G)\n• Pinched wire — cycling the door can damage wires\n\n" +
+      "**Works sometimes:**\n• Loose wire at hinge\n• Worn keypad membrane\n\n" +
+      "If 9V jump doesn't work and no key override, call (916) 534-4900.";
+  }
+
+  // Biometric
+  if (q.includes("biometric") || q.includes("fingerprint") || q.includes("finger print") || q.includes("scanner not")) {
+    return "**Biometric lock troubleshooting**\n\n" +
+      "• Try a different finger (index and middle work best)\n" +
+      "• Dry skin? Breathe on the scanner first\n" +
+      "• Dirty scanner? Wipe with dry cloth\n" +
+      "• Scar or cut? Re-enroll a different finger\n" +
+      "• Green light but no open? Solenoid failed (like any electronic)\n" +
+      "• Batteries drain faster than keypads — change every 6 months\n\n" +
+      "Biometric locks are the least reliable type. Always keep your backup key accessible.\n\n" +
+      "If the lock has failed, I can replace with keypad or dial. Call (916) 534-4900.";
+  }
+
+  // Broken spring
+  if (q.includes("spring") || q.includes("broken spring") || (q.includes("dial") && q.includes("spins freely")) || q.includes("no tension")) {
+    return "**Broken drive cam spring**\n\n" +
+      "• **Dial spins freely with no stop:** The spring inside the back cover is broken. The dial won't engage the wheel pack.\n" +
+      "• **Dial doesn't snap back:** The return spring has fatigued.\n" +
+      "• **Dial is very loose:** Internal friction spring broken.\n\n" +
+      "You can't reliably dial your combination until the spring is replaced. It's a straightforward $75-$150 repair. Call (916) 534-4900.";
+  }
+
+
   // Buying advice
   if (q.includes("buy") || q.includes("purchase") || q.includes("get a safe") || q.includes("new safe") || q.includes("what safe") || q.includes("which safe") || q.includes("recommend") || q.includes("looking for a")) {
     return "**Buying a safe? Here's how to choose:**\n\n" +
