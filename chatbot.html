@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frantz Safe Service Chatbot — Ask About Your Safe</title>
+  <meta name="description" content="Chat with Frantz's safe service assistant. Get answers about safe opening, combination changes, lock types, repairs, maintenance, and buying advice.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      color: #1a1d21;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    .chat-header {
+      background: linear-gradient(135deg, #0f2440, #1a3a5c);
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .chat-header .back-link {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .chat-header .back-link:hover { color: #d4a843; }
+    .chat-header h1 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      flex: 1;
+    }
+    .chat-header .license-badge {
+      background: rgba(212,168,67,0.2);
+      border: 1px solid rgba(212,168,67,0.3);
+      color: #d4a843;
+      padding: 4px 10px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* Main chat container */
+    .chat-container {
+      max-width: 700px;
+      margin: 0 auto;
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    /* Messages area */
+    .messages {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-height: 400px;
+      max-height: 60vh;
+    }
+
+    .message {
+      max-width: 85%;
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .message.bot {
+      align-self: flex-start;
+      background: #f0f2f5;
+      border-bottom-left-radius: 4px;
+    }
+    .message.bot strong {
+      color: #1a3a5c;
+    }
+    .message.bot .pro-tip {
+      display: block;
+      margin-top: 10px;
+      padding: 10px 12px;
+      background: #fff8e1;
+      border-left: 3px solid #d4a843;
+      border-radius: 6px;
+      font-size: 0.88rem;
+    }
+    .message.bot .call-btn {
+      display: inline-block;
+      margin-top: 8px;
+      background: #d4a843;
+      color: #0f2440;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .message.bot .call-btn:hover {
+      background: #b8922e;
+    }
+
+    .message.user {
+      align-self: flex-end;
+      background: #1a3a5c;
+      color: white;
+      border-bottom-right-radius: 4px;
+    }
+
+    /* Quick reply buttons */
+    .quick-replies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 0 20px 12px;
+    }
+    .quick-reply {
+      background: #f0f2f5;
+      border: 1px solid #e0e3e8;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #1a3a5c;
+    }
+    .quick-reply:hover {
+      background: #1a3a5c;
+      color: white;
+      border-color: #1a3a5c;
+    }
+
+    /* Input area */
+    .input-area {
+      border-top: 1px solid #e0e3e8;
+      padding: 16px 20px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-end;
+    }
+    .input-area textarea {
+      flex: 1;
+      border: 2px solid #e0e3e8;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      resize: none;
+      min-height: 44px;
+      max-height: 120px;
+      transition: border-color 0.2s;
+    }
+    .input-area textarea:focus {
+      outline: none;
+      border-color: #d4a843;
+    }
+    .input-area button {
+      background: #d4a843;
+      border: none;
+      border-radius: 12px;
+      color: #0f2440;
+      padding: 12px 20px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      min-height: 44px;
+      white-space: nowrap;
+    }
+    .input-area button:hover {
+      background: #b8922e;
+    }
+    .input-area button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Typing indicator */
+    .typing {
+      align-self: flex-start;
+      background: #f0f2f5;
+      padding: 12px 20px;
+      border-radius: 16px;
+      display: flex;
+      gap: 4px;
+    }
+    .typing span {
+      width: 8px;
+      height: 8px;
+      background: #6c757d;
+      border-radius: 50%;
+      animation: typing 1.4s infinite;
+    }
+    .typing span:nth-child(2) { animation-delay: 0.2s; }
+    .typing span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typing {
+      0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+      30% { opacity: 1; transform: translateY(-4px); }
+    }
+
+    /* Typing area auto-expand */
+    .input-area textarea { overflow: hidden; }
+
+    /* Footer */
+    .chat-footer {
+      background: #1a1d21;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 10px;
+      font-size: 0.8rem;
+    }
+    .chat-footer a { color: #d4a843; text-decoration: none; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .chat-container { max-width: 100%; }
+      .message { max-width: 92%; }
+      .chat-header h1 { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="chat-header">
+  <a href="/" class="back-link">← Back to Site</a>
+  <h1>🔐 Frantz Safe Assistant</h1>
+  <span class="license-badge">LCO 4160</span>
+</div>
+
+<div class="chat-container">
+  <div class="messages" id="messages">
+    <div class="message bot">
+      <strong>🔐 Frantz Safe Assistant</strong><br><br>
+      Welcome! I'm here to answer your safe questions — from opening and repairs to buying advice and maintenance tips. I'm based in Sacramento & West Sacramento and I've been working with safes since 1985.<br><br>
+      <strong>Try asking:</strong><br>
+      • "My safe won't open"<br>
+      • "How much to open a safe?"<br>
+      • "Tell me about gun safes"<br>
+      • "Do you change combinations?"<br>
+      • "I need my safe serviced"
+    </div>
+  </div>
+
+  <div class="quick-replies" id="quickReplies">
+    <button class="quick-reply" onclick="sendQuick('My safe is locked and won\'t open')">🔒 Safe Locked</button>
+    <button class="quick-reply" onclick="sendQuick('Forgot my safe combination')">🔢 Forgot Combo</button>
+    <button class="quick-reply" onclick="sendQuick('How much does safe service cost?')">💰 Pricing</button>
+    <button class="quick-reply" onclick="sendQuick('Tell me about gun safes')">🔫 Gun Safes</button>
+    <button class="quick-reply" onclick="sendQuick('What are your hours and contact info?')">📞 Contact</button>
+  </div>
+
+  <div class="input-area">
+    <textarea id="userInput" placeholder="Ask about your safe..." rows="1" onkeydown="handleKey(event)"></textarea>
+    <button id="sendBtn" onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+<div class="chat-footer">
+  Frantz Locksmith Service &bull; CA LCO 4160 &bull; <a href="tel:+19165344900">(916) 534-4900</a>
+</div>
+
+<script src="safe-knowledge.js"></script>
+<script src="safe-chatbot.js"></script>
+<script>
+  // Initialize chatbot
+  const chatbot = new SafeChatbot(SAFE_KNOWLEDGE);
+
+  const messagesEl = document.getElementById('messages');
+  const userInput = document.getElementById('userInput');
+  const sendBtn = document.getElementById('sendBtn');
+
+  function addMessage(text, role) {
+    const div = document.createElement('div');
+    div.className = `message ${role}`;
+
+    if (role === 'bot') {
+      // Convert markdown-style formatting
+      text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      text = text.replace(/\n/g, '<br>');
+      text = text.replace(/•/g, '&bull;');
+      text = text.replace(/💡/g, '💡');
+      // Make phone number clickable
+      text = text.replace(/\(916\) 534-4900/g, '<a href="tel:+19165344900" class="call-btn">📞 (916) 534-4900</a>');
+      text = `<strong>🔐 Frantz Safe Assistant</strong><br><br>${text}`;
+    }
+
+    div.innerHTML = text;
+    messagesEl.appendChild(div);
+    scrollToBottom();
+  }
+
+  function addTyping() {
+    const div = document.createElement('div');
+    div.className = 'typing';
+    div.id = 'typingIndicator';
+    div.innerHTML = '<span></span><span></span><span></span>';
+    messagesEl.appendChild(div);
+    scrollToBottom();
+  }
+
+  function removeTyping() {
+    const indicator = document.getElementById('typingIndicator');
+    if (indicator) indicator.remove();
+  }
+
+  function scrollToBottom() {
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function sendMessage() {
+    const text = userInput.value.trim();
+    if (!text) return;
+
+    // Add user message
+    addMessage(text, 'user');
+    userInput.value = '';
+    userInput.style.height = 'auto';
+    sendBtn.disabled = true;
+
+    // Show typing indicator
+    addTyping();
+
+    // Simulate thinking delay (realistic feel)
+    const delay = Math.min(500 + text.length * 20, 2000);
+    setTimeout(() => {
+      removeTyping();
+      const response = chatbot.respond(text);
+      addMessage(response, 'bot');
+      sendBtn.disabled = false;
+      userInput.focus();
+    }, delay);
+  }
+
+  function sendQuick(text) {
+    userInput.value = text;
+    sendMessage();
+  }
+
+  function handleKey(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+    // Auto-resize textarea
+    userInput.style.height = 'auto';
+    userInput.style.height = Math.min(userInput.scrollHeight, 120) + 'px';
+  }
+
+  // Focus input on load
+  userInput.focus();
+</script>
+</body>
+</html>
