@@ -15,8 +15,6 @@
       display: flex;
       flex-direction: column;
     }
-
-    /* Header */
     .chat-header {
       background: linear-gradient(135deg, #0f2440, #1a3a5c);
       color: white;
@@ -25,212 +23,31 @@
       align-items: center;
       gap: 12px;
     }
-    .chat-header .back-link {
-      color: rgba(255,255,255,0.7);
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
+    .chat-header .back-link { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; }
     .chat-header .back-link:hover { color: #d4a843; }
-    .chat-header h1 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      flex: 1;
-    }
-    .chat-header .license-badge {
-      background: rgba(212,168,67,0.2);
-      border: 1px solid rgba(212,168,67,0.3);
-      color: #d4a843;
-      padding: 4px 10px;
-      border-radius: 50px;
-      font-size: 0.75rem;
-      font-weight: 600;
-    }
-
-    /* Main chat container */
-    .chat-container {
-      max-width: 700px;
-      margin: 0 auto;
-      width: 100%;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      background: white;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-    }
-
-    /* Messages area */
-    .messages {
-      flex: 1;
-      padding: 20px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      min-height: 400px;
-      max-height: 60vh;
-    }
-
-    .message {
-      max-width: 85%;
-      padding: 12px 16px;
-      border-radius: 16px;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      animation: fadeIn 0.3s ease;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .message.bot {
-      align-self: flex-start;
-      background: #f0f2f5;
-      border-bottom-left-radius: 4px;
-    }
-    .message.bot strong {
-      color: #1a3a5c;
-    }
-    .message.bot .pro-tip {
-      display: block;
-      margin-top: 10px;
-      padding: 10px 12px;
-      background: #fff8e1;
-      border-left: 3px solid #d4a843;
-      border-radius: 6px;
-      font-size: 0.88rem;
-    }
-    .message.bot .call-btn {
-      display: inline-block;
-      margin-top: 8px;
-      background: #d4a843;
-      color: #0f2440;
-      padding: 8px 18px;
-      border-radius: 8px;
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
-    .message.bot .call-btn:hover {
-      background: #b8922e;
-    }
-
-    .message.user {
-      align-self: flex-end;
-      background: #1a3a5c;
-      color: white;
-      border-bottom-right-radius: 4px;
-    }
-
-    /* Quick reply buttons */
-    .quick-replies {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding: 0 20px 12px;
-    }
-    .quick-reply {
-      background: #f0f2f5;
-      border: 1px solid #e0e3e8;
-      padding: 8px 16px;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      color: #1a3a5c;
-    }
-    .quick-reply:hover {
-      background: #1a3a5c;
-      color: white;
-      border-color: #1a3a5c;
-    }
-
-    /* Input area */
-    .input-area {
-      border-top: 1px solid #e0e3e8;
-      padding: 16px 20px;
-      display: flex;
-      gap: 8px;
-      align-items: flex-end;
-    }
-    .input-area textarea {
-      flex: 1;
-      border: 2px solid #e0e3e8;
-      border-radius: 12px;
-      padding: 12px 16px;
-      font-family: inherit;
-      font-size: 0.95rem;
-      resize: none;
-      min-height: 44px;
-      max-height: 120px;
-      transition: border-color 0.2s;
-    }
-    .input-area textarea:focus {
-      outline: none;
-      border-color: #d4a843;
-    }
-    .input-area button {
-      background: #d4a843;
-      border: none;
-      border-radius: 12px;
-      color: #0f2440;
-      padding: 12px 20px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.2s;
-      min-height: 44px;
-      white-space: nowrap;
-    }
-    .input-area button:hover {
-      background: #b8922e;
-    }
-    .input-area button:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    /* Typing indicator */
-    .typing {
-      align-self: flex-start;
-      background: #f0f2f5;
-      padding: 12px 20px;
-      border-radius: 16px;
-      display: flex;
-      gap: 4px;
-    }
-    .typing span {
-      width: 8px;
-      height: 8px;
-      background: #6c757d;
-      border-radius: 50%;
-      animation: typing 1.4s infinite;
-    }
-    .typing span:nth-child(2) { animation-delay: 0.2s; }
-    .typing span:nth-child(3) { animation-delay: 0.4s; }
-    @keyframes typing {
-      0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
-      30% { opacity: 1; transform: translateY(-4px); }
-    }
-
-    /* Typing area auto-expand */
-    .input-area textarea { overflow: hidden; }
-
-    /* Footer */
-    .chat-footer {
-      background: #1a1d21;
-      color: rgba(255,255,255,0.6);
-      text-align: center;
-      padding: 10px;
-      font-size: 0.8rem;
-    }
+    .chat-header h1 { font-size: 1.1rem; font-weight: 700; flex: 1; }
+    .chat-header .license-badge { background: rgba(212,168,67,0.2); border: 1px solid rgba(212,168,67,0.3); color: #d4a843; padding: 4px 10px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; }
+    .chat-container { max-width: 700px; margin: 0 auto; width: 100%; flex: 1; display: flex; flex-direction: column; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+    .messages { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; min-height: 400px; max-height: 60vh; }
+    .message { max-width: 85%; padding: 12px 16px; border-radius: 16px; font-size: 0.95rem; line-height: 1.6; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .message.bot { align-self: flex-start; background: #f0f2f5; border-bottom-left-radius: 4px; }
+    .message.bot strong { color: #1a3a5c; }
+    .message.bot .call-btn { display: inline-block; margin-top: 8px; background: #d4a843; color: #0f2440; padding: 8px 18px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 0.95rem; }
+    .message.bot .call-btn:hover { background: #b8922e; }
+    .message.user { align-self: flex-end; background: #1a3a5c; color: white; border-bottom-right-radius: 4px; }
+    .quick-replies { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 20px 12px; }
+    .quick-reply { background: #f0f2f5; border: 1px solid #e0e3e8; padding: 8px 16px; border-radius: 50px; font-size: 0.85rem; cursor: pointer; transition: all 0.2s ease; color: #1a3a5c; }
+    .quick-reply:hover { background: #1a3a5c; color: white; border-color: #1a3a5c; }
+    .input-area { border-top: 1px solid #e0e3e8; padding: 16px 20px; display: flex; gap: 8px; align-items: flex-end; }
+    .input-area textarea { flex: 1; border: 2px solid #e0e3e8; border-radius: 12px; padding: 12px 16px; font-family: inherit; font-size: 0.95rem; resize: none; min-height: 44px; max-height: 120px; transition: border-color 0.2s; }
+    .input-area textarea:focus { outline: none; border-color: #d4a843; }
+    .input-area button { background: #d4a843; border: none; border-radius: 12px; color: #0f2440; padding: 12px 20px; font-weight: 700; cursor: pointer; transition: background 0.2s; min-height: 44px; white-space: nowrap; }
+    .input-area button:hover { background: #b8922e; }
+    .input-area button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .chat-footer { background: #1a1d21; color: rgba(255,255,255,0.6); text-align: center; padding: 10px; font-size: 0.8rem; }
     .chat-footer a { color: #d4a843; text-decoration: none; }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .chat-container { max-width: 100%; }
-      .message { max-width: 92%; }
-      .chat-header h1 { font-size: 0.95rem; }
-    }
+    @media (max-width: 768px) { .chat-container { max-width: 100%; } .message { max-width: 92%; } .chat-header h1 { font-size: 0.95rem; } }
   </style>
 </head>
 <body>
@@ -245,22 +62,20 @@
   <div class="messages" id="messages">
     <div class="message bot">
       <strong>🔐 Frantz Safe Assistant</strong><br><br>
-      Welcome! I'm here to answer your safe questions — from opening and repairs to buying advice and maintenance tips. I'm based in Sacramento & West Sacramento and I've been working with safes since 1985.<br><br>
+      Welcome! I'm here to answer your safe questions — from opening and repairs to buying advice and maintenance tips. I've been working with safes since 1985.<br><br>
       <strong>Try asking:</strong><br>
+      • "What's the dialing sequence for an S&G lock?"<br>
       • "My safe won't open"<br>
-      • "How much to open a safe?"<br>
-      • "Tell me about gun safes"<br>
-      • "Do you change combinations?"<br>
-      • "I need my safe serviced"
+      • "How do I change the code on my electronic lock?"<br>
+      • "Tell me about antique safes"
     </div>
   </div>
 
   <div class="quick-replies" id="quickReplies">
-    <button class="quick-reply" onclick="sendQuick('My safe is locked and won\'t open')">🔒 Safe Locked</button>
-    <button class="quick-reply" onclick="sendQuick('Forgot my safe combination')">🔢 Forgot Combo</button>
+    <button class="quick-reply" onclick="sendQuick('My safe is locked and won\\'t open')">🔒 Safe Locked</button>
+    <button class="quick-reply" onclick="sendQuick('What\\'s the dialing sequence for an S&G lock?')">🔢 Dialing Sequence</button>
+    <button class="quick-reply" onclick="sendQuick('How do I change the battery on my digital safe lock?')">🔋 Battery Help</button>
     <button class="quick-reply" onclick="sendQuick('How much does safe service cost?')">💰 Pricing</button>
-    <button class="quick-reply" onclick="sendQuick('Tell me about gun safes')">🔫 Gun Safes</button>
-    <button class="quick-reply" onclick="sendQuick('What are your hours and contact info?')">📞 Contact</button>
   </div>
 
   <div class="input-area">
@@ -273,95 +88,357 @@
   Frantz Locksmith Service &bull; CA LCO 4160 &bull; <a href="tel:+19165344900">(916) 534-4900</a>
 </div>
 
-<script src="safe-knowledge.js"></script>
-<script src="safe-chatbot.js"></script>
 <script>
-  // Initialize chatbot
-  const chatbot = new SafeChatbot(SAFE_KNOWLEDGE);
+// ==================== FULL CHATBOT — SELF CONTAINED ====================
+(function() {
+'use strict';
 
-  const messagesEl = document.getElementById('messages');
-  const userInput = document.getElementById('userInput');
-  const sendBtn = document.getElementById('sendBtn');
-
-  function addMessage(text, role) {
-    const div = document.createElement('div');
-    div.className = `message ${role}`;
-
-    if (role === 'bot') {
-      // Convert markdown-style formatting
-      text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-      text = text.replace(/\n/g, '<br>');
-      text = text.replace(/•/g, '&bull;');
-      text = text.replace(/💡/g, '💡');
-      // Make phone number clickable
-      text = text.replace(/\(916\) 534-4900/g, '<a href="tel:+19165344900" class="call-btn">📞 (916) 534-4900</a>');
-      text = `<strong>🔐 Frantz Safe Assistant</strong><br><br>${text}`;
+/* ---------- KNOWLEDGE ---------- */
+const K = {
+  lockTypes: [
+    {
+      name: "S&G (Sargent & Greenleaf) Combination Lock",
+      match: ["s&g","sargent","sargent & greenleaf","group 1","group 2","manipulation proof","dial lock","combination dial","spin dial","wheel pack"],
+      desc: "The industry standard for safe combination locks. S&G makes Group 1 (manipulation-proof) and Group 2 (standard) locks found on most commercial and high-quality home safes.",
+      dialSequence: "**Standard 4-number dialing sequence (e.g., combo 25-50-75-100):**\n1. Turn the dial LEFT (counterclockwise) 4 full turns past zero, stop on the 1st number (25)\n2. Turn RIGHT (clockwise) 3 full turns past zero, stop on the 2nd number (50)\n3. Turn LEFT 2 full turns past zero, stop on the 3rd number (75)\n4. Turn RIGHT slowly until you feel the dial stop (around 100 if that's the 4th number)\n5. Turn the handle to open\n\n**For a 3-number combo:** Same but left 4 turns, right 3 turns, left 2 turns. The right stop is the drop-in.\n\n💡 **Key point:** The direction alternates and each turn counts: L-R-L. More turns = first number is 'deeper' in the wheel pack.",
+      tip: "If the dial stops earlier than expected when turning right on the last step, you've probably overshot. Go back 2 full turns and try again more slowly."
+    },
+    {
+      name: "LaGard Combination Lock",
+      match: ["lagard","la gard","lagard lock"],
+      desc: "Another major brand of combination safe locks, similar to S&G but with slightly different internal design.",
+      dialSequence: "Same as S&G: LEFT 4 turns to 1st number, RIGHT 3 turns to 2nd, LEFT 2 turns to 3rd, RIGHT to stop/drop.\n\nFor LaGard electronic models, enter your code + press # or * (varies by model).",
+      tip: "LaGard dials are known to wear smoother over time. If the dial feels 'slippery,' the wheel pack may need servicing."
+    },
+    {
+      name: "Kaba Mas Electronic Lock",
+      match: ["kaba","kaba mas","kaba lock","mas lock"],
+      desc: "High-security electronic lock used on many commercial and government safes.",
+      dialSequence: "Enter your 6-digit code on the keypad. The lock will beep to confirm. Turn handle within 5 seconds.\n\nOn some models (like the X-09), you turn the dial to each number and press a button instead.",
+      tip: "Kaba Mas locks have a 'penalty lockout' after too many wrong attempts — wait 5-10 minutes before trying again."
+    },
+    {
+      name: "Tubular Key Lock",
+      match: ["tubular","tubular key","ace lock","chicago lock","round key","barrel key"],
+      desc: "Round key with 7-8 pins in a circle. Common on fire safes, wall safes, and deposit safes.",
+      usage: "Insert the key fully (push firmly), then turn clockwise. There's usually no tension — if it's stiff, the pins may need cleaning.\n\nIf you lost the key: the code is stamped on the key head. A locksmith can cut a new one from that code.",
+      tip: "Tubular keys bend easily. Always push straight in, don't angle it."
     }
-
-    div.innerHTML = text;
-    messagesEl.appendChild(div);
-    scrollToBottom();
-  }
-
-  function addTyping() {
-    const div = document.createElement('div');
-    div.className = 'typing';
-    div.id = 'typingIndicator';
-    div.innerHTML = '<span></span><span></span><span></span>';
-    messagesEl.appendChild(div);
-    scrollToBottom();
-  }
-
-  function removeTyping() {
-    const indicator = document.getElementById('typingIndicator');
-    if (indicator) indicator.remove();
-  }
-
-  function scrollToBottom() {
-    messagesEl.scrollTop = messagesEl.scrollHeight;
-  }
-
-  function sendMessage() {
-    const text = userInput.value.trim();
-    if (!text) return;
-
-    // Add user message
-    addMessage(text, 'user');
-    userInput.value = '';
-    userInput.style.height = 'auto';
-    sendBtn.disabled = true;
-
-    // Show typing indicator
-    addTyping();
-
-    // Simulate thinking delay (realistic feel)
-    const delay = Math.min(500 + text.length * 20, 2000);
-    setTimeout(() => {
-      removeTyping();
-      const response = chatbot.respond(text);
-      addMessage(response, 'bot');
-      sendBtn.disabled = false;
-      userInput.focus();
-    }, delay);
-  }
-
-  function sendQuick(text) {
-    userInput.value = text;
-    sendMessage();
-  }
-
-  function handleKey(e) {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      sendMessage();
+  ],
+  safeTypes: [
+    {
+      name: "Antique Safes",
+      match: ["antique","vintage","old","19th","cast iron","heritage","mosler","diebold","hall","herring","yale"],
+      desc: "Antique safes from the 19th and early 20th centuries. Typically cast iron or early steel with ornate detailing.",
+      common: ["Combination lost over generations","Rust on internal components","Worn dial mechanism","Original key lost","Springs degraded"],
+      tip: "Antique safes are valuable. Never force them open — drilling destroys collector value."
+    },
+    {
+      name: "Gun Safes",
+      match: ["gun safe","firearm","rifle","pistol","liberty safe","cannon safe","stack-on","winchester","browning"],
+      desc: "Modern gun safes with heavy-gauge steel and active locking bolts. Usually electronic keypads.",
+      common: ["Keypad failure — dead battery or bad circuit","Forgotten combination after months","Bolts jammed from misalignment","Biometric scanner failure","Key override lost"],
+      tip: "Test your combo every 3 months. Replace batteries annually. Keep the backup key handy."
+    },
+    {
+      name: "Fire Safes",
+      match: ["fire safe","fireproof","fire resistant","sentry","sentrysafe","first alert","honeywell","document safe","media safe"],
+      desc: "UL-rated fire safes. Usually tubular key or simple electronic locks.",
+      common: ["Tubular key lost","Electronic lock failure on budget models","Plastic gears stripped","Water damage from sprinklers"],
+      tip: "Fire safes protect against fire, not burglary. Bolt them down."
+    },
+    {
+      name: "Floor Safes",
+      match: ["floor safe","in ground","in-ground","concrete","buried safe"],
+      desc: "Safes set in concrete floors. Excellent burglary protection.",
+      common: ["Concrete settling jams bolts","Moisture rusts lock mechanism","Dial hard to read after years","Hinge pins rusted","Flood water with no drainage"],
+      tip: "Floor safes get moisture. Open and inspect every 6 months. Use dehumidifier packs."
+    },
+    {
+      name: "Commercial Safes (TL/TRTL)",
+      match: ["commercial","tl-15","tl-30","trtl","amsce","gardall","schwab","business safe","retail safe"],
+      desc: "High-security UL-rated safes. TL-15, TL-30, TRTL-30x6 ratings indicate increasing protection.",
+      common: ["Drop slot jammed","Electronic lock worn from frequent use","Dial smooth from wear","Relocker accidentally triggered","Door sagging"],
+      tip: "Commercial safes need annual service. A failed safe during business hours is a security emergency."
     }
-    // Auto-resize textarea
-    userInput.style.height = 'auto';
-    userInput.style.height = Math.min(userInput.scrollHeight, 120) + 'px';
+  ],
+  battery: {
+    steps: [
+      "Most digital safe locks have the battery pack on the BACK of the door — you need the safe open to replace them.",
+      "If you're locked out: look for a small panel or two small metal contacts below the keypad.",
+      "Touch a fresh 9V battery to those contacts (polarity doesn't matter on most models).",
+      "Enter your code while holding the 9V battery in place. The lock should activate.",
+      "Once open, replace the internal batteries (usually 4x AA)."
+    ],
+    brands: {
+      "sargent": "S&G electronic locks: jump start terminals are two small posts below the keypad. Use a 9V battery.",
+      "lagard": "LaGard electronic: slide the keypad up to reveal jump start contacts. 9V battery.",
+      "kaba": "Kaba Mas: external jumper on the bottom of the keypad housing. 9V battery.",
+      "sentrysafe": "SentrySafe: check for a key override (sliding panel on the keypad) or backup key."
+    },
+    tip: "Change batteries every 12 months on a fixed date. Use name-brand batteries (Duracell/Energizer), not cheap brands. Alkaline batteries leak — check for corrosion."
+  },
+  comboChange: {
+    dial: "**Changing a dial combination requires disassembling the lock.** This is not a simple DIY job for most safes. The wheel pack must be removed and the wheels reset with new gates.\n\nCall a professional — it's usually $50-$150 and takes 15-30 minutes.",
+    electronic: "**For most electronic locks:**\n1. Open the safe (door open)\n2. Press the program/change button (often hidden under a cover or inside the battery compartment)\n3. Enter current code, then press # or enter\n4. Enter new code (usually 4-6 digits), then press # or enter\n5. Test the new code 5 times with the door open before closing it\n\n⚠️ Warning: If you close the door before testing, you could lock yourself out."
+  },
+  forgotCombo: {
+    try: [
+      "Common factory combos to try: 50-25-50, 20-40-60, 10-20-30, 0-0-0",
+      "Check your paperwork — the combo is sometimes written on the warranty card or manual",
+      "Look on the back of the dial or inside the battery compartment",
+      "If you know the lock serial number, a locksmith can often get the factory combo from the manufacturer"
+    ],
+    open: "**Getting it open:**\n1. **Manipulation (no damage):** A skilled safe tech listens to the wheels as you dial. Takes patience but leaves no marks. $150-$350.\n2. **Drilling:** If manipulation fails, a small hole is drilled in the right spot. It's patched afterwards. $250-$500.\n3. **Call Frantz at (916) 534-4900** — I'll try manipulation first every time."
+  },
+  jammed: {
+    check: [
+      "Is something inside blocking the door? Fallen shelf or shifted items?",
+      "Is the safe on an uneven floor? Try shimming one corner.",
+      "Is the handle in the right position? Some safes need the handle horizontal before the lock releases.",
+      "Did you dial 4 full turns past zero before starting your combo? Wrong reset = won't open."
+    ],
+    warning: "DO NOT hammer the handle or pry the door. You'll break the lock mechanism and turn a $200 repair into a $500+ one. Call a professional."
+  },
+  about: {
+    name: "Frantz Locksmith Service",
+    phone: "(916) 534-4900",
+    email: "frantzlocksmith@hotmail.com",
+    area: "Sacramento & West Sacramento, CA",
+    hours: "Mon-Fri 9AM-4PM",
+    license: "CA LCO 4160",
+    since: "1985"
+  },
+  pricing: {
+    items: [
+      ["Simple lockout (no damage)", "$100-$200"],
+      ["Manipulation (non-destructive opening)", "$150-$350"],
+      ["Drill opening with repair/patch", "$250-$500+"],
+      ["New lock installation", "$100-$250"],
+      ["Combination change", "$50-$150"],
+      ["Annual maintenance visit", "$75-$150"],
+      ["Electronic lock diagnosis", "$75-$125"]
+    ]
+  },
+  maintenance: {
+    monthly: ["Open and close the safe once — keeps mechanisms limber", "Wipe the keypad or dial clean"],
+    quarterly: ["Test the combination/code", "Check for rust or moisture inside", "Inspect hinges for sagging"],
+    annually: ["Replace batteries (even if they still work)", "Lightly lubricate bolts and hinges (white lithium grease)", "Professional service call recommended"]
+  }
+};
+
+/* ---------- ENGINE ---------- */
+function respond(input) {
+  const q = input.toLowerCase().trim();
+
+  // Helper to check if query matches any of the keywords
+  function matchAny(list) { return list.some(k => q.includes(k)); }
+
+  // ---- LOCK TYPES ----
+  for (const lt of K.lockTypes) {
+    if (matchAny(lt.match)) {
+      let r = `**${lt.name}**\n\n${lt.desc}\n\n`;
+      if (lt.dialSequence) r += `**Dialing sequence:**\n${lt.dialSequence}\n\n`;
+      if (lt.usage) r += `**How to use it:**\n${lt.usage}\n\n`;
+      if (lt.troubleshooting) r += `**Troubleshooting:**\n${lt.troubleshooting.map(t => '• '+t).join('\n')}\n\n`;
+      r += `💡 **Tip:** ${lt.tip}`;
+      return r;
+    }
   }
 
-  // Focus input on load
-  userInput.focus();
+  // ---- SAFE TYPES ----
+  for (const st of K.safeTypes) {
+    if (matchAny(st.match)) {
+      let r = `**${st.name}**\n\n${st.desc}\n\n**Common issues I see:**\n• ${st.common.slice(0,4).join('\n• ')}\n\n💡 **Tip:** ${st.tip}`;
+      return r;
+    }
+  }
+
+  // ---- SPECIFIC INTENTS ----
+
+  // Dialing sequence (general)
+  if (q.includes("dial sequence") || q.includes("dialing") || q.includes("how to dial") || q.includes("turn the dial") || (q.includes("spin") && q.includes("dial")) || (q.includes("left") && q.includes("right") && q.includes("turn"))) {
+    return K.lockTypes[0].dialSequence + "\n\n💡 " + K.lockTypes[0].tip;
+  }
+
+  // Battery
+  if (q.includes("battery") || q.includes("dead") || q.includes("no power") || q.includes("not lighting") || q.includes("not beeping")) {
+    let r = "**🔋 Digital lock battery help**\n\n";
+    r += K.battery.steps.map((s,i) => `${i+1}. ${s}`).join('\n') + '\n\n';
+    // Check for brand-specific
+    for (const [brand, tip] of Object.entries(K.battery.brands)) {
+      if (q.includes(brand.toLowerCase())) { r += `**${brand.charAt(0).toUpperCase()+brand.slice(1)} specific:** ${tip}\n\n`; }
+    }
+    r += `💡 **Pro tip:** ${K.battery.tip}`;
+    return r;
+  }
+
+  // Change combination / code
+  if (q.includes("change combination") || q.includes("change combo") || q.includes("change code") || q.includes("new combination") || q.includes("new combo") || q.includes("new code") || q.includes("reset combo") || q.includes("reset code") || q.includes("set new")) {
+    let r = "**🔢 Changing your safe combination**\n\n";
+    // Detect lock type
+    if (q.includes("digital") || q.includes("electronic") || q.includes("keypad") || q.includes("electric")) {
+      r += K.comboChange.electronic;
+    } else if (q.includes("dial") || q.includes("mechanical") || q.includes("spin")) {
+      r += K.comboChange.dial;
+    } else {
+      r += `**For dial (mechanical) locks:**\n${K.comboChange.dial}\n\n**For digital (electronic) locks:**\n${K.comboChange.electronic}`;
+    }
+    return r;
+  }
+
+  // Forgot combination / locked out
+  if (q.includes("forgot") || q.includes("forget") || q.includes("lost combination") || q.includes("lost code") || q.includes("can't remember") || q.includes("don't know the")) {
+    let r = "**🔒 Forgot your combination?**\n\n**First, try these:**\n• " + K.forgotCombo.try.join('\n• ') + "\n\n**If none work, here's how I can help:**\n" + K.forgotCombo.open;
+    return r;
+  }
+
+  // Won't open / locked out (general)
+  if (q.includes("won't open") || q.includes("can't open") || q.includes("safe locked") || q.includes("stuck closed") || q.includes("locked out") || q.includes("wont open") || q.includes("cant open") || q.includes("won't unlock") || q.includes("wont unlock")) {
+    let r = "**Let's troubleshoot why your safe won't open**\n\n";
+    r += "**Quick checks you can do right now:**\n• " + K.jammed.check.join('\n• ') + "\n\n";
+    r += "**If it's a combo lock:** Did you dial 4 full turns left past zero before starting? The wheels need to be reset first.\n\n";
+    r += "**⚠️ Warning:** " + K.jammed.warning + "\n\n";
+    r += "**If you're in Sacramento or West Sacramento, call (916) 534-4900.** I'll come take a look and try non-destructive opening first.";
+    return r;
+  }
+
+  // Jammed / stuck
+  if (q.includes("jammed") || q.includes("stuck") || q.includes("won't turn") || q.includes("wont turn") || q.includes("not turning")) {
+    let r = "**Jammed safe — don't force it!**\n\n**Check these first:**\n• " + K.jammed.check.join('\n• ') + "\n\n";
+    r += "**⚠️ " + K.jammed.warning + "**";
+    return r;
+  }
+
+  // Key lost
+  if (q.includes("lost key") || q.includes("lost the key") || q.includes("key lost") || q.includes("no key") || q.includes("missing key") || q.includes("key broke") || q.includes("broken key")) {
+    return "**Lost or broken key**\n\n" +
+      "• If you have the key code (etched on the key head), a locksmith can cut a new one\n" +
+      "• Tubular keys (round) have the code printed on the head — easy to duplicate\n" +
+      "• If no code exists, a locksmith can 'impression' a key or drill the lock\n" +
+      "• Drilling means the lock needs to be replaced\n\n" +
+      "**Call (916) 534-4900** — I can often make a key from the lock itself without drilling.";
+  }
+
+  // Buying advice
+  if (q.includes("buy") || q.includes("purchase") || q.includes("get a safe") || q.includes("new safe") || q.includes("what safe") || q.includes("which safe") || q.includes("recommend") || q.includes("looking for a")) {
+    return "**Buying a safe? Here's how to choose:**\n\n" +
+      "**Ask yourself:**\n" +
+      "• What will you store? (guns / documents / cash / jewelry / media)\n" +
+      "• Where will it go? (garage / closet / floor / wall)\n" +
+      "• Main threat? (fire / burglary / both)\n" +
+      "• How often will you access it? (daily / weekly / rarely)\n\n" +
+      "**Quick guide:**\n" +
+      "• Documents → UL 350 fire-rated safe\n" +
+      "• Guns → Liberty, Cannon, or AMSEC gun safe\n" +
+      "• Cash/jewelry → TL-15 or TL-30 burglary-rated\n" +
+      "• Business deposits → Drop safe with dual locks\n" +
+      "• Quick access → Digital keypad or biometric\n\n" +
+      "I stock fire safes, gun safes, and drop safes. Larger ones special-ordered from AMSEC/Gardall. Call (916) 534-4900.";
+  }
+
+  // Maintenance
+  if (q.includes("maintenance") || q.includes("maintain") || q.includes("service") || q.includes("inspect") || q.includes("check") || q.includes("lubricate") || q.includes("oil") || q.includes("grease") || q.includes("care") || q.includes("upkeep")) {
+    let r = "**Safe maintenance schedule**\n\n";
+    r += "**Monthly:**\n• " + K.maintenance.monthly.join('\n• ') + "\n\n";
+    r += "**Quarterly:**\n• " + K.maintenance.quarterly.join('\n• ') + "\n\n";
+    r += "**Annually:**\n• " + K.maintenance.annually.join('\n• ') + "\n\n";
+    r += "💡 A pro service visit runs $75-$150 and takes under an hour.";
+    return r;
+  }
+
+  // Pricing
+  if (q.includes("cost") || q.includes("price") || q.includes("how much") || q.includes("estimate") || q.includes("quote") || q.includes("rate") || q.includes("fee") || q.includes("charge")) {
+    let r = "**Typical safe service pricing**\n\n";
+    K.pricing.items.forEach(([svc, pr]) => { r += `• **${svc}:** ${pr}\n`; });
+    r += "\nCall (916) 534-4900 for an exact quote — I'll ask a few questions and give you a fair estimate over the phone.";
+    return r;
+  }
+
+  // License
+  if (q.includes("license") || q.includes("licensed") || q.includes("insured") || q.includes("lco") || q.includes("bonds") || q.includes("bsis") || q.includes("dca")) {
+    return "**Fully licensed and insured**\n\nCalifornia Locksmith License **#LCO 4160**\nIssued by the Bureau of Security and Investigative Services (California DCA).\n\nVerify at: breeze.ca.gov/datamart/detailsCADCA.do";
+  }
+
+  // Hours
+  if (q.includes("hours") || q.includes("open") || q.includes("when") || q.includes("available") || q.includes("weekend") || q.includes("after hours") || q.includes("emergency")) {
+    return `**Hours:** Mon-Fri 9AM-4PM\n**Emergency after-hours safe service:** Available — call (916) 534-4900`;
+  }
+
+  // Contact
+  if (q.includes("call") || q.includes("phone") || q.includes("email") || q.includes("contact") || q.includes("reach") || q.includes("talk") || q.includes("number")) {
+    return `**Frantz Locksmith Service**\n\n📞 **(916) 534-4900**\n✉️ frantzlocksmith@hotmail.com\n📍 Sacramento & West Sacramento (mobile service)\n\n**Hours:** Mon-Fri 9AM-4PM\n**License:** CA LCO 4160\n\nGive me a call — if I can't answer, leave a message and I'll call you back.`;
+  }
+
+  // Thanks
+  if (q.includes("thanks") || q.includes("thank you") || q.includes("appreciate") || q.includes("helpful")) {
+    return "You're very welcome! If you ever need safe service in Sacramento or West Sacramento, just call (916) 534-4900. Happy to help.";
+  }
+
+  // Hello
+  if (q.includes("hello") || q.includes("hi ") || q.includes("hey") || q === "hi" || q === "hello") {
+    return "Hi! I'm Frantz's Safe Assistant. I specialize in safes — opening, repairs, combination changes, and buying advice. Ask me anything!";
+  }
+
+  // ---- FALLBACK ----
+  return "I'd love to help with your safe. Here are some things I can answer:\n\n" +
+    "🔒 **Locked out?** Try: \"My safe won't open\"\n" +
+    "🔢 **Forgot combination?** Try: \"Forgot my combo\"\n" +
+    "🔋 **Dead battery?** Try: \"Digital lock battery dead\"\n" +
+    "🔐 **Dial sequence?** Try: \"How to dial an S&G lock\"\n" +
+    "💰 **Pricing?** Try: \"How much to open a safe?\"\n" +
+    "🔫 **Safe types?** Try: \"Tell me about gun safes\"\n\n" +
+    "Or just tell me what's going on and I'll do my best to help. If you're in the Sacramento area, call (916) 534-4900.";
+}
+
+/* ---------- UI ---------- */
+const msgs = document.getElementById('messages');
+const inp = document.getElementById('userInput');
+const btn = document.getElementById('sendBtn');
+
+function addMsg(text, role) {
+  const d = document.createElement('div');
+  d.className = `message ${role}`;
+  if (role === 'bot') {
+    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    text = text.replace(/\n/g, '<br>');
+    text = text.replace(/\(916\) 534-4900/g, '<a href="tel:+19165344900" class="call-btn">📞 (916) 534-4900</a>');
+    d.innerHTML = `<strong>🔐 Frantz Safe Assistant</strong><br><br>${text}`;
+  } else {
+    d.textContent = text;
+  }
+  msgs.appendChild(d);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function sendMsg() {
+  const t = inp.value.trim();
+  if (!t) return;
+  addMsg(t, 'user');
+  inp.value = '';
+  inp.style.height = 'auto';
+  btn.disabled = true;
+  setTimeout(() => {
+    const r = respond(t);
+    addMsg(r, 'bot');
+    btn.disabled = false;
+    inp.focus();
+  }, 400 + Math.min(t.length * 15, 1500));
+}
+
+function sendQuick(text) {
+  inp.value = text;
+  sendMsg();
+}
+
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMsg(); }
+  inp.style.height = 'auto';
+  inp.style.height = Math.min(inp.scrollHeight, 120) + 'px';
+}
+
+inp.focus();
+})();
 </script>
 </body>
 </html>
