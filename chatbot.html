@@ -100,7 +100,26 @@ const K = {
       name: "S&G (Sargent & Greenleaf) Combination Lock",
       match: ["s&g","sargent","sargent & greenleaf","group 1","group 2","manipulation proof","dial lock","combination dial","spin dial","wheel pack"],
       desc: "The industry standard for safe combination locks. S&G makes Group 1 (manipulation-proof) and Group 2 (standard) locks found on most commercial and high-quality home safes.",
-      dialSequence: "**Standard 4-number dialing sequence (e.g., combo 25-50-75-100):**\n1. Turn the dial LEFT (counterclockwise) 4 full turns past zero, stop on the 1st number (25)\n2. Turn RIGHT (clockwise) 3 full turns past zero, stop on the 2nd number (50)\n3. Turn LEFT 2 full turns past zero, stop on the 3rd number (75)\n4. Turn RIGHT slowly until you feel the dial stop (around 100 if that's the 4th number)\n5. Turn the handle to open\n\n**For a 3-number combo:** Same but left 4 turns, right 3 turns, left 2 turns. The right stop is the drop-in.\n\n💡 **Key point:** The direction alternates and each turn counts: L-R-L. More turns = first number is 'deeper' in the wheel pack.",
+"**Standard dialing sequence for S&G, LaGard, Mosler & Big Red locks**
+
+**Important rule:** Your target number is your combination. Anytime you pass that number, it counts as one turn. After reaching your target number, the next number becomes your target.
+
+**For a 3-number combo (e.g. 25-50-75):**
+1st # → 4 X Left (counterclockwise) — pass zero 4 times, stop on 25
+2nd # → 3 X Right (clockwise) — pass 25 three times, stop on 50
+3rd # → 2 X Left — pass 50 twice, stop on 75
+Turn dial RIGHT slowly till it stops (somewhere between 85-95)
+Turn handle to open the safe
+
+**For a 4-number combo (e.g. 10-20-30-40):**
+1st # → 4 X Left — pass zero 4 times, stop on 10
+2nd # → 3 X Right — pass 10 three times, stop on 20
+3rd # → 2 X Left — pass 20 twice, stop on 30
+Turn dial RIGHT slowly till it stops (around 40)
+
+No matter how close the next target is to the last, if you pass it, it counts as one — start that number again.
+
+💡 If the dial stops early on the final right turn, you overshot. Go back 2 full left turns and try again slowly.",
       tip: "If the dial stops earlier than expected when turning right on the last step, you've probably overshot. Go back 2 full turns and try again more slowly."
     },
     {
@@ -108,7 +127,7 @@ const K = {
       match: ["lagard","la gard","lagard lock"],
       desc: "Another major brand of combination safe locks, similar to S&G but with slightly different internal design.",
       dialSequence: "Same as S&G: LEFT 4 turns to 1st number, RIGHT 3 turns to 2nd, LEFT 2 turns to 3rd, RIGHT to stop/drop.\n\nFor LaGard electronic models, enter your code + press # or * (varies by model).",
-      tip: "LaGard dials are known to wear smoother over time. If the dial feels 'slippery,' the wheel pack may need servicing."
+      tip: "LaGard dials wear smoother over time. If it feels 'slippery,' the wheel pack may need service."
     },
     {
       name: "Kaba Mas Electronic Lock",
