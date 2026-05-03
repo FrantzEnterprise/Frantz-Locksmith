@@ -163,7 +163,6 @@ const css = `#fcht-toggle{position:fixed;bottom:24px;right:24px;width:60px;heigh
 #fcht-phdr .av{width:30px;height:30px;background:rgba(212,168,67,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
 #fcht-phdr .ht h3{font-size:.82rem;font-weight:700}
 #fcht-phdr .ht p{font-size:.7rem;color:rgba(255,255,255,.7)}
-#fcht-phdr .hc{margin-left:auto;background:none;border:none;color:rgba(255,255,255,.6);cursor:pointer;font-size:18px;padding:2px}
 #fcht-msgs{flex:1;padding:8px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;background:#f8f9fa}
 #fcht-msgs .m{max-width:88%;padding:7px 10px;border-radius:10px;font-size:.8rem;line-height:1.45;animation:fdi .25s ease;white-space:pre-wrap}
 @keyframes fdi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
@@ -188,7 +187,7 @@ document.body.insertAdjacentHTML('beforeend', `
   <div id="fcht-phdr">
     <div class="av">🔐</div>
     <div class="ht"><h3>Frantz Safe Assistant</h3><p>Ask about your safe</p></div>
-    <button class="hc" id="fcht-close">✕</button>
+    <!-- X removed — toggle button closes the popup -->
   </div>
   <div id="fcht-msgs">
     <div class="m b"><strong>🔐 Safe Assistant</strong>\nHi! Ask me about safe opening, dial sequences, battery help, or anything safe-related.</div>
@@ -229,7 +228,7 @@ function send() {
 }
 
 toggle.onclick = () => { toggle.classList.toggle('open'); popup.classList.toggle('open'); if (popup.classList.contains('open')) input.focus(); };
-document.getElementById('fcht-close').onclick = () => { toggle.classList.remove('open'); popup.classList.remove('open'); };
+// Close button removed — toggle button closes the popup
 sendBtn.onclick = send;
 input.onkeydown = (e) => { if (e.key === 'Enter') { e.preventDefault(); send(); } };
 document.querySelectorAll('#fcht-qr .qr').forEach(el => { el.onclick = () => { input.value = el.dataset.m; send(); }; });
