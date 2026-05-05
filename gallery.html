@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safe Gallery | Frantz Locksmith Service — Sacramento & West Sacramento</title>
+  <meta name="description" content="Photos of safes I've worked on in Sacramento and West Sacramento — antique, gun, fire, floor, wall, and commercial safes. 40+ years of experience.">
+  <link rel="canonical" href="https://frantzlocksmithservice.com/gallery.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 28px;
+      margin-top: 40px;
+    }
+    .gallery-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-200);
+      transition: all var(--transition);
+      background: var(--white);
+    }
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-item .gallery-info {
+      padding: 16px 20px;
+    }
+    .gallery-item .gallery-info h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--primary);
+    }
+    .gallery-item .gallery-info p {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      margin: 0;
+    }
+    .gallery-empty {
+      text-align: center;
+      padding: 80px 20px;
+      background: var(--light);
+      border-radius: var(--radius);
+      margin-top: 40px;
+    }
+    .gallery-empty h2 {
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .gallery-empty p {
+      color: var(--gray-600);
+      max-width: 500px;
+      margin: 0 auto 24px;
+    }
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div class="announcement-bar">
+    <p>📞 Call today: <a href="tel:+19165344900">(916) 534-4900</a> — Mobile safe service • Sacramento & West Sacramento</p>
+  </div>
+
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="/" class="logo">
+          <span class="logo-icon">🔐</span>
+          <div class="logo-text">
+            <span class="logo-title">Frantz Locksmith Service</span>
+            <span class="logo-subtitle">Safe Specialist — Since 1985</span>
+          </div>
+        </a>
+        <nav class="nav" id="nav" aria-label="Main navigation">
+          <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+          <ul class="nav-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="safe-services.html">Safe Services</a></li>
+            <li><a href="locksmith.html">Locksmith</a></li>
+            <li><a href="gallery.html" class="active">📸 Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="blog/index.html">📖 Blog</a></li>
+            <li><a href="chatbot.html">💬 Chat</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero" id="main">
+    <div class="container">
+      <h1>Safe Photo Gallery</h1>
+      <p>A collection of safes I've worked on over 40+ years in Sacramento and West Sacramento — from antiques to modern gun safes.</p>
+      <a href="tel:+19165344900" class="btn btn-primary btn-lg">📞 (916) 534-4900</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="gallery-empty">
+        <h2>📸 Add Your Safe Photos</h2>
+        <p>This is where photos of safes I've worked on will appear. Send me your pictures and I'll get them up here.</p>
+        <a href="contact.html" class="btn btn-primary">Send Photos</a>
+      </div>
+
+      <!-- Gallery grid — ready for images -->
+      <div class="gallery-grid">
+        <!-- Example entry to show the format:
+        <div class="gallery-item">
+          <img src="assets/images/gallery/safe-01.jpg" alt="Antique safe opened in West Sacramento" loading="lazy">
+          <div class="gallery-info">
+            <h3>Antique Safe — West Sacramento</h3>
+            <p>Non-destructive opening. Replaced old combination lock with digital keypad.</p>
+          </div>
+        </div>
+        -->
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Have a Safe You Want Shown Here?</h2>
+        <p>If I've worked on your safe and you'd like to share a photo, send it over!</p>
+        <a href="tel:+19165344900" class="btn btn-primary btn-lg">📞 (916) 534-4900</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h3>Frantz Locksmith Service</h3>
+          <p>Safe specialist since 1985. Mobile service in Sacramento and West Sacramento. CA LCO 4160.</p>
+          <div class="footer-license">
+            <p>📜 CA Locksmith License: <strong>LCO 4160</strong></p>
+            <a href="https://www.breeze.ca.gov/datamart/detailsCADCA.do" target="_blank" rel="noopener">Verify My License ↗</a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h3>Pages</h3>
+          <ul>
+            <li><a href="safe-services.html">Safe Services</a></li>
+            <li><a href="locksmith.html">Locksmith</a></li>
+            <li><a href="gallery.html" class="active">📸 Safe Gallery</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3>Contact</h3>
+          <ul>
+            <li>📞 <a href="tel:+19165344900">(916) 534-4900</a></li>
+            <li>✉️ <a href="mailto:frantzlocksmith@hotmail.com">frantzlocksmith@hotmail.com</a></li>
+            <li>📍 West Sacramento, CA 95691</li>
+            <li>🕐 Mon–Fri 9 AM – 4 PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Frantz Locksmith Service | CA LCO 4160</p>
+        <a href="contact.html#privacy">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

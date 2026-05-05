@@ -334,7 +334,7 @@ const SAFE_KNOWLEDGE = {
       "Light locksmith work for safe clients"
     ],
     whyChoose: [
-      "35+ years specializing in safes",
+      "40+ years specializing in safes",
       "Licensed by California DCA / BSIS",
       "Mobile service — I come to you",
       "Fair, transparent pricing",
