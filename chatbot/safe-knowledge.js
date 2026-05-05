@@ -84,7 +84,7 @@ const SAFE_KNOWLEDGE = {
         "Combination lock dial worn smooth — hard to read numbers",
         "Relocker accidentally triggered — secondary lock engaged",
         "Door sagging from heavy use — misaligns the bolts",
-        "GSA container lock maintenance required (X-07, X-08 certified)"
+        "GSA container lock maintenance required (X-07, X-08, X-09, X-10 certified)"
       ],
       tip: "Commercial safes should be serviced annually. A failed safe during business hours means lost revenue and security risk."
     },
