@@ -757,6 +757,10 @@ ul { list-style: none; }
   .hero-text { font-size: 1rem; }
 
   .header-content { padding: 8px 0; }
+  .logo-icon { font-size: 1.5rem; }
+  .logo-text { flex-direction: row; align-items: center; gap: 6px; }
+  .logo-title { font-size: 0.95rem; }
+  .logo-subtitle { display: none; }
 
   .nav-toggle { display: flex; }
 
@@ -805,4 +809,6 @@ ul { list-style: none; }
   .hero-cta { flex-direction: column; }
   .btn-lg { width: 100%; justify-content: center; }
   .cta-buttons { flex-direction: column; }
+  .logo-title { font-size: 0.85rem; }
+  .logo-icon { font-size: 1.3rem; }
 }
