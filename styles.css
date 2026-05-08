@@ -751,27 +751,27 @@ ul { list-style: none; }
   position: fixed;
   bottom: 24px;
   left: 24px;
-  width: 48px;
-  height: 48px;
-  background: #0f2440;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg,#d4a843,#b8922e);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 9998;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  transition: transform 0.2s, background 0.2s;
+  box-shadow: 0 4px 20px rgba(212,168,67,0.4);
+  transition: transform 0.2s, opacity .3s ease;
   text-decoration: none;
+  color: #0f2440;
 }
 .ada-widget:hover {
-  transform: scale(1.08);
-  background: #1a3a5c;
+  transform: scale(1.1);
 }
 .ada-widget svg {
-  width: 26px;
-  height: 26px;
-  fill: #fff;
+  width: 28px;
+  height: 28px;
+  fill: #0f2440;
 }
 .ada-widget .ada-tooltip {
   position: absolute;
@@ -861,8 +861,8 @@ ul { list-style: none; }
 }
 .ada-panel .ada-close:hover { color: #333; }
 @media (max-width: 600px) {
-  .ada-widget { bottom: 16px; left: 16px; width: 42px; height: 42px; }
-  .ada-widget svg { width: 22px; height: 22px; }
+  .ada-widget { bottom: 16px; left: 16px; width: 54px; height: 54px; }
+  .ada-widget svg { width: 24px; height: 24px; }
   .ada-panel { left: 16px; right: 16px; width: auto; bottom: 70px; }
 }
 
