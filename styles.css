@@ -247,14 +247,15 @@ ul { list-style: none; }
 .hero-text {
   font-size: 1.2rem;
   color: rgba(255,255,255,0.85);
-  margin-bottom: 8px;
+  margin-bottom: 0;
   max-width: 600px;
 }
 
 .hero-subtext {
   font-size: 1.2rem;
-  color: #d4a843;
-  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+  margin-top: 0;
+  margin-bottom: 32px;
 }
 
 .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
