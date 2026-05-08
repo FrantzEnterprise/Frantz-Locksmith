@@ -256,6 +256,7 @@ ul { list-style: none; }
   color: rgba(255,255,255,0.85);
   margin-top: 0;
   margin-bottom: 32px;
+  padding-bottom: 8px;
 }
 
 .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
