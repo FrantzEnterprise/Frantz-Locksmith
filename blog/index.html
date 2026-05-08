@@ -27,13 +27,50 @@
     .blog-card .tag { display: inline-block; background: #e8f0fe; color: #1a3a5c; padding: 2px 8px; border-radius: 50px; font-size: 0.78rem; margin-right: 4px; }
     footer { background: #1a1d21; color: rgba(255,255,255,0.6); text-align: center; padding: 20px; font-size: 0.85rem; }
     footer a { color: #d4a843; text-decoration: none; }
+    @media (max-width: 768px) {
+      .nav-toggle { display: flex !important; }
+      .nav-list { display: none !important; position: absolute; top: 100%; left: 0; right: 0; background: #fff; flex-direction: column; padding: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-top: 1px solid #e0e3e8; gap: 0; z-index: 100; }
+      .nav-list.open { display: flex !important; }
+      .nav-list li { width: 100%; }
+      .nav-list a { padding: 14px 16px !important; width: 100%; border-bottom: 1px solid #f0f0f0; border-radius: 0 !important; }
+      .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+      .nav-toggle.open span:nth-child(2) { opacity: 0; }
+      .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+    }
   </style>
 </head>
 <body>
-<header>
+<div class="announcement-bar" style="background:#d4a843;color:#0f2440;text-align:center;padding:8px;font-size:0.85rem;font-weight:600;">
+  <p>📞 Call us today: <a href="tel:+19165344900" style="color:#0f2440;text-decoration:underline;">(916) 534-4900</a> — Mobile safe service for Sacramento & West Sacramento</p>
+</div>
+
+<header class="header" id="header" style="background:#fff;border-bottom:1px solid #e0e3e8;position:relative;">
   <div class="container">
-    <h1>🔐 Frantz Locksmith Service — Blog</h1>
-    <nav><a href="../index.html">Home</a> <a href="../safe-services.html">Services</a> <a href="../chatbot.html">Ask the Bot</a></nav>
+    <div class="header-content" style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;">
+      <a href="../index.html" class="logo" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+        <span style="font-size:1.5rem;">🔐</span>
+        <div>
+          <span style="display:block;font-weight:800;font-size:1rem;color:#0f2440;">Frantz Locksmith Service</span>
+          <span style="display:block;font-size:0.78rem;color:#6c757d;font-weight:500;">Safe Specialist — Since 1985</span>
+        </div>
+      </a>
+      <nav class="nav" id="nav" aria-label="Main navigation">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" style="display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;">
+          <span style="display:block;width:24px;height:2.5px;background:#0f2440;border-radius:2px;transition:all 0.3s;"></span>
+          <span style="display:block;width:24px;height:2.5px;background:#0f2440;border-radius:2px;transition:all 0.3s;"></span>
+          <span style="display:block;width:24px;height:2.5px;background:#0f2440;border-radius:2px;transition:all 0.3s;"></span>
+        </button>
+        <ul class="nav-list" style="display:flex;gap:4px;align-items:center;list-style:none;">
+          <li><a href="../index.html" style="padding:8px 16px;border-radius:6px;font-weight:500;font-size:0.92rem;color:#444;text-decoration:none;">Home</a></li>
+          <li><a href="../safe-services.html" style="padding:8px 16px;border-radius:6px;font-weight:500;font-size:0.92rem;color:#444;text-decoration:none;">Safe Services</a></li>
+          <li><a href="../locksmith.html" style="padding:8px 16px;border-radius:6px;font-weight:500;font-size:0.92rem;color:#444;text-decoration:none;">Locksmith</a></li>
+          <li><a href="../gallery.html" style="padding:8px 16px;border-radius:6px;font-weight:500;font-size:0.92rem;color:#444;text-decoration:none;">📸 Gallery</a></li>
+          <li><a href="../contact.html" style="padding:8px 16px;border-radius:6px;font-weight:500;font-size:0.92rem;color:#444;text-decoration:none;">Contact</a></li>
+          <li><a href="index.html" style="padding:8px 16px;border-radius:6px;font-weight:500;font-size:0.92rem;color:#fff;background:#0f2440;text-decoration:none;">📖 Blog</a></li>
+          <li><a href="../chatbot.html" style="padding:8px 16px;border-radius:6px;font-weight:500;font-size:0.92rem;color:#444;text-decoration:none;">💬 Chat</a></li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </header>
 
@@ -101,5 +138,7 @@
 <footer>
   Frantz Locksmith Service &bull; CA LCO 4160 &bull; <a href="tel:+19165344900">(916) 534-4900</a> &bull; Sacramento & West Sacramento
 </footer>
+
+<script src="../script.js"></script>
 </body>
 </html>
