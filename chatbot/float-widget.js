@@ -51,6 +51,12 @@ function respond(input) {
   const q = input.toLowerCase().trim();
   function m(list) { return list.some(k => q.includes(k)); }
 
+  // Off-topic detection — only answer safe/lock related questions
+  const safeTopics = ["safe","lock","key","dial","combo","combination","code","keypad","biometric","bolt","handle","hinge","door","open","close","jammed","stuck","rust","corrosion","relocker","solenoid","spring","battery","dead","fire","burglary","burglar","theft","thief","drill","manipulation","spin","right","left","turn","calling","phone","call","contact","email","number","hours","price","cost","quote","estimate","license","lco","insured","buy","purchase","recommend","maintenance","service","repair","antique","vintage","floor","gun","rifle","pistol","document","cash","jewelry","commercial","tl-15","tl-30","trtl","amsce","gardall","sentry","s&g","sargent","lagard","kaba","mosler","liberty","cannon","stack-on","digital","electronic","mechanical","wheel pack","drive cam","change","reset","forgot","lost","hello","hi","hey","thanks","thank you","drop slot","deposit","tubular","emergency","weekend","after hours","frantz","sacramento"];
+  if (!safeTopics.some(k => q.includes(k))) {
+    return "I'm sorry, I only answer safe- and lock-related questions. I'm Frantz's Safe Assistant. Please rephrase your question, or call (916) 534-4900 to talk to me directly.";
+  }
+
   // Lock types
   for (const lt of K.lockTypes) {
     if (m(lt.match)) {
@@ -71,7 +77,7 @@ function respond(input) {
 
   // Dialing sequence
   if (q.includes("dial sequence")||q.includes("dialing")||q.includes("how to dial")||q.includes("turn the dial")||(q.includes("left")&&q.includes("right")&&q.includes("turn"))) {
-    return K.lockTypes[0].dialSequence + "\n\nTip: " + K.lockTypes[0].tip;
+    return K.lockTypes[0].dialSequence + "\n\nTip: " + K.lockTypes[0].tip + "\n\n📖 Full walkthrough: /blog/choosing-right-safe.html";
   }
 
   // Battery
@@ -88,7 +94,7 @@ function respond(input) {
 
   // Forgot combo
   if (q.includes("forgot")||q.includes("forget")||q.includes("lost combination")||q.includes("lost code")||q.includes("can't remember")||q.includes("don't know the")) {
-    return "Try these:\n• " + K.forgotCombo.try.join("\n• ") + "\n\n" + K.forgotCombo.open;
+    return "📖 Opening methods: /blog/safe-opening-methods.html\n\nTry these:\n• " + K.forgotCombo.try.join("\n• ") + "\n\n" + K.forgotCombo.open;
   }
 
   // Won't open
@@ -137,17 +143,17 @@ function respond(input) {
 
   // Buying
   if (q.includes("buy")||q.includes("purchase")||q.includes("get a safe")||q.includes("new safe")||q.includes("what safe")||q.includes("recommend")||q.includes("looking for a")) {
-    return "Buying guide: /blog/choosing-right-safe.html\n\nAsk yourself:\n• What will you store? (guns/documents/cash/jewelry)\n• Where will it go? (garage/closet/floor/wall)\n• Main threat? (fire/burglary/both)\n• How often accessed?\n\nGuide: Documents → fire-rated | Guns → Liberty/Cannon/AMSEC | Cash → TL-15/30 | Quick access → digital keypad\n\nCall (916) 534-4900.";
+    return "📖 Fire ratings explained: /blog/safe-fire-ratings.html\n📖 Full buying guide: /blog/choosing-right-safe.html\n\nAsk yourself:\n• What will you store? (guns/documents/cash/jewelry)\n• Where will it go? (garage/closet/floor/wall)\n• Main threat? (fire/burglary/both)\n• How often accessed?\n\nGuide: Documents → fire-rated | Guns → Liberty/Cannon/AMSEC | Cash → TL-15/30 | Quick access → digital keypad\n\nCall (916) 534-4900.";
   }
 
   // Maintenance
   if (q.includes("maintenance")||q.includes("maintain")||q.includes("service")||q.includes("lubricate")||q.includes("oil")||q.includes("grease")||q.includes("care")) {
-    return "Monthly: " + K.maintenance.monthly.join(", ") + "\nQuarterly: " + K.maintenance.quarterly.join(", ") + "\nAnnually: " + K.maintenance.annually.join(", ") + "\n\nPro service: $75-$150.";
+    return "📖 Full checklist: /blog/safe-maintenance.html\n\nMonthly: " + K.maintenance.monthly.join(", ") + "\nQuarterly: " + K.maintenance.quarterly.join(", ") + "\nAnnually: " + K.maintenance.annually.join(", ") + "\n\nPro service: $75-$150.";
   }
 
   // Pricing
   if (q.includes("cost")||q.includes("price")||q.includes("how much")||q.includes("estimate")||q.includes("quote")||q.includes("rate")||q.includes("fee")||q.includes("charge")) {
-    return "Typical pricing:\n" + K.pricing.map(([s,p])=>s+": "+p).join("\n") + "\n\nCall (916) 534-4900 for exact quote.";
+    return "📖 Repair vs replacement costs: /blog/safe-repair-costs.html\n\nTypical pricing:\n" + K.pricing.map(([s,p])=>s+": "+p).join("\n") + "\n\nCall (916) 534-4900 for exact quote.";
   }
 
   // License
@@ -175,8 +181,8 @@ function respond(input) {
     return "Hi! I'm Frantz's Safe Assistant. Ask me about safe opening, combination changes, lock types, or anything safe-related.";
   }
 
-  // Fallback
-  return "I can help with:\n• \"My safe won't open\"\n• \"Forgot my combination\"\n• \"Dialing sequence for S&G lock\"\n• \"Dead battery on digital lock\"\n• \"How to change the code\"\n• \"How much to open a safe?\"\n• \"Tell me about antique safes\"\n\nAsk me anything about your safe!";
+  // Fallback (safe-related but unrecognized query)
+  return "I'm sorry, I don't know the answer to that specific safe question. Try rephrasing!\n\nI can help with:\n• \"My safe won't open\"\n• \"Forgot my combination\"\n• \"Dialing sequence for S&G lock\"\n• \"Dead battery on digital lock\"\n• \"How to change the code\"\n• \"How much to open a safe?\"\n• \"Tell me about antique safes\"\n\n📖 Blog: /blog/index.html\n\nOr call (916) 534-4900.";
 }
 
 /* ==================== UI ==================== */

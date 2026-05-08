@@ -264,6 +264,34 @@ Try these alternative sequences before assuming it's a standard S&G:
 function respond(input) {
   const q = input.toLowerCase().trim();
 
+// ---- OFF-TOPIC DETECTION (run before anything else) ----
+  // Only respond to safe/lock/security related queries
+  const safeKeywords = [
+    "safe","lock","key","dial","combo","combination","code","keypad","biometric",
+    "bolt","handle","hinge","door","open","close","jammed","stuck","rust","corrosion",
+    "relocker","solenoid","spring","drop slot","jump start","battery","dead","fire",
+    "burglary","burglar","theft","thief","break in","drill","manipulation","spin",
+    "right","left","turn","calling","phone","call","contact","email","number","hours",
+    "price","cost","quote","estimate","license","lco","insured","buy","purchase",
+    "recommend","maintenance","service","repair","antique","vintage","old","floor","gun",
+    "firearm","rifle","pistol","document","cash","jewelry","commercial","residential",
+    "tl-15","tl-30","trtl","amsce","gardall","sentry","s&g","sargent","lagard","laguard",
+    "kaba","mas","mosler","liberty","cannon","stack-on","winchester","browning",
+    "first alert","honeywell","schwab","drop safe","deposit safe","digital","electronic",
+    "mechanical","wheel pack","drive cam","change","reset","forgot","lost",
+    "hello","hi","hey","thanks","thank you"
+  ];
+  if (!safeKeywords.some(k => q.includes(k))) {
+    return "I'm sorry, I only answer safe- and lock-related questions. I'm Frantz's Safe Assistant, and I can help with:\n\n" +
+      "• **Safe opening** — locked out, forgot combo, jammed\n" +
+      "• **Lock types** — dial/keypad/biometric troubleshooting\n" +
+      "• **Maintenance** — care tips, battery replacement\n" +
+      "• **Buying advice** — fire/burglary ratings, best brands\n" +
+      "• **Dialing sequences** — how to open an S&G lock\n" +
+      "• **Safe repairs** — handle, hinge, spring, relocker\n\n" +
+      "Please rephrase your question, or call (916) 534-4900 to talk to me directly.";
+  }
+
   // Helper to check if query matches any of the keywords
   function matchAny(list) { return list.some(k => q.includes(k)); }
 
@@ -289,9 +317,9 @@ function respond(input) {
 
   // ---- SPECIFIC INTENTS ----
 
-  // Dialing sequence (general)
+  // Dialing sequence (general) — include blog link
   if (q.includes("dial sequence") || q.includes("dialing") || q.includes("how to dial") || q.includes("turn the dial") || (q.includes("spin") && q.includes("dial")) || (q.includes("left") && q.includes("right") && q.includes("turn"))) {
-    return K.lockTypes[0].dialSequence + "\n\n💡 " + K.lockTypes[0].tip;
+    return K.lockTypes[0].dialSequence + "\n\n💡 " + K.lockTypes[0].tip + "\n\n📖 **For a complete walkthrough with diagrams, read my blog post:** /blog/choosing-right-safe.html";
   }
 
   // Battery
@@ -322,7 +350,7 @@ function respond(input) {
 
   // Forgot combination / locked out
   if (q.includes("forgot") || q.includes("forget") || q.includes("lost combination") || q.includes("lost code") || q.includes("can't remember") || q.includes("don't know the")) {
-    let r = "**🔒 Forgot your combination?**\n\n**First, try these:**\n• " + K.forgotCombo.try.join('\n• ') + "\n\n**If none work, here's how I can help:**\n" + K.forgotCombo.open;
+    let r = "**🔒 Forgot your combination?**\n\n**First, try these:**\n• " + K.forgotCombo.try.join('\n• ') + "\n\n**If none work, here's how I can help:**\n" + K.forgotCombo.open + "\n\n📖 **Safe opening methods explained:** /blog/safe-opening-methods.html";
     return r;
   }
 
@@ -446,7 +474,9 @@ function respond(input) {
       "• Cash/jewelry → TL-15 or TL-30 burglary-rated\n" +
       "• Business deposits → Drop safe with dual locks\n" +
       "• Quick access → Digital keypad or biometric\n\n" +
-      "I stock fire safes, gun safes, and drop safes. Larger ones special-ordered from AMSEC/Gardall. Call (916) 534-4900.";
+      "📖 **Fire ratings explained:** /blog/safe-fire-ratings.html\n\n" +
+      "I stock fire safes, gun safes, and drop safes. Larger ones special-ordered from AMSEC/Gardall. Call (916) 534-4900." +
+      "\n\n📖 **Read the full guide:** /blog/choosing-right-safe.html";
   }
 
   // Maintenance
@@ -455,7 +485,7 @@ function respond(input) {
     r += "**Monthly:**\n• " + K.maintenance.monthly.join('\n• ') + "\n\n";
     r += "**Quarterly:**\n• " + K.maintenance.quarterly.join('\n• ') + "\n\n";
     r += "**Annually:**\n• " + K.maintenance.annually.join('\n• ') + "\n\n";
-    r += "💡 A pro service visit runs $75-$150 and takes under an hour.";
+    r += "💡 A pro service visit runs $75-$150 and takes under an hour.\n\n📖 **Full maintenance checklist:** /blog/safe-maintenance.html";
     return r;
   }
 
@@ -463,7 +493,8 @@ function respond(input) {
   if (q.includes("cost") || q.includes("price") || q.includes("how much") || q.includes("estimate") || q.includes("quote") || q.includes("rate") || q.includes("fee") || q.includes("charge")) {
     let r = "**Typical safe service pricing**\n\n";
     K.pricing.items.forEach(([svc, pr]) => { r += `• **${svc}:** ${pr}\n`; });
-    r += "\nCall (916) 534-4900 for an exact quote — I'll ask a few questions and give you a fair estimate over the phone.";
+    r += "\n\n📖 **Repair vs. replacement costs:** /blog/safe-repair-costs.html";
+    r += "\n\nCall (916) 534-4900 for an exact quote — I'll ask a few questions and give you a fair estimate over the phone.";
     return r;
   }
 
@@ -492,15 +523,16 @@ function respond(input) {
     return "Hi! I'm Frantz's Safe Assistant. I specialize in safes — opening, repairs, combination changes, and buying advice. Ask me anything!";
   }
 
-  // ---- FALLBACK ----
-  return "I'd love to help with your safe. Here are some things I can answer:\n\n" +    "📖 **Blog articles for deeper reading:** /blog/index.html\n\n" +
+  // ---- FALLBACK (only reached if query is safe-related but not matched) ----
+  return "I'm sorry, I don't know the answer to that specific question. I only answer safe- and lock-related inquiries.\n\n" +
+    "Try rephrasing your question. Here are things I can help with:\n\n" +    "📖 **Blog articles for deeper reading:** /blog/index.html\n\n" +
     "🔒 **Locked out?** Try: \"My safe won't open\"\n" +
     "🔢 **Forgot combination?** Try: \"Forgot my combo\"\n" +
     "🔋 **Dead battery?** Try: \"Digital lock battery dead\"\n" +
     "🔐 **Dial sequence?** Try: \"How to dial an S&G lock\"\n" +
     "💰 **Pricing?** Try: \"How much to open a safe?\"\n" +
     "🔫 **Safe types?** Try: \"Tell me about gun safes\"\n\n" +
-    "Or just tell me what's going on and I'll do my best to help. If you're in the Sacramento area, call (916) 534-4900.";
+    "Or call (916) 534-4900 to talk to me directly.";
 }
 
 /* ---------- UI ---------- */
