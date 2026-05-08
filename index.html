@@ -339,5 +339,25 @@
 
   <script src="script.js"></script>
   <script src="chatbot/float-widget.js"></script>
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-consent" style="position:fixed;bottom:0;left:0;right:0;background:#1a1d21;color:rgba(255,255,255,0.9);padding:16px 20px;z-index:9999;display:none;font-size:0.9rem;box-shadow:0 -4px 12px rgba(0,0,0,0.3);">
+  <div style="max-width:960px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+    <p style="flex:1;min-width:200px;margin:0;">This site uses cookies for analytics and functionality. By continuing, you agree to our <a href="disclaimers.html" style="color:#d4a843;text-decoration:underline;">Privacy Policy</a>.</p>
+    <button onclick="acceptCookies()" style="background:#d4a843;color:#0f2440;border:none;padding:10px 24px;border-radius:6px;font-weight:700;font-size:0.9rem;cursor:pointer;white-space:nowrap;">Accept</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  if (localStorage.getItem('cookieConsent')) return;
+  document.getElementById('cookie-consent').style.display = 'block';
+})();
+function acceptCookies() {
+  localStorage.setItem('cookieConsent', 'accepted');
+  document.getElementById('cookie-consent').style.display = 'none';
+}
+</script>
+
 </body>
 </html>
