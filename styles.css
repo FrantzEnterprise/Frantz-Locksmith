@@ -254,8 +254,7 @@ ul { list-style: none; }
 .hero-subtext {
   font-size: 1.2rem;
   color: #d4a843;
-  font-weight: 600;
-  white-space: nowrap;
+  font-weight: 700;
 }
 
 .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
