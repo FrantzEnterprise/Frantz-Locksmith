@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antique Safe Gallery | Frantz Locksmith Service — Sacramento & West Sacramento</title>
+  <meta name="description" content="Photos of antique safes I've worked on in Sacramento and West Sacramento — Johnson Pacific floor safes, vintage gas station finds, and more. 40+ years of experience.">
+  <link rel="canonical" href="https://frantzlocksmithservice.com/antiques.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 28px;
+      margin-top: 40px;
+    }
+    .gallery-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-200);
+      transition: all var(--transition);
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+    }
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .gallery-item .img-wrap {
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+    }
+    .gallery-item .img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      background: #f4f4f4;
+      padding: 8px;
+    }
+    .gallery-item .gallery-info {
+      padding: 16px 20px;
+    }
+    .gallery-item .gallery-info h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--primary);
+    }
+    .gallery-item .gallery-info p {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      margin: 0;
+    }
+    .gallery-empty {
+      text-align: center;
+      padding: 80px 20px;
+      background: var(--light);
+      border-radius: var(--radius);
+      margin-top: 40px;
+    }
+    .gallery-empty h2 {
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .gallery-empty p {
+      color: var(--gray-600);
+      max-width: 500px;
+      margin: 0 auto 24px;
+    }
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+  <div class="announcement-bar">
+    <p>📞 Call today: <a href="tel:+19165344900">(916) 534-4900</a> — Mobile safe service • Sacramento & West Sacramento</p>
+  </div>
+
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">🔐</span>
+          <div class="logo-text">
+            <span class="logo-title">Frantz Locksmith</span>
+            <span class="logo-subtitle">Safe & Vault Specialist</span>
+          </div>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav aria-label="Main navigation">
+          <ul class="nav-list" id="navList">
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="gallery.html">📸 Gallery</a></li>
+            <li><a href="antiques.html" class="active">🏛️ Antiques</a></li>
+            <li><a href="contact.html">📬 Contact</a></li>
+            <li><a href="#pricing-quote">💰 Pricing</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero" style="background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%); color: var(--white); padding: 64px 0;">
+    <div class="container">
+      <div class="page-hero-content" style="text-align: center;">
+        <h1 style="font-size: 2.4rem; font-weight: 800; margin-bottom: 12px; color: var(--white);">🏛️ Antique Safes</h1>
+        <p style="font-size: 1.1rem; color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto;">Johnson Pacific floor safes, vintage gas station finds, and classic restorations from the Sacramento area.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="main">
+    <div class="container">
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <div class="img-wrap"><img src="assets/images/gallery/img-0691.jpg" alt="Johnson Pacific antique floor safe — cover on" loading="lazy"></div>
+          <div class="gallery-info">
+            <h3>Johnson Pacific Floor Safe — Antique Gas Station</h3>
+            <p>Antique Johnson Pacific floor safe found in a vintage gas station. Safe with cover on upon arrival.</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="img-wrap"><img src="assets/images/gallery/img-0695.jpg" alt="Johnson Pacific safe head with high security keylock exposed" loading="lazy"></div>
+          <div class="gallery-info">
+            <h3>Outer Safe Head — High Security Keylock</h3>
+            <p>Cover removed exposing the outer safe head with high security keylock and combination lock.</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="img-wrap"><img src="assets/images/gallery/img-0694.jpg" alt="Inner compartment dual custody keylock of Johnson Pacific safe" loading="lazy"></div>
+          <div class="gallery-info">
+            <h3>Inner Compartment — Dual Custody Keylock</h3>
+            <p>Lower inner compartment with a dual custody keylock requiring two keys to open.</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="img-wrap"><img src="assets/images/gallery/resized.jpg" alt="Both compartments of Johnson Pacific safe after opening" loading="lazy"></div>
+          <div class="gallery-info">
+            <h3>Both Compartments — Safe Opening Complete</h3>
+            <p>Both compartments after the safe opening. Upper and lower sections fully accessed non-destructively.</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="img-wrap"><img src="assets/images/gallery/johnson-pacific-repaired.jpg" alt="Inner compartment dual custody keylock after repair" loading="lazy"></div>
+          <div class="gallery-info">
+            <h3>Inner Compartment — Dual Custody Keylock Repaired</h3>
+            <p>Inner compartment dual custody keylock after repair. Fully restored to working condition.</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="img-wrap"><img src="assets/images/gallery/johnson-pacific-tested.jpg" alt="Johnson Pacific outer safe head locked and tested after repair" loading="lazy"></div>
+          <div class="gallery-info">
+            <h3>Outer Safe Head — Locked & Tested</h3>
+            <p>Johnson Pacific outer safe head after repair, locked and tested. Works exactly as intended when originally installed.</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="img-wrap"><img src="assets/images/gallery/img-0693.jpg" alt="Antique gas station — historic photo" loading="lazy"></div>
+          <div class="gallery-info">
+            <h3>Antique Gas Station — Historic Photo</h3>
+            <p>Historic photograph of the antique gas station where the Johnson Pacific floor safe was located.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Have an Antique Safe?</h2>
+        <p>I specialize in non-destructive openings and repairs on vintage and antique safes. Call or text.</p>
+        <a href="tel:+19165344900" class="btn btn-primary btn-lg">📞 (916) 534-4900</a>
+      </div>
+    </div>
+  </section>
+
+   <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h3>🔐 Frantz Locksmith Service</h3>
+          <p>Sacramento's trusted safe and vault specialist since 2019. 40+ years of combined locksmith experience. Licensed, bonded, and insured.</p>
+          <div class="footer-license">
+            <p>📜 <strong>CSLB License #1104879</strong> — California Contractors State License Board</p>
+          </div>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="antiques.html">Antique Safes</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <ul class="footer-links">
+            <li><a href="tel:+19165344900">📞 (916) 534-4900</a></li>
+            <li><a href="mailto:frantzlocksmith@hotmail.com">📧 frantzlocksmith@hotmail.com</a></li>
+            <li>📍 Sacramento & West Sacramento</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Frantz Locksmith Service. All rights reserved.</p>
+        <p class="footer-legal"><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('navToggle').addEventListener('click', function () {
+      this.classList.toggle('open');
+      document.getElementById('navList').classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
