@@ -29,11 +29,22 @@
       transform: translateY(-4px);
       box-shadow: var(--shadow-md);
     }
-    .gallery-item img {
+    .gallery-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .gallery-item .img-wrap {
       width: 100%;
-      height: 260px;
-      object-fit: cover;
+      height: 280px;
+      overflow: hidden;
+    }
+    .gallery-item .img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
       display: block;
+      background: #f4f4f4;
+      padding: 8px;
     }
     .gallery-item .gallery-info {
       padding: 16px 20px;
@@ -125,70 +136,70 @@
       <!-- Gallery grid -->
       <div class="gallery-grid">
         <div class="gallery-item">
-          <img src="assets/images/gallery/hhm-postal-vault.jpg" alt="HHM Herring Hall Marvin postal vault door" loading="lazy">
+          <div class="img-wrap"><img src="assets/images/gallery/hhm-postal-vault.jpg" alt="HHM Herring Hall Marvin postal vault door" loading="lazy"></div>
           <div class="gallery-info">
             <h3>HHM Herring Hall Marvin — Postal Vault Door</h3>
             <p>Opened non-destructively. High-security postal vault with combination lock service.</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/gallery/mac-urban-safe.jpg" alt="MacNeale Urban Safe — lost combo found" loading="lazy">
+          <div class="img-wrap"><img src="assets/images/gallery/mac-urban-safe.jpg" alt="MacNeale Urban Safe — lost combo found" loading="lazy"></div>
           <div class="gallery-info">
             <h3>MacNeale Urban Safe — Sacramento</h3>
             <p>Lost combination found via manipulation. Opened non-destructively and put back in service.</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/gallery/high-security-cash-vault.jpg" alt="High security cash vault opened and repaired" loading="lazy">
+          <div class="img-wrap"><img src="assets/images/gallery/high-security-cash-vault.jpg" alt="High security cash vault opened and repaired" loading="lazy"></div>
           <div class="gallery-info">
             <h3>High Security Cash Vault — Sacramento</h3>
             <p>Opened and fully repaired. Commercial-grade vault restored to working condition.</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/gallery/super-fortress.jpg" alt="Super Fortress safe — lost combo, opened and repaired" loading="lazy">
+          <div class="img-wrap"><img src="assets/images/gallery/super-fortress.jpg" alt="Super Fortress safe — lost combo, opened and repaired" loading="lazy"></div>
           <div class="gallery-info">
             <h3>Super Fortress Safe — Sacramento</h3>
             <p>Lost combination. Opened via manipulation and repaired. Back in service.</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/gallery/liberty-fire-safe.jpg" alt="Liberty Safe after garage fire — precision drilled open" loading="lazy">
+          <div class="img-wrap"><img src="assets/images/gallery/liberty-fire-safe.jpg" alt="Liberty Safe after garage fire — precision drilled open" loading="lazy"></div>
           <div class="gallery-info">
             <h3>Liberty Safe — Garage Fire Opening</h3>
             <p>Precision drilled open after a garage fire. Warranty service — safe contents recovered intact.</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/gallery/burnt-liberty-2.jpg" alt="Burnt Liberty Safe — fire damage opening" loading="lazy">
+          <div class="img-wrap"><img src="assets/images/gallery/burnt-liberty-2.jpg" alt="Burnt Liberty Safe — fire damage opening" loading="lazy"></div>
           <div class="gallery-info">
             <h3>Burnt Liberty Safe — Fire Opening</h3>
             <p>Another Liberty safe opened after fire damage. Contents recovered safely.</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/gallery/vault-drill-setup.jpg" alt="Vault door getting ready to drill" loading="lazy">
+          <div class="img-wrap"><img src="assets/images/gallery/vault-drill-setup.jpg" alt="Vault door getting ready to drill" loading="lazy"></div>
           <div class="gallery-info">
             <h3>Vault Door — Drill Setup</h3>
             <p>Getting ready for precision drilling on a commercial vault door.</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/gallery/vault-door-opened.jpg" alt="Vault door successfully opened" loading="lazy">
+          <div class="img-wrap"><img src="assets/images/gallery/vault-door-opened.jpg" alt="Vault door successfully opened" loading="lazy"></div>
           <div class="gallery-info">
             <h3>Vault Door — Opened</h3>
             <p>Commercial vault door successfully opened and serviced.</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/gallery/cabelas-drilled.jpg" alt="Cabela's safe precision drilled open" loading="lazy">
+          <div class="img-wrap"><img src="assets/images/gallery/cabelas-drilled.jpg" alt="Cabela's safe precision drilled open" loading="lazy"></div>
           <div class="gallery-info">
             <h3>Cabela's Safe — Precision Drilled</h3>
             <p>Precision drill opening on a Cabela's brand safe. Repaired afterward.</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/gallery/cabelas-repaired.jpg" alt="Cabela's safe repaired after opening" loading="lazy">
+          <div class="img-wrap"><img src="assets/images/gallery/cabelas-repaired.jpg" alt="Cabela's safe repaired after opening" loading="lazy"></div>
           <div class="gallery-info">
             <h3>Cabela's Safe — Repaired</h3>
             <p>Cabela's safe fully repaired after drill opening and back in service.</p>
