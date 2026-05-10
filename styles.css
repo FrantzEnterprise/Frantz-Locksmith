@@ -744,6 +744,173 @@ ul { list-style: none; }
 .privacy-content { max-width: 800px; }
 .privacy-content p { margin-bottom: 14px; font-size: 0.95rem; }
 
+/* =============================================
+   ADA Accessibility Widget
+   ============================================= */
+.ada-widget {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg,#d4a843,#b8922e);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9998;
+  box-shadow: 0 4px 20px rgba(212,168,67,0.4);
+  transition: transform 0.2s, opacity .3s ease;
+  text-decoration: none;
+  color: #0f2440;
+}
+.ada-widget:hover {
+  transform: scale(1.1);
+}
+.ada-widget svg {
+  width: 28px;
+  height: 28px;
+  fill: #0f2440;
+}
+.ada-widget .ada-tooltip {
+  position: absolute;
+  bottom: 56px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1d21;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  white-space: nowrap;
+  display: none;
+  pointer-events: none;
+}
+.ada-widget:hover .ada-tooltip {
+  display: block;
+}
+
+.ada-panel {
+  position: fixed;
+  bottom: 80px;
+  left: 24px;
+  width: 300px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  z-index: 9997;
+  padding: 20px;
+  display: none;
+  animation: adaFadeIn 0.3s ease;
+}
+.ada-panel.active { display: block; }
+@keyframes adaFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.ada-panel h3 {
+  font-size: 1rem;
+  color: #0f2440;
+  margin-bottom: 12px;
+}
+.ada-panel .ada-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f2f5;
+  font-size: 0.9rem;
+  color: #1a1d21;
+}
+.ada-panel .ada-option:last-child { border-bottom: none; }
+.ada-panel .ada-toggle {
+  position: relative;
+  width: 42px;
+  height: 24px;
+  background: #ddd;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border: none;
+}
+.ada-panel .ada-toggle.active { background: #d4a843; }
+.ada-panel .ada-toggle::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+.ada-panel .ada-toggle.active::after {
+  transform: translateX(18px);
+}
+.ada-panel .ada-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #999;
+}
+.ada-panel .ada-close:hover { color: #333; }
+@media (max-width: 600px) {
+  .ada-widget { bottom: 16px; left: 16px; width: 54px; height: 54px; }
+  .ada-widget svg { width: 24px; height: 24px; }
+  .ada-panel { left: 16px; right: 16px; width: auto; bottom: 70px; }
+}
+
+/* ADA Overrides */
+.ada-large-text,
+.ada-large-text p,
+.ada-large-text li,
+.ada-large-text .blog-card .desc { font-size: 1.15rem !important; line-height: 1.8 !important; }
+.ada-large-text h1 { font-size: 2.2rem !important; }
+.ada-large-text h2 { font-size: 1.6rem !important; }
+.ada-large-text h3 { font-size: 1.3rem !important; }
+.ada-large-text .nav-list a { font-size: 1rem !important; }
+
+.ada-high-contrast,
+.ada-high-contrast body { background: #000 !important; color: #fff !important; }
+.ada-high-contrast a,
+.ada-high-contrast .nav-list a,
+.ada-high-contrast .nav-list a.active { color: #ffd700 !important; }
+.ada-high-contrast .btn,
+.ada-high-contrast .btn-primary,
+.ada-high-contrast .cookie-consent .cookie-btn-accept { background: #ffd700 !important; color: #000 !important; border-color: #ffd700 !important; }
+.ada-high-contrast .btn-outline { border-color: #ffd700 !important; color: #ffd700 !important; }
+.ada-high-contrast .header,
+.ada-high-contrast .hero,
+.ada-high-contrast .page-hero,
+.ada-high-contrast .cookie-consent,
+.ada-high-contrast footer { background: #111 !important; color: #fff !important; }
+.ada-high-contrast .blog-card,
+.ada-high-contrast .legal-card,
+.ada-high-contrast .ada-panel { background: #1a1a1a !important; color: #fff !important; border-color: #444 !important; }
+.ada-high-contrast .blog-card h2 a,
+.ada-high-contrast .legal-card h2 { color: #ffd700 !important; }
+.ada-high-contrast .text-muted,
+.ada-high-contrast .meta,
+.ada-high-contrast .blog-card .desc { color: #ccc !important; }
+.ada-high-contrast .callout { background: #222 !important; border-left-color: #ffd700 !important; }
+.ada-high-contrast .announcement-bar { background: #ffd700 !important; color: #000 !important; }
+.ada-high-contrast .announcement-bar a { color: #000 !important; }
+.ada-high-contrast .step-list li { background: #1a1a1a !important; border-color: #444 !important; }
+.ada-high-contrast .section-header h2 { color: #fff !important; }
+.ada-high-contrast .gallery-item { background: #1a1a1a !important; }
+.ada-high-contrast .brand-grid { background: transparent !important; }
+.ada-high-contrast .hero-subtext { color: #ffd700 !important; }
+
+@media (max-width: 600px) {
+  .ada-large-text h1 { font-size: 1.8rem !important; }
+  .ada-large-text h2 { font-size: 1.4rem !important; }
+}
 
 /* =============================================
    MOBILE STYLES
@@ -815,12 +982,3 @@ ul { list-style: none; }
   .btn-lg { width: 100%; justify-content: center; }
   .cta-buttons { flex-direction: column; }
 }
-
-/* ADA Inline Toggles */
-.ada-toggles { display: inline-flex; gap: 4px; margin-left: 12px; vertical-align: middle; }
-.ada-btn { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.85); width: 28px; height: 28px; border-radius: 50%; font-size: 0.8rem; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: all 0.2s; font-family: inherit; line-height: 1; }
-.ada-btn:hover { background: rgba(255,255,255,0.3); color: #fff; }
-.ada-btn.active { background: #d4a843; color: #0f2440; border-color: #d4a843; }
-.announcement-bar { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px; }
-.announcement-bar p { margin: 0; }
-@media (max-width: 600px) { .announcement-bar { flex-direction: column; gap: 2px; } .ada-toggles { margin-left: 0; } }
