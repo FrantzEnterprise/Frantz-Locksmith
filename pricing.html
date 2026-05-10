@@ -10,33 +10,31 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <style>
+    <style>
     .pricing-section { padding: 40px 0; }
     .pricing-section h2 { font-size: 1.4rem; color: #0f2440; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #d4a843; }
     .pricing-section .subtitle { color: #6c757d; font-size: 0.95rem; margin-bottom: 24px; }
-    .pricing-table { width: 100%; border-collapse: collapse; margin-bottom: 32px; }
-    .pricing-table th { text-align: left; padding: 12px 16px; background: #0f2440; color: #fff; font-weight: 600; font-size: 0.9rem; }
-    .pricing-table th:last-child { text-align: right; }
-    .pricing-table td { padding: 12px 16px; border-bottom: 1px solid #f0f2f5; font-size: 0.92rem; }
-    .pricing-table td:last-child { text-align: right; font-weight: 700; color: #0f2440; white-space: nowrap; }
-    .pricing-table tr:hover td { background: #f8f9fa; }
-    .pricing-table .note td { font-size: 0.82rem; color: #6c757d; font-style: italic; border-bottom: none; padding-top: 4px; }
-    .pricing-table .note:hover td { background: transparent; }
-    .pricing-card { background: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); margin-bottom: 24px; }
-    .pricing-card h3 { font-size: 1.1rem; color: #0f2440; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-    .pricing-card .price-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f0f2f5; }
-    .pricing-card .price-row:last-child { border-bottom: none; }
-    .pricing-card .price-row .service-name { font-size: 0.92rem; flex: 1; }
-    .pricing-card .price-row .service-note { font-size: 0.8rem; color: #6c757d; flex: 1; }
-    .pricing-card .price-row .price-value { font-weight: 700; color: #0f2440; white-space: nowrap; font-size: 0.95rem; }
-    .pricing-card .price-row .price-range { font-weight: 600; color: #0f2440; white-space: nowrap; font-size: 0.92rem; }
+
+    /* Pricing list cards */
+    .pricing-list { list-style: none; padding: 0; margin: 0 auto 32px auto; max-width: 700px; }
+    .pricing-list li { display: flex; justify-content: space-between; align-items: baseline; padding: 18px 20px; gap: 16px; background: #fff; }
+    .pricing-list li .service-name { font-size: 1rem; flex: 1; line-height: 1.3; }
+    .pricing-list li .service-desc { font-size: 0.82rem; color: #6c757d; display: block; margin-top: 4px; line-height: 1.4; }
+    .pricing-list li .price { font-weight: 700; color: #0f2440; white-space: nowrap; font-size: 1.05rem; flex-shrink: 0; }
+    .pricing-list .note-item { font-size: 0.82rem; color: #6c757d; font-style: italic; padding: 10px 20px 6px; background: transparent !important; }
+    .pricing-list .note-item .service-name { font-size: 0.82rem; }
+    .pricing-list .section-label { font-weight: 700; color: #0f2440; font-size: 1.1rem; padding: 28px 4px 12px 4px; border-bottom: 2px solid #d4a843; display: block; letter-spacing: 0.5px; max-width: 700px; margin: 0 auto; }
+
+    /* White card panels for each group */
+    .pricing-card-group { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); overflow: hidden; max-width: 700px; margin: 0 auto 24px auto; }
+    .pricing-card-group .pricing-list { margin-bottom: 0; }
+    .pricing-card-group .pricing-list li { border-bottom: 1px solid #f0f2f5; }
+    .pricing-card-group .pricing-list li:last-child { border-bottom: none; }
+    .pricing-card-group .pricing-list .section-label { margin: 0; padding: 20px 20px 12px 20px; background: #f8f9fa; border-radius: 12px 12px 0 0; border-bottom: 2px solid #d4a843; }
+    .pricing-card-group .pricing-list .note-item { padding: 10px 20px 16px; }
+
     .pricing-disclaimer { background: #fff8e1; border-left: 4px solid #d4a843; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 24px 0; font-size: 0.88rem; color: #555; line-height: 1.6; }
     .pricing-disclaimer strong { color: #1a1d21; }
-    @media (max-width: 600px) {
-      .pricing-table th, .pricing-table td { padding: 10px 12px; }
-      .pricing-card .price-row { flex-wrap: wrap; }
-      .pricing-card .price-row .price-value, .pricing-card .price-row .price-range { margin-top: 4px; }
-    }
   </style>
 </head>
 <body>
@@ -100,7 +98,8 @@
         <strong style="color:#fff;">Worst case:</strong> A fire-damaged antique or GSA container in a tight spot — up to <strong>$700</strong> plus the trip fee and any needed parts.<br><br>
         Most jobs fall somewhere in between. I'll give you a firm quote before I start — no surprises.
 
-      <ul class="pricing-list">
+      <div class="pricing-card-group">
+<ul class="pricing-list">
         <li class="section-label">🔓 Safe Opening</li>
         <li><span class="service-name">Safe opening (home, gun, wall, or fire)<span class="service-desc">Non-destructive manipulation. I work the dial or bypass the keypad. Type and access affect the price.</span></span><span class="price">from $275</span></li>
         <li><span class="service-name">Floor safe or commercial safe opening<span class="service-desc">Bolted in a concrete slab or heavy commercial door. More time needed.</span></span><span class="price">from $325</span></li>
@@ -141,13 +140,15 @@
         <li><span class="service-name">Liberty, Fort Knox, Stealth, Superior, National<span class="service-desc">In-warranty covered by manufacturer. Out-of-warranty at standard rates.</span></span><span class="price">Call to schedule</span></li>
         <li><span class="service-name">GSA container certification / recertification<span class="service-desc">Certified service for government containers.</span></span><span class="price">Call for quote</span></li>
       </ul>
+      </div>
 
             <!-- ==================== LOCKSMITH SERVICES ==================== -->
       <h2 style="font-size:1.6rem;margin-top:48px;">🔑 Locksmith Services<br><span style="font-size:1rem;font-weight:400;color:#6c757d;">Light residential and commercial lock work for my clients</span></h2>
 
       <p class="subtitle">I keep my locksmith services intentionally light — I'm a safe specialist first. But that doesn't mean they get any less care. Same 40+ years of know-how behind every rekey, deadbolt, and lockout.</p>
 
-      <ul class="pricing-list">
+      <div class="pricing-card-group">
+<ul class="pricing-list">
         <li class="section-label">🔑 Locksmith Services</li>
         <li><span class="service-name">Lock rekey (per lock — standard knob/deadbolt)<span class="service-desc">All locks keyed alike. Additional locks at same location discounted.</span></span><span class="price">from $25</span></li>
         <li><span class="service-name">Lock rekey — minimum service charge<span class="service-desc">Covers the trip and first lock. Price is per additional lock.</span></span><span class="price">$75</span></li>
@@ -160,6 +161,8 @@
         <li><span class="service-name">Mailbox lock change<span class="service-desc">Replace old mailbox lock with new key.</span></span><span class="price">from $55</span></li>
         <li class="note-item"><span class="service-name">* Multiple rekeys at same location discounted after the first lock. Damaged locks or extra work quoted on site.</span></li>
       </ul>
+      </div>
+      </div>
 
       <div class="pricing-disclaimer">
         <strong>Important Notes:</strong><br>
