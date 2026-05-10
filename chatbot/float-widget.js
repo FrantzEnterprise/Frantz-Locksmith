@@ -260,8 +260,8 @@ function send() {
   setTimeout(() => { addMsg(respond(t), 'bot'); }, 400);
 }
 
-toggle.onclick = () => { toggle.classList.toggle('open'); popup.classList.toggle('open'); if (popup.classList.contains('open')) input.focus(); };
-document.getElementById('fcht-close').onclick = () => { toggle.classList.remove('open'); popup.classList.remove('open'); };
+toggle.onclick = () => { toggle.classList.toggle('open'); popup.classList.toggle('open'); if (popup.classList.contains('open')) input.focus(); var ada=document.querySelector('.ada-widget'); if(ada) ada.style.display='none'; var adaP=document.getElementById('adaPanel'); if(adaP) adaP.style.display='none'; };
+document.getElementById('fcht-close').onclick = () => { toggle.classList.remove('open'); popup.classList.remove('open'); var ada=document.querySelector('.ada-widget'); if(ada) ada.style.display=''; };
 sendBtn.onclick = send;
 input.onkeydown = (e) => { if (e.key === 'Enter') { e.preventDefault(); send(); } };
 document.querySelectorAll('#fcht-qr .qr').forEach(el => { el.onclick = () => { input.value = el.dataset.m; send(); }; });
