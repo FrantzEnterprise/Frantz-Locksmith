@@ -11,18 +11,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
     <style>
-     .pricing-section { padding: 40px 0; }
+    .pricing-section { padding: 40px 0; }
     .pricing-section h2 { font-size: 1.4rem; color: #0f2440; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #d4a843; }
     .pricing-section .subtitle { color: #6c757d; font-size: 0.95rem; margin-bottom: 24px; }
-    .pricing-list { list-style: none; padding: 0; margin: 0 0 24px 0; }
-    .pricing-list .section-label { font-weight: 700; color: #0f2440; font-size: 1.1rem; padding: 28px 0 10px 0; border-bottom: 2px solid #d4a843; display: block; }
-    .pricing-list li { padding: 10px 0; line-height: 1.5; border-bottom: 1px solid #eee; }
-    .pricing-list li:last-child { border-bottom: none; }
-    .pricing-list li .item { font-size: 0.95rem; }
-    .pricing-list li .item .pr { font-weight: 700; color: #0f2440; white-space: nowrap; }
-    .pricing-list .note-item { font-size: 0.82rem; color: #6c757d; font-style: italic; padding: 4px 0; border-bottom: none; }
-    .pricing-disclaimer { background: #fff8e1; border-left: 4px solid #d4a843; padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 24px 0; font-size: 0.88rem; color: #555; line-height: 1.6; }
-    .pricing-disclaimer strong { color: #1a1d21; }</style>
+  </style>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
@@ -70,82 +62,94 @@
   <section class="section pricing-section">
     <div class="container">
 
-      <div class="pricing-disclaimer" style="margin-top:0;">
-        <strong>Service / Trip Fee:</strong> <strong>$75.00</strong> within a 15-mile radius of West Sacramento. Beyond 15 miles, a fair time-and-mileage fee at standard California service-industry rates applies. This covers my travel, fuel, and time to get to you.<br><br>
-        <strong>The difference:</strong> When you call Frantz Locksmith Service, you're getting a certified safe technician with 40+ years of hands-on experience — not a kid with a drill. Every service is premium because every service gets <em>my</em> attention.
+      <div style="background:#f0f2f5;border-radius:12px;padding:24px;margin-bottom:28px;">
+        <h3 style="color:#1a3a5c;font-size:1.1rem;margin-bottom:12px;">💰 Safe Services — What to Expect</h3>
+        <p style="margin:0;font-size:0.95rem;line-height:1.6;"><strong>Best case:</strong> A straightforward home safe opening with easy access — from <strong>$275</strong> plus the trip fee.</p>
+        <p style="margin:12px 0 0 0;font-size:0.95rem;line-height:1.6;"><strong>Worst case:</strong> A fire-damaged antique or GSA container in a tight spot — up to <strong>$700</strong> plus the trip fee and any needed parts.</p>
+        <p style="margin:12px 0 0 0;font-size:0.95rem;line-height:1.6;">Most jobs fall somewhere in between. I'll give you a firm quote before I start — no surprises.</p>
+      </div>
 
-      <!-- ==================== SAFE SERVICES ==================== -->
-      <h2 style="font-size:1.6rem;margin-top:40px;">🔐 Premium Safe Services<br><span style="font-size:1rem;font-weight:400;color:#6c757d;">40+ years of experience — precision, patience, integrity. Every job gets the old-school treatment.</span></h2>
+      <!-- Card 1: Safe Services -->
+      <div class="sidebar-card">
+        <h3>🔐 Safe Services</h3>
+        <p style="font-size:0.9rem;color:#6c757d;margin-bottom:16px;">40+ years of experience — precision, patience, integrity. Every job gets the old-school treatment.</p>
 
-      <div class="pricing-disclaimer" style="margin-bottom:24px;">
-        <strong>💰 Safe Services — What to Expect</strong><br><br>
-        <strong>Best case:</strong> A straightforward home safe opening with easy access — from <strong>$275</strong> plus the trip fee.<br><br>
-        <strong>Worst case:</strong> A fire-damaged antique or GSA container in a tight spot — up to <strong>$700</strong> plus the trip fee and any needed parts.<br><br>
-        Most jobs fall somewhere in between. I'll give you a firm quote before I start — no surprises.
+        <p style="margin:0;font-size:0.95rem;line-height:1.5;"><strong>Safe Opening</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Non-destructive manipulation. I work the dial or bypass the keypad. Type and access affect the price. <strong style="color:#1a3a5c;">From $275.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Bolted in a concrete slab or heavy commercial door. More time needed. <strong style="color:#1a3a5c;">From $325.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Older mechanisms require extra care and experience. Some are one-of-a-kind. <strong style="color:#1a3a5c;">From $400.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Certified on X-07, X-08, X-09, X-10 containers. <strong style="color:#1a3a5c;">From $400.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">After a fire, locks and bolts can seize. Requires patience and the right approach. <strong style="color:#1a3a5c;">From $400.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">No combination, no key, no history — I figure it out. <strong style="color:#1a3a5c;">From $300.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.82rem;color:#6c757d;font-style:italic;">* If drilling is required, drill hole repair is quoted separately. I'll call you before drilling.</p>
 
-      <ul class="pricing-list">
-        <li class="section-label">🔓 Safe Opening</li>
-        <li><span class="item">Non-destructive manipulation. I work the dial or bypass the keypad. Type and access affect the price. <span class="pr">From $275.</span></span></li>
-        <li><span class="item">Bolted in a concrete slab or heavy commercial door. More time needed. <span class="pr">From $325.</span></span></li>
-        <li><span class="item">Older mechanisms require extra care and experience. Some are one-of-a-kind. <span class="pr">From $400.</span></span></li>
-        <li><span class="item">Certified on X-07, X-08, X-09, X-10 containers. <span class="pr">From $400.</span></span></li>
-        <li><span class="item">After a fire, locks and bolts can seize. Requires patience and the right approach. <span class="pr">From $400.</span></span></li>
-        <li><span class="item">No combination, no key, no history — I figure it out. <span class="pr">From $300.</span></span></li>
-        <li class="note-item">* If drilling is required, drill hole repair is quoted separately. I'll call you before drilling.</span></li>
+        <hr style="border:none;border-top:1px solid #e0e3e8;margin:16px 0;">
 
-        <li class="section-label">🔄 Combination &amp; Safe Lock Services</li>
-        <li><span class="item">S&G, LaGard, AMSEC, and most standard dial locks. <span class="pr">From $125.</span></span></li>
-        <li><span class="item">Replace an old dial with a modern keypad. Includes standard lock. <span class="pr">From $200.</span></span></li>
-        <li><span class="item">No service call fee if I'm already there or it's a quick trip. <span class="pr">$45 – $75.</span></span></li>
-        <li><span class="item">The keyhole at 6 o'clock on the dial ring — common on retail safes. <span class="pr">From $100.</span></span></li>
-        <li><span class="item">If I can read the code or the lock, I can cut a new key. <span class="pr">From $50.</span></span></li>
-        <li><span class="item">Door open but you don't know the combo — I can get the numbers. <span class="pr">From $75.</span></span></li>
+        <p style="margin:0;font-size:0.95rem;line-height:1.5;"><strong>Combination &amp; Safe Lock Services</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">S&G, LaGard, AMSEC, and most standard dial locks. <strong style="color:#1a3a5c;">From $125.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Replace an old dial with a modern keypad. Includes standard lock. <strong style="color:#1a3a5c;">From $200.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">No service call fee if I'm already there or it's a quick trip. <strong style="color:#1a3a5c;">$45 – $75.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">The keyhole at 6 o'clock on the dial ring — common on retail safes. <strong style="color:#1a3a5c;">From $100.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">If I can read the code or the lock, I can cut a new key. <strong style="color:#1a3a5c;">From $50.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Door open but you don't know the combo — I can get the numbers. <strong style="color:#1a3a5c;">From $75.</strong></p>
 
-        <li class="section-label">🔧 Safe Repair &amp; Maintenance</li>
-        <li><span class="item">Handle snapped? Door sagging? Bolts not lining up? I'll get it working. <span class="pr">From $100.</span></span></li>
-        <li><span class="item">The secondary lock that triggers if someone tries to punch the lock. <span class="pr">From $125.</span></span></li>
-        <li><span class="item">Keypad died but the lock body is good — quick swap. <span class="pr">From $125.</span></span></li>
-        <li><span class="item">Clean, lubricate, adjust, test. Annual maintenance recommended. <span class="pr">From $125.</span></span></li>
-        <li><span class="item">On top of the service rate. I'll come when I can. <span class="pr">+$75 – $150.</span></span></li>
+        <hr style="border:none;border-top:1px solid #e0e3e8;margin:16px 0;">
 
-        <li class="section-label">🛒 Safe Sales &amp; Installation</li>
-        <li><span class="item">Smaller models available. Great for documents, valuables, handguns. <span class="pr">From $150.</span></span></li>
-        <li><span class="item">In-stock models available. Larger sizes special-ordered from Liberty, Fort Knox &amp; more. <span class="pr">From $400.</span></span></li>
-        <li><span class="item">For homes and businesses. <span class="pr">From $100.</span></span></li>
-        <li><span class="item">AMSEC, Gardall, and other commercial brands — quote provided. <span class="pr">From $1,000.</span></span></li>
-        <li><span class="item">I'll get it in place and set up for you. <span class="pr">From $100.</span></span></li>
+        <p style="margin:0;font-size:0.95rem;line-height:1.5;"><strong>Safe Repair &amp; Maintenance</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Handle snapped? Door sagging? Bolts not lining up? I'll get it working. <strong style="color:#1a3a5c;">From $100.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">The secondary lock that triggers if someone tries to punch the lock. <strong style="color:#1a3a5c;">From $125.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Keypad died but the lock body is good — quick swap. <strong style="color:#1a3a5c;">From $125.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Clean, lubricate, adjust, test. Annual maintenance recommended. <strong style="color:#1a3a5c;">From $125.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">On top of the service rate. I'll come when I can. <strong style="color:#1a3a5c;">+$75 – $150.</strong></p>
 
-        <li class="section-label">🏛️ Antique Safe Services</li>
-        <li><span class="item">Non-destructive. Old mechanisms need a gentle touch. <span class="pr">From $400.</span></span></li>
-        <li><span class="item">Rebuild or repair original lock works where possible. <span class="pr">From $250.</span></span></li>
-        <li><span class="item">Verbal opinion on value, age, and significance. <span class="pr">From $100.</span></span></li>
+        <hr style="border:none;border-top:1px solid #e0e3e8;margin:16px 0;">
 
-        <li class="section-label">🏭 Warranty Service (Preferred Technician)</li>
-        <li><span class="item">In-warranty covered by manufacturer. Out-of-warranty at standard rates. <span class="pr">Call to schedule.</span></span></li>
-        <li><span class="item">Certified service for government containers. <span class="pr">Call for quote.</span></span></li>
-      </ul>
+        <p style="margin:0;font-size:0.95rem;line-height:1.5;"><strong>Safe Sales &amp; Installation</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Smaller models available. Great for documents, valuables, handguns. <strong style="color:#1a3a5c;">From $150.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">In-stock models available. Larger sizes special-ordered from Liberty, Fort Knox &amp; more. <strong style="color:#1a3a5c;">From $400.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">For homes and businesses. <strong style="color:#1a3a5c;">From $100.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">AMSEC, Gardall, and other commercial brands — quote provided. <strong style="color:#1a3a5c;">From $1,000.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">I'll get it in place and set up for you. <strong style="color:#1a3a5c;">From $100.</strong></p>
 
-            <!-- ==================== LOCKSMITH SERVICES ==================== -->
-      <h2 style="font-size:1.6rem;margin-top:48px;">🔑 Locksmith Services<br><span style="font-size:1rem;font-weight:400;color:#6c757d;">Light residential and commercial lock work for my clients</span></h2>
+        <hr style="border:none;border-top:1px solid #e0e3e8;margin:16px 0;">
 
-      <p class="subtitle">I keep my locksmith services intentionally light — I'm a safe specialist first. But that doesn't mean they get any less care. Same 40+ years of know-how behind every rekey, deadbolt, and lockout.</p>
+        <p style="margin:0;font-size:0.95rem;line-height:1.5;"><strong>Antique Safe Services</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Non-destructive. Old mechanisms need a gentle touch. <strong style="color:#1a3a5c;">From $400.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Rebuild or repair original lock works where possible. <strong style="color:#1a3a5c;">From $250.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Verbal opinion on value, age, and significance. <strong style="color:#1a3a5c;">From $100.</strong></p>
 
-      <ul class="pricing-list">
-        <li class="section-label">🔑 Locksmith Services</li>
-        <li><span class="item">All locks keyed alike. Additional locks at same location discounted. <span class="pr">From $25.</span></span></li>
-        <li><span class="item">Covers the trip and first lock. Price is per additional lock. <span class="pr">$75.</span></span></li>
-        <li><span class="item">Commercial-grade deadbolt for residential or light commercial doors. <span class="pr">From $140.</span></span></li>
-        <li><span class="item">Pick-resistant, drill-resistant. Highest residential security available. <span class="pr">From $225.</span></span></li>
-        <li><span class="item">Non-destructive entry. Locked keys inside? I get you back in. <span class="pr">From $75.</span></span></li>
-        <li><span class="item">Locked out of your vehicle. Standard car opening. <span class="pr">From $85.</span></span></li>
-        <li><span class="item">Cut on-site. Most standard house and commercial keys. <span class="pr">$3 – $5.</span></span></li>
-        <li><span class="item">Medeco, Mul-T-Lock, and other restricted keyways. <span class="pr">From $12.</span></span></li>
-        <li><span class="item">Replace old mailbox lock with new key. <span class="pr">From $55.</span></span></li>
-        <li class="note-item"><span class="service-name">* Multiple rekeys at same location discounted after the first lock. Damaged locks or extra work quoted on site.</span></li>
-      </ul>
+        <hr style="border:none;border-top:1px solid #e0e3e8;margin:16px 0;">
 
-      <div class="pricing-disclaimer">
-        <strong>Important Notes:</strong><br>
+        <p style="margin:0;font-size:0.95rem;line-height:1.5;"><strong>Warranty Service (Preferred Technician)</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">In-warranty covered by manufacturer. Out-of-warranty at standard rates. <strong style="color:#1a3a5c;">Call to schedule.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Certified service for government containers. <strong style="color:#1a3a5c;">Call for quote.</strong></p>
+      </div>
+
+      <!-- Card 2: Trip Fee -->
+      <div class="sidebar-card">
+        <h3>🚗 Service / Trip Fee</h3>
+        <p style="margin:0;font-size:0.95rem;line-height:1.6;"><strong>$75.00</strong> within a 15-mile radius of West Sacramento. Beyond 15 miles, a fair time-and-mileage fee at standard California service-industry rates applies. This covers my travel, fuel, and time to get to you.</p>
+      </div>
+
+      <!-- Card 3: Locksmith Services -->
+      <div class="sidebar-card">
+        <h3>🔑 Locksmith Services</h3>
+        <p style="font-size:0.9rem;color:#6c757d;margin-bottom:16px;">Light residential and commercial lock work for my clients. Same 40+ years of know-how behind every job.</p>
+
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">All locks keyed alike. Additional locks at same location discounted. <strong style="color:#1a3a5c;">From $25.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Covers the trip and first lock. Additional locks discounted. <strong style="color:#1a3a5c;">$75.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Commercial-grade deadbolt for residential or light commercial doors. <strong style="color:#1a3a5c;">From $140.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Pick-resistant, drill-resistant. Highest residential security available. <strong style="color:#1a3a5c;">From $225.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Non-destructive entry. Locked keys inside? I get you back in. <strong style="color:#1a3a5c;">From $75.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Locked out of your vehicle. Standard car opening. <strong style="color:#1a3a5c;">From $85.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Cut on-site. Most standard house and commercial keys. <strong style="color:#1a3a5c;">$3 – $5.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Medeco, Mul-T-Lock, and other restricted keyways. <strong style="color:#1a3a5c;">From $12.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.9rem;line-height:1.5;">Replace old mailbox lock with new key. <strong style="color:#1a3a5c;">From $55.</strong></p>
+        <p style="margin:6px 0 0 0;font-size:0.82rem;color:#6c757d;font-style:italic;">* Multiple rekeys at same location discounted after the first lock. Damaged locks quoted on site.</p>
+      </div>
+
+      <div style="background:#fff8e1;border-left:4px solid #d4a843;padding:16px 20px;border-radius:0 8px 8px 0;margin:24px 0;font-size:0.88rem;color:#555;line-height:1.6;">
+        <strong style="color:#1a1d21;">Important Notes:</strong><br>
         • All prices are <strong>estimates</strong> for typical jobs. Your actual cost depends on the specific safe, lock, access, and parts needed.<br>
         • <strong>Service / Trip Fee of $75.00</strong> applies within 15 miles of West Sacramento. Beyond that, a fair time-and-mileage fee applies at standard California rates.<br>
         • I provide a firm quote <strong>before</strong> starting any work — no surprises, no upselling.<br>
@@ -153,6 +157,7 @@
         • CA sales tax applies to taxable services and parts.<br>
         • Senior, military, and repeat customer discounts always available — just ask.<br>
         • Not sure what you need? <strong>Call me at <a href="tel:+19165344900">(916) 534-4900</a></strong> — I'll walk you through it.
+      </div>
 
     </div>
   </section>  <section class="section cta-section">
