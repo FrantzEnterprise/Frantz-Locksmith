@@ -237,7 +237,7 @@ Try these alternative sequences before assuming it's a standard S&G:
     name: "Frantz Locksmith Service",
     phone: "(916) 534-4900",
     email: "frantzlocksmith@hotmail.com",
-    area: "Sacramento CA and Surrounding Cities",
+    area: "Sacramento & West Sacramento, CA",
     hours: "Mon-Fri 9AM-4PM",
     license: "CA LCO 4160",
     since: "1985"
@@ -360,7 +360,7 @@ function respond(input) {
     r += "**Quick checks you can do right now:**\n• " + K.jammed.check.join('\n• ') + "\n\n";
     r += "**If it's a combo lock:** Did you dial 4 full turns left past zero before starting? The wheels need to be reset first.\n\n";
     r += "**⚠️ Warning:** " + K.jammed.warning + "\n\n";
-    r += "**If you're in Sacramento CA or the surrounding cities, call (916) 534-4900.** I'll come take a look and try non-destructive opening first.";
+    r += "**If you're in Sacramento or West Sacramento, call (916) 534-4900.** I'll come take a look and try non-destructive opening first.";
     return r;
   }
 
@@ -510,7 +510,7 @@ function respond(input) {
 
   // Contact
   if (q.includes("call") || q.includes("phone") || q.includes("email") || q.includes("contact") || q.includes("reach") || q.includes("talk") || q.includes("number")) {
-    return `**Frantz Locksmith Service**\n\n📞 **(916) 534-4900**\n✉️ frantzlocksmith@hotmail.com\n📍 Serving Sacramento CA and Surrounding Cities\n\n**Hours:** Mon-Fri 9AM-4PM\n**License:** CA LCO 4160\n\nGive me a call — if I can't answer, leave a message and I'll call you back.`;
+    return `**Frantz Locksmith Service**\n\n📞 **(916) 534-4900**\n✉️ frantzlocksmith@hotmail.com\n📍 Sacramento & West Sacramento (mobile service)\n\n**Hours:** Mon-Fri 9AM-4PM\n**License:** CA LCO 4160\n\nGive me a call — if I can't answer, leave a message and I'll call you back.`;
   }
 
   // Thanks
