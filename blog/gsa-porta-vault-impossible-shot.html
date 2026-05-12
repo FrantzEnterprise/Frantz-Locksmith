@@ -32,10 +32,10 @@
     .blog-article .related-link a { color: #1a3a5c; font-weight: 600; text-decoration: none; }
     .blog-article .related-link a:hover { color: #d4a843; }
     @media (max-width: 600px) { .blog-article { padding: 24px 20px; } .blog-article h1 { font-size: 1.4rem; } }
-    .photo-grid-4 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+    .photo-grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin: 24px 0; }
     .photo-grid-4 img { width: 100%; border-radius: 10px; display: block; }
-    .photo-grid-4 p { grid-column: span 2; margin: 0 0 8px; font-size: 0.82rem; color: #6c757d; text-align: center; }
-    @media (max-width: 500px) { .photo-grid-4 { grid-template-columns: 1fr; } .photo-grid-4 p { grid-column: 1; } }
+    .photo-grid-4 p { grid-column: 1 / -1; margin: 0 0 8px; font-size: 0.82rem; color: #6c757d; text-align: center; }
+    @media (max-width: 500px) { .photo-grid-4 { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -89,7 +89,8 @@
         <img src="../images/repair/gsa-porta-vault-hole.jpg" alt="1/4 inch surgical hole next to the dial">
         <img src="../images/repair/gsa-dual-custody-screw.jpg" alt="Dual custody settings screw through the drill hole">
         <img src="../images/repair/gsa-screw-close.jpg" alt="Close-up of the settings screw perfectly aligned through the 1-4 inch hole">
-        <p>Left to right: The vault, the hole, the dual custody screw in frame, the screw dead center through the hole.</p>
+        <img src="../images/repair/gsa-porta-vault-inside-door.jpg" alt="Inside the GSA Porta-A-Vault door showing the mechanism">
+        <p>The vault, the surgical hole, the settings screw exposed, the close-up, and the inside of the door showing the mechanism.</p>
       </div>
 
       <p>Most guys look at a GSA container and guess. They drill wide, miss the screw, and end up chasing the lock through the door — leaving a mess of holes and a safe that's compromised.</p>
