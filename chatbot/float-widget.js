@@ -262,7 +262,84 @@ function respond(input) {
     return "I'm Frantz's Safe Assistant. Robert Frantz is the owner of Frantz Locksmith Service \u2014 a safe specialist in Sacramento since 1985. He's got 40+ years of experience, CA LCO 4160 license, GSA certified (X-07 through X-10), licensed and insured. He services safes of all types: gun safes, floor safes, antique safes, commercial safes, and government containers. Mobile service only \u2014 he comes to you.\n\n\u{0001F4DE} (916) 534-4900";
   }
 
-  // ============ FALLBACK ============
+  
+  // ============ LOCKSMITH KNOWLEDGE ============
+
+  // Pin tumbler locks
+  if (m(["pin tumbler","pin lock","standard lock","cylinder lock","how a lock works","schlage","kwikset"])) {
+    return "Pin tumbler locks are the most common type in homes and businesses. Inside the cylinder are 5-7 spring-loaded pins that align at the shear line when the correct key is inserted. When aligned, the plug turns and retracts the latch or deadbolt.\n\nHigher security versions use: security pins (spool, serrated, mushroom) to resist picking, restricted keyways (Medeco, Mul-T-Lock), or bump-resistant designs.\n\nCall (916) 534-4900 for lock service or replacement.";
+  }
+
+  // Wafer & disc locks
+  if (m(["wafer lock","wafer tumbler","disc lock","disc tumbler","file cabinet lock","cabinet lock","mailbox lock","locker lock","cam lock","desk lock"])) {
+    return "Wafer locks use flat wafers instead of pins. Found in file cabinets, mailboxes, lockers, desks, cam locks, and some padlocks. Wafers are spring-loaded and align at the shear line when the correct key is inserted. Less secure than pin tumbler locks. Common on inexpensive cabinets and utility applications. If a better lock is needed, I can rekey the cabinet to a higher-security cylinder or suggest an upgrade.";
+  }
+
+  // Disc detainer locks
+  if (m(["disc detainer","detainer lock","rotating disc","rotating tumbler","aboy","abloy"])) {
+    return "Disc detainer locks use rotating discs instead of pins. Each disc has a notch that must align to create a gate, allowing the sidebar to drop in and unlock. Abloy locks use this technology. Very pick-resistant when well made. Common on high-security padlocks, bike locks, and some commercial applications. These are harder to pick and drill than standard pin tumbler locks.";
+  }
+
+  // Dimple locks
+  if (m(["dimple lock","dimple key","mullion","mul-t-lock"])) {
+    return "Dimple locks use a flat key with dimples (drilled holes) instead of traditional biting. The pins are arranged parallel to the key surface, making them harder to pick. Common brands: Mul-T-Lock, Kaba. Used in high-security applications. Best for commercial settings requiring restricted key control.";
+  }
+
+  // Rekeying
+  if (m(["rekey","rekeying","change locks","change lock","new key","re-pin","repin","change keys"])) {
+    return "Rekeying means changing the pin configuration inside a lock so that old keys no longer work and new keys do. This is cheaper than replacing the entire lock. A locksmith removes the cylinder, replaces the pins, and cuts new keys. Pros: lower cost, same hardware, same look. Best after moving into a new home, losing a key, or when an employee leaves. Call (916) 534-4900 for rekeying.";
+  }
+
+  // Master keying
+  if (m(["master key","master keying","one key opens all","grand master","submaster","key system"])) {
+    return "Master keying is a system where multiple locks operate with their own individual keys AND a master key opens all of them. Common in apartments, office buildings, and schools. A grand master key opens multiple master-keyed groups. It works by adding extra pins (master wafers) inside the lock for an additional shear line. This requires careful planning by a professional locksmith. I can design and install a master key system for your property. Call (916) 534-4900.";
+  }
+
+  // Safe construction
+  if (m(["safe construction","steel thickness","concrete safe","fire lining","how safes are made","safe composite","plate steel","safe body","body thickness","door thickness"])) {
+    return "Safe construction varies widely by purpose and price:\n\n\u2022 Basic gun safes: thin sheet steel over particle board or drywall for fire resistance. Bolt holes visible from the outside.\n\u2022 Fire-rated safes: layered with concrete-like insulation between steel skins. The fire seal expands when heated.\n\u2022 Burglary-rated (TL-15/30): heavy steel plate (1/4-inch to 1/2-inch door), hardplate protecting the lock area.\n\u2022 High security (TRTL-30x6): 1-inch+ steel door, massive hardplate, relockers, ceramic composite layers. Weighs thousands of pounds.\n\nKey point: an expensive-looking safe with a beautiful paint job can be thin sheet metal. Good safes are measured in pounds and steel thickness, not looks.";
+  }
+
+  // Safe ratings depth
+  if (m(["tl-15","tl-30","trtl","ul listed","ul rating","burglary rating","burglar rating","tool attack","net attack","torch attack"])) {
+    return "UL Burglary Ratings (in order of increasing security):\n\n\u2022 RSC (Residential Security Container): minimum 15 min attack. Basic.\n\u2022 TL-15: tool attack for 15 minutes (safes under 750 lbs must be anchored). 1/4-inch+ steel door.\n\u2022 TL-30: tool attack for 30 minutes. 1/2-inch+ steel door.\n\u2022 TL-30x6: tool attack from all 6 sides for 30 minutes. Full body protection.\n\u2022 TRTL-30: tool + torch attack for 30 minutes.\n\nTRTL-30x6: tool + torch from all 6 sides for 30 minutes. The highest standard. Your safe's rating directly correlates with time a professional burglar would need to bypass it. Most residential burglars give up after 5-10 minutes.";
+  }
+
+  // Safe tooling / methodology
+  if (m(["scope","boroscope","flex shaft","magnetic drill","hole saw","end mill","carbide burr","safe drill","hardplate drill","precision drilling method"])) {
+    return "Professional safe technicians use specialized tools:\n\n\u2022 Boroscope/Scope: a tiny camera inserted through a 1/8-inch hole to see the lock wheels and relocker positions.\n\u2022 Flex shaft: a flexible rotary tool that drills precisely around corners.\n\u2022 Magnetic drill: drills through hardplate that a hand drill won't touch.\n\u2022 Carbide end mills/burrs: cut through hardened steel (regular drill bits won't work).\n\nAmateurs use sawzalls, grinders, and crowbars \u2014 which destroy the safe. A pro's toolkit means the difference between a $250 repair and a $10,000 replacement.";
+  }
+
+  // Key cutting / duplication
+  if (m(["key cutting","duplicate key","copy key","make a key","cut a key","key code","code cut", "code to key","edge cut","laser cut","restricted keyway","medeco key","mul-t-lock key"])) {
+    return "Key cutting can be done by code (using the key's code number) or by duplicating (copying an existing key).\n\n\u2022 Standard edge-cut keys: most common house keys, quick to duplicate.\n\u2022 Laser-cut / sidewinder keys: car keys with a groove in the center.\n\u2022 Restricted keyways (Medeco, Mul-T-Lock): cannot be duplicated without authorization. Extra secure.\n\nI can cut keys by code using the serial number. If you're locked out and have no key, I can impression a key by hand. Call (916) 534-4900.";
+  }
+
+  // Door hardware
+  if (m(["deadbolt","panic bar","exit device","door closer","closer","hinge","electric strike","door hardware","rim lock","mortise lock","bored lock","cylindrical lock"])) {
+    return "Common door hardware types:\n\n\u2022 Deadbolt: bolt slides into the door frame. Single cylinder (key outside, thumb turn inside) or double cylinder (key both sides).\n\u2022 Panic bar / exit device: horizontal bar that opens the latch when pushed. Required for commercial occupied spaces.\n\u2022 Door closer: hydraulic or spring device controlling door closing speed.\n\u2022 Electric strike: replaces the standard strike plate; releases the door when energized from access control.\n\nAll require proper installation for security and safety. I can install, repair, or upgrade any of these. Call (916) 534-4900.";
+  }
+
+  // Access control
+  if (m(["access control","card reader","keyless entry","mag lock","magnetic lock","electronic lock","fob","rfid","proximity reader","keypad entry","wiegand","standalone access"])) {
+    return "Access control systems manage who enters and when. Common types:\n\n\u2022 Keypad: enter a code to unlock (simplest, lowest cost).\n\u2022 Card reader / Fob: swipe or tap RFID card/fob.\n\u2022 Biometric: fingerprint, retina, face, or hand geometry (most secure).\n\u2022 Mag lock: powerful electromagnet holds door closed, releases on signal. Meets fire safety (fails open on power loss).\n\nSystems can be standalone (single door) or networked (central management, scheduled access, audit trail). I can advise on the right system for your needs.";
+  }
+
+  // Lock picking / non-destructive entry
+  if (m(["lock picking","pick locks","rake","bump key","bumping","electric pick","gun pick","snap gun","non-destructive","non destructive"])) {
+    return "Lock picking is the non-destructive method of opening locks using specialized tools to simulate the action of the key. Methods:\n\n\u2022 Single pin picking (SPP): manipulates each pin individually. Requires skill and feel.\n\u2022 Raking: rapid back-and-forth motion to bounce pins to the shear line. Faster but less reliable.\n\u2022 Bumping: uses a specially cut key to transfer energy to the pins. Requires accuracy.\n\nA pro always attempts non-destructive entry first. It leaves no damage and takes 5-30 minutes depending on the lock's complexity. For safes, this is called manipulation (listening to the wheel pack). If non-destructive fails, precision drilling is the next step.";
+  }
+
+  // Residential vs commercial
+  if (m(["residential","commercial","home security","business security","apartment security","office security","storefront","commercial locks"])) {
+    return "Residential and commercial security are different animals:\n\nResidential: deadbolts, knob locks, smart locks. Focus is convenience and basic deterrence. Grade 2 or 3 hardware is typical.\n\nCommercial: heavy-duty Grade 1 hardware, panic bars, access control, master key systems. Focus is code compliance, audit trails, and employee access management. Insurance often mandates commercial-grade hardware.\n\nSafe requirements also differ: residential = fire + theft deterrence in a home (gun safe or RSC generally enough). Commercial = TL-15 or higher, often bolted to concrete with alarm integration. I do both. Call (916) 534-4900 for a consultation.";
+  }
+
+  // Car keys / automotive
+  if (m(["car key","car lock","transponder key","chip key","laser key","car unlock","locked out of car","automotive key","remote key","fob battery","program key"])) {
+    return "I handle basic automotive lockout situations on-site.\n\nModern car keys:\n\u2022 Transponder chip: key has an embedded chip that communicates with the car's immobilizer. A simple copy won't start the car.\n\u2022 Proximity fob: keyless entry with push-button start. Expensive to replace.\n\nIf you're locked out of your vehicle in the Sacramento area, call (916) 534-4900. For basic unlock and standard keys I can help on-site. For complex transponder programming and chip keys it depends on the vehicle make/model \u2014 ask when you call.";
+  }
+// ============ FALLBACK ============
   return "I'm sorry, I don't know the answer to that specific question yet. Try asking about:\n\n\u{0001F512} My safe won't open\n\u{0001F523} Forgot my combination\n\u{0001F50B} Dead battery\n\u{0001F4DE} How much to open a safe?\n\u{0001F4A1} Tell me about antique safes\n\u{0001F4D6} What blog stories do you have?\n\nOr call Robert at (916) 534-4900.";
 }
 /* ==================== UI ==================== */
