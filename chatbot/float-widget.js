@@ -144,13 +144,18 @@ function respond(input) {
     return "Quick checks before calling:\n\u2022 Dial safes: did you dial 4 full turns past zero before starting? Most common mistake.\n\u2022 Electronic: is the battery dead? Try a 9V jump start (see above).\n\u2022 Is something inside blocking the door? (shelf fell, item shifted)\n\u2022 Is the handle in the right position? Some need horizontal.\n\u2022 Is the safe on uneven ground? Try shimming a corner.\n\n\u26A0\uFE0F DO NOT hammer the handle, pry the door, or use a crowbar. A $200 fix becomes $500+.\n\n\u{0001F4DE} Call (916) 534-4900 \u2014 I'll walk you through it or come out.";
   }
 
-  // Jammed / stuck
-  if (m(["jammed","stuck","won't turn","not turning","dial stuck"])) {
+  // Solenoid / keypad lights up (must come BEFORE jammed rule to catch "won't turn" + keypad queries)
+  if (!m(["biometric","fingerprint"]) && (m(["solenoid","solenoid issue","solenoid stick","solenoid jam","solenoid failure","solenoid lock","keypad lights up","lights up but","beeps but","lights up nothing","handle does not turn","handle not turning","keypad works","keypad beeps"]) || (q.indexOf("keypad") !== -1 && q.indexOf("lights up") !== -1) || (q.indexOf("beep") !== -1 && (q.indexOf("handle") !== -1 || q.indexOf("no" !== -1))))) {
+    return "This sounds like the solenoid isn't releasing. When the keypad lights up and beeps correctly but the handle won't turn, the solenoid (a small electromagnet) may have failed, or a wire came loose.\n\n\u2022 Quick check: is the battery fresh? Low voltage can cause the keypad to work but the solenoid to not have enough power to pull.\n\u2022 If new batteries don't fix it: the solenoid likely needs replacement. It's a $20-$50 part plus labor.\n\nDo NOT keep hammering the handle \u2014 you can bend the lock bar. Call (916) 534-4900.";
+  }
+
+  // Jammed / stuck (with exclusion for keypad-related queries)
+  if (!q.includes("keypad") && !q.includes("lights up") && m(["jammed","stuck","won't turn","not turning","dial stuck"])) {
     return "Don't force it! Check:\n\u2022 Is something inside the safe blocking the door? (shelf fell, box shifted)\n\u2022 Dial turns but doesn't engage wheel pack? Reset by turning left 4 full times.\n\u2022 Handle won't turn? The lock bar may be caught on a relocker.\n\u2022 Is the safe on uneven ground? A shim under one corner can fix alignment.\n\n\u26A0\uFE0F If you force it, you'll break the handle or lock. Call me instead.\n\n\u{0001F4DE} (916) 534-4900";
   }
 
   // Change combination
-  if (m(["change combination","change combo","change code","new combination","new code","set new","reset code"])) {
+  if (m(["change combination","change combo","change my combo","change code","new combination","new code","set new","reset code"])) {
     if (m(["digital","electronic","keypad"])) {
       return "For most digital locks: open the safe, press the program/change button (often hidden behind a panel or inside the battery compartment), enter current code + #, enter new code + #, test 5 times with the door open before closing. Button locations vary by brand \u2014 check your manual. Call if you get stuck.";
     }
@@ -169,13 +174,12 @@ function respond(input) {
 
   // ============ SAFE OPENING METHODS ============
   if (m(["how to open","how safes are opened","safe opening methods","opening a safe","how do you open","ways to open","open a locked safe","opening method","safe opened","methods to open","how to get into","how to break into"])) {
-    return TIPS.opening.content + "\n\n\u{0001F4D6} Full article: " + TIPS.opening.url + "\n\u{0001F4DE} (916) 534-4900";
+    return "Safe Opening Methods:\n\n" + TIPS.opening.content + "\n\n\u{0001F4D6} Full article: " + TIPS.opening.url + "\n\u{0001F4DE} (916) 534-4900";
   }
 
   // Drill — safe ruined?
-  // Drill — safe ruined?
   if (m(["drill destroyed","drill ruin","drilling destroy","drill damage","drill safe damage","drill break","amateur drill","drill ruin safe","destroyed safe","totaled safe","drill fire","drill relocker","blind drill","drill trigger","drilling ruin","drilling ruined","ruin a safe","ruin my safe","destroy a safe","wreck my safe","safe wrecked","amateur destroyed","safe totaled","safe ruined"]) || (q.indexOf("drill") !== -1 && (q.indexOf("destroyed") !== -1 || q.indexOf("ruined") !== -1 || q.indexOf("totalled") !== -1 || q.indexOf("wreck") !== -1)) || (q.indexOf("destroyed") !== -1 && q.indexOf("safe") !== -1 && q.indexOf("still") === -1)) {
-    return TIPS.opening.content + "\n\nAnd one more thing: if an amateur drills blind and hits the relocker or the fire lining, that $500 repair turns into a $10,000 replacement. I've seen it happen many times." + "\n\n\u{0001F4D6} " + TIPS.opening.url + "\n\u{0001F4DE} (916) 534-4900";
+    return "Does drilling destroy a safe? It depends on who does it.\n\nProfessional drilling: one clean 1/4-inch hole in the right spot, then patched. The safe works fine. $250-$500+.\n\nAmateur drilling: misses the lock, hits the relocker, destroys fire lining, totals the safe. $10K+ to replace.\n\nAlways start with manipulation (no damage, $150-$350) before anyone drills.\n\n\u{0001F4D6} Full article: " + TIPS.opening.url + "\n\u{0001F4D6} Read the cheaper guy story: " + STORIES.cheaper.url + "\n\n\u{0001F4DE} (916) 534-4900";
   }
 
   // Hours
@@ -336,10 +340,7 @@ function respond(input) {
     return "Safe scoping uses a tiny camera (boroscope) inserted through a small drilled hole (1/8-inch or smaller) to see inside the lock mechanism.\n\n\u2022 Purpose: visually locate wheel positions, relockers, and wiring without fully dismantling anything.\n\u2022 Hole size: typically 1/16-inch to 1/8-inch. Barely visible afterwards and easy to plug.\n\u2022 What we see: wheel gates, relocker spring positions, solenoid placement, wiring conditions.\n\nScoping is a precision technique between manipulation and drilling. It gives the tech visual confirmation before committing to a drill point. Not all techs have or use a boroscope. Robert does for complex jobs.";
   }
 
-  // ============ SOLENOID ISSUES (NOT JUST BIOMETRIC) ============
-  if (m(["solenoid","solenoid issue","solenoid stick","solenoid jam","solenoid failure","solenoid lock","keypad lights up","lights up but","beeps but","lights up nothing","handle does not turn","handle not turning","keypad works won't open","keypad beeps won't open"]) && !m(["biometric","fingerprint"])) {
-    return "Solenoid problems are a common failure in electronic safe locks.\n\n\u2022 What a solenoid does: when the correct code is entered, the circuit board sends a pulse of power to a small electromagnet (solenoid) that pulls a pin out of the lock bar, allowing the bolts to retract.\n\u2022 Failure signs: keypad lights up and beeps, but the handle still will not turn. Or you hear a faint click but nothing releases.\n\u2022 Causes: solenoid wears out (mechanical failure), contacts corrode, low battery voltage, or the solenoid pin sticks from dirt or grease.\n\u2022 Fix: replacement solenoid is usually a $20-$50 part. Requires removing the lock, opening the solenoid housing, and swapping.\n\nDo not keep hammering the handle if the solenoid fails. You can bend the locking bar. Call me for solenoid service.";
-  }
+
 
   // ============ SAFE BRAND KNOWLEDGE ============
   if (m(["amsce","amsec","gardall","mosler","diebold","stellar","major safe","browning","fort knox","hayman","mcmahon","herring","merril","national safe","j j taylor","chubb","ratner","kaso","apacs","ketcham","ball","patterson","waltz","lebeaux"])) {
