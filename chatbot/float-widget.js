@@ -173,7 +173,7 @@ function respond(input) {
   }
 
   // ============ SAFE OPENING METHODS ============
-  if (m(["how to open","how safes are opened","safe opening methods","opening a safe","how do you open","ways to open","open a locked safe","opening method","safe opened","methods to open","how to get into","how to break into"])) {
+  if (m(["how to open","how safes are opened","safe opening methods","opening a safe","how do you open","ways to open","open a locked safe","opening method","safe opened","methods to open","how to get into","how to break into","can a safe be opened","can my safe be opened","safe be opened","safe opened and","open and repair","can be opened","safe can be","can a safe be"]) || (q.indexOf("open") !== -1 && q.indexOf("repair") !== -1 && q.indexOf("safe") !== -1) || (q.indexOf("can") !== -1 && q.indexOf("open") !== -1 && q.indexOf("safe") !== -1 && q.indexOf("repair") !== -1) || (q.indexOf("can") !== -1 && q.indexOf("be opened") !== -1 && q.indexOf("safe") !== -1) || (q.indexOf("safe") !== -1 && q.indexOf("be fixed") !== -1)) {
     return "Safe Opening Methods:\n\n" + TIPS.opening.content + "\n\n\u{0001F4D6} Full article: " + TIPS.opening.url + "\n\u{0001F4DE} (916) 534-4900";
   }
 
