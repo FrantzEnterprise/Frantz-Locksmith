@@ -19,7 +19,7 @@ const STORIES = {
              summary: "I've seen what happens when an amateur drills into a safe blind \u2014 drilled through the bolts, trigger the relockers, destroy the fire lining, and turn a $500 repair into a $10,000 replacement. The article shows 4 photos of amateur damage and 4 photos of professional repair. The bottom line: when you need a safe opened, the cheapest guy is the most expensive choice you can make.",
              url: "blog/why-hire-a-pro-safe-tech.html" },
   network: { title: "The Call That Tested the Network",
-             keywords: ["network","protege","glazer","glazer safe","probate","out of town","backup","coverage","can't make it"],
+             keywords: ["network","protege","glazer","glazer safe","probate","out of town","backup","coverage","can't make it","the call","tested the network"],
              summary: "A probate safe opening, Friday 4PM deadline, and I was out of town. My protege Mr. Glazer (Glazer Safe & Lock) stepped in and handled it. This is what a professional network looks like \u2014 even when I can't be there, a trusted expert with the same standards covers for you.",
              url: "blog/the-call-that-tested-the-network.html" },
   surgical: { title: "Surgical Drilling \u2014 A Liberty Safe Repair Walkthrough",
@@ -31,7 +31,7 @@ const STORIES = {
              summary: "A historic gas station with an antique Johnson Pacific floor safe that multiple people said 'can't be opened without destroying it.' I opened it non-destructively and restored it to working condition.",
              url: "blog/johnson-pacific-floor-safe.html" },
   crush: { title: "A Bent Wire and a $0.20 Part \u2014 How This Liberty Safe Opened Without a Scratch",
-           keywords: ["bent wire","crush washer",".20","$0.20","stout wire","guide slot","locking tab","no damage","no drill","no cut"],
+           keywords: ["bent wire","crush washer",".20","$0.20","stout wire","guide slot","locking tab","no damage","no drill","no cut","saw","guy with a saw","wire through","poked a wire","fished a wire"],
            summary: "A Liberty Safe with a faulty crush washer had the locking tab stuck. A guy with a saw wanted to cut it open. I fished a stout wire through the guide slot, lifted the locking tab, and had it open in minutes. No damage. No drilling. No cutting. The fix was a $0.20 part.",
            url: "blog/liberty-safe-crush-washer.html" },
   macneale: { title: "From the Scrapyard to a Family Heirloom \u2014 Saving a Macneale & Urban Antique Safe",
@@ -85,7 +85,7 @@ function respond(input) {
   }
 
   // Off-topic detection
-  const safeTopics = ["safe","lock","key","dial","combo","combination","code","keypad","biometric","bolt","handle","hinge","door","open","close","jammed","stuck","rust","corrosion","relocker","solenoid","spring","battery","dead","fire","burglary","burglar","thief","drill","manipulation","spin","right","left","turn","call","phone","email","number","hours","price","cost","quote","estimate","license","lco","insured","buy","purchase","choose","select","recommend","maintenance","service","repair","antique","vintage","floor","gun","rifle","pistol","document","cash","jewelry","commercial","tl-15","tl-30","trtl","amsce","gardall","sentry","s&g","sargent","lagard","kaba","mosler","liberty","cannon","stack-on","digital","electronic","mechanical","wheel pack","drive cam","change","reset","forgot","lost","hello","hi","hey","thanks","thank you","drop slot","deposit","tubular","emergency","weekend","after hours","frantz","sacramento","west sacramento","x-07","x-08","x-09","x-10","gsa","porta vault","probate","heirloom","scrapyard","restoration","walkthrough","photo","$3k","$6k","$3,000","$5,000","$7,000","$10,000","3,000","5,000","7,000","10,000","crush washer","bent wire","surgical","network","coverage","backup","protege","glazer","johnson pacific","macneale","macneale & urban","urban","tips","tip","tricks","article","story","read","blog","post"];
+  const safeTopics = ["safe","lock","key","dial","combo","combination","code","keypad","biometric","bolt","handle","hinge","door","open","close","jammed","stuck","rust","corrosion","relocker","solenoid","spring","battery","dead","fire","burglary","burglar","thief","drill","manipulation","spin","right","left","turn","call","phone","email","number","hours","price","cost","quote","estimate","license","lco","insured","buy","purchase","choose","select","recommend","maintenance","service","repair","antique","vintage","floor","gun","rifle","pistol","document","cash","jewelry","commercial","tl-15","tl-30","trtl","amsce","gardall","sentry","s&g","sargent","lagard","kaba","mosler","liberty","cannon","stack-on","digital","electronic","mechanical","wheel pack","drive cam","change","reset","forgot","lost","hello","hi","hey","thanks","thank you","drop slot","deposit","tubular","emergency","weekend","after hours","frantz","sacramento","west sacramento","x-07","x-08","x-09","x-10","gsa","porta vault","probate","heirloom","scrapyard","restoration","walkthrough","photo","$3k","$6k","$3,000","$5,000","$7,000","$10,000","3,000","5,000","7,000","10,000","crush washer","bent wire","surgical","network","coverage","backup","protege","glazer","johnson pacific","macneale","macneale & urban","urban","tips","tip","tricks","article","story","read","blog","post","saw","guy","how to","ways to","method","noise","sound"];
 
   if (!safeTopics.some(function(k) { return q.indexOf(k) !== -1; }) && !/^\d/.test(q)) {
     return "I'm sorry, I only answer questions about safes and locks. I'm Frantz's Safe Assistant. Try asking about safe opening, combination help, maintenance, or some of my real job stories. Or call (916) 534-4900 to talk to Robert directly.";
@@ -99,11 +99,11 @@ function respond(input) {
   }
 
   // ============ TIPS & TRICKS ============
-  if (m(["dial sequence","dialing","how to dial","turn the dial"]) || (q.indexOf("left") !== -1 && q.indexOf("right") !== -1 && q.indexOf("turn") !== -1 && q.indexOf("handle") === -1)) {
+  if (m(["dial sequence","dialing","how to dial","turn the dial","dial my safe","dial a combo","dial a combination","dial safe"]) || (q.indexOf("left") !== -1 && q.indexOf("right") !== -1 && q.indexOf("turn") !== -1 && q.indexOf("handle") === -1)) {
     return TIPS.dial_combo.content + "\n\n\u{0001F4D6} Full walkthrough: " + TIPS.dial_combo.url;
   }
 
-  if (m(["buy","purchase","get a safe","new safe","what safe","recommend","looking for a"])) {
+  if (m(["buy","purchase","get a safe","new safe","what safe","recommend","looking for a","best safe","best brand","which brand","top brand","bought a safe","just bought"])) {
     return TIPS.buying.content + "\n\n\u{0001F4D6} Full buying guide: " + TIPS.buying.url + "\n\u{0001F4D6} Fire ratings: " + TIPS.fire.url;
   }
 
@@ -130,7 +130,7 @@ function respond(input) {
 
   // ============ COMMON PROBLEMS ============
   // Forgot combo
-  if (m(["forgot","forget","lost combination","lost code","can't remember","don't know the","don't remember"])) {
+  if (m(["forgot","forget","lost combination","lost code","lost combo","lost my combination","lost my combo","lost the combination","can't remember","don't know the","don't remember","standard combination","standard combo","default combination","default combo","factory combination","factory combo"])) {
     return "Try common factory combos first: 50-25-50, 20-40-60, 10-20-30, or 0-0-0 (with handle).\nCheck your paperwork \u2014 sometimes on warranty card or inside battery compartment.\nIf you have the lock serial number, I can look up the factory combo.\n\nIf none work: I can open it by manipulation ($150-$350) with no damage, or drill it ($250-$500+) and patch it. I always try manipulation first.\n\n\u{0001F4D6} Full guide: " + TIPS.costs.url;
   }
 
@@ -158,7 +158,7 @@ function respond(input) {
   }
 
   // Pricing
-  if (m(["cost","price","how much","estimate","quote","rate","fee","charge"])) {
+  if (q.indexOf("feel") === -1 && q.indexOf("feels") === -1 && m(["cost","price","how much","estimate","quote","rate","fee","charge"])) {
     return "Typical pricing:\n\u2022 Simple lockout (no damage): $100-$200\n\u2022 Manipulation (non-destructive): $150-$350\n\u2022 Drill opening with patch/repair: $250-$500+\n\u2022 New lock installed: $100-$250\n\u2022 Combination change: $50-$150\n\u2022 Annual maintenance: $75-$150\n\n\u26A0\uFE0F If an amateur has already attacked the safe, costs go up \u2014 relockers and fire damage are expensive to fix.\n\n\u{0001F4D6} Full cost guide: " + TIPS.costs.url + "\n\n\u{0001F4DE} (916) 534-4900 for exact quote";
   }
 
@@ -167,8 +167,19 @@ function respond(input) {
     return "Frantz Locksmith Service\n\u2022 CA Locksmith License: LCO 4160\n\u2022 Issued by: California DCA \u2014 Bureau of Security & Investigative Services\n\u2022 Fully insured\n\u2022 GSA certified (X-07, X-08, X-09, X-10)\n\u2022 40+ years experience\n\nVerify my license: search.dca.ca.gov/advanced \u2014 search by name 'Robert Frantz' or license number 'LCO 4160'.";
   }
 
+  // ============ SAFE OPENING METHODS ============
+  if (m(["how to open","how safes are opened","safe opening methods","opening a safe","how do you open","ways to open","open a locked safe","opening method","safe opened","methods to open","how to get into","how to break into"])) {
+    return TIPS.opening.content + "\n\n\u{0001F4D6} Full article: " + TIPS.opening.url + "\n\u{0001F4DE} (916) 534-4900";
+  }
+
+  // Drill — safe ruined?
+  // Drill — safe ruined?
+  if (m(["drill destroyed","drill ruin","drilling destroy","drill damage","drill safe damage","drill break","amateur drill","drill ruin safe","destroyed safe","totaled safe","drill fire","drill relocker","blind drill","drill trigger","drilling ruin","drilling ruined","ruin a safe","ruin my safe","destroy a safe","wreck my safe","safe wrecked","amateur destroyed","safe totaled","safe ruined"]) || (q.indexOf("drill") !== -1 && (q.indexOf("destroyed") !== -1 || q.indexOf("ruined") !== -1 || q.indexOf("totalled") !== -1 || q.indexOf("wreck") !== -1)) || (q.indexOf("destroyed") !== -1 && q.indexOf("safe") !== -1 && q.indexOf("still") === -1)) {
+    return TIPS.opening.content + "\n\nAnd one more thing: if an amateur drills blind and hits the relocker or the fire lining, that $500 repair turns into a $10,000 replacement. I've seen it happen many times." + "\n\n\u{0001F4D6} " + TIPS.opening.url + "\n\u{0001F4DE} (916) 534-4900";
+  }
+
   // Hours
-  if (m(["hours","open","available","weekend","after hours","emergency","call out"])) {
+  if (m(["hours","available","weekend","after hours","emergency","call out"])) {
     return "\u{0001F4DE} (916) 534-4900\nMon-Fri: 9AM-4PM\nEmergency after-hours safe service available \u2014 call and leave a message, I'll call you back.\n\nMobile service only \u2014 I come to you in Sacramento, West Sacramento, and surrounding areas.";
   }
 
@@ -183,7 +194,7 @@ function respond(input) {
   }
 
   // Relocker
-  if (m(["relocker","secondary lock","triggered","fired relocker"]) || (q.indexOf("drill") !== -1 && q.indexOf("lock") !== -1 && q.indexOf("won't open") !== -1)) {
+  if (m(["relocker","secondary lock","triggered","fired relocker","drill blind","drill my safe"]) || (q.indexOf("drill") !== -1 && q.indexOf("lock") !== -1 && q.indexOf("won't open") !== -1) || (q.indexOf("drill") !== -1 && q.indexOf("own") !== -1 && q.indexOf("safe") !== -1)) {
     return "A relocker is a secondary lock that springs when someone drills or forces the main lock. Signs: handle turns freely but bolts won't retract. This is NOT a DIY fix. If someone already drilled your safe and it still won't open, the relocker fired. Call (916) 534-4900 \u2014 I deal with this regularly.";
   }
 
@@ -198,8 +209,13 @@ function respond(input) {
   }
 
   // Lost key
-  if (m(["lost key","broken key","key broke","key lost","missing key","key won't turn"])) {
+  if (m(["lost key","broken key","key broke","key lost","missing key","key won't turn","lost the key","misplaced key"])) {
     return "\u2022 Tubular keys: code is on the key head \u2014 a locksmith can cut a new one\n\u2022 Standard safe keys: code may be on the lock cylinder face\n\u2022 No code? I can 'impression' a key by hand (takes skill, saves drilling)\n\u2022 Worst case: drill the lock and replace\n\nCall (916) 534-4900 \u2014 I can often make a key without damaging the lock.";
+  }
+
+  // Loose dial / wobbly dial
+  if (m(["loose dial","dial loose","dial feels loose","dial wobbly","dial wobbles","loose combination dial"])) {
+    return "A loose or wobbly dial usually means one of three things:\n\n\u2022 The dial is screwed onto the spindle loosely \u2014 tighten the set screw on the side of the dial knob.\n\u2022 The drive cam spring is worn \u2014 the dial feels sloppy when turning. This needs a spring replacement ($75-$150).\n\u2022 The spindle bearings are worn \u2014 common on floor safes and very old safes. Needs professional service.\n\nDo NOT keep turning a loose dial. You can strip the spindle threads. Call (916) 534-4900.";
   }
 
   // Broken spring/dial spins
@@ -213,7 +229,7 @@ function respond(input) {
   }
 
   // Antique
-  if (m(["antique","vintage","old safe","cast iron","heirloom","old lock"])) {
+  if (m(["antique","vintage","old safe","older","old safes","cast iron","heirloom","old lock"])) {
     return "I work on antique safes regularly. Two recent stories:\n\u2022 " + STORIES.macneale.summary + "\n\n\u2022 " + STORIES.johnson.summary + "\n\nBoth opened without damage. Antique safes are valuable \u2014 never force them open.\n\n\u{0001F4D6} " + STORIES.macneale.url + "\n\u{0001F4D6} " + STORIES.johnson.url;
   }
 
@@ -248,7 +264,7 @@ function respond(input) {
   }
 
   // Hello / greeting
-  if (m(["hi","hello","hey","yo","sup","good morning","good afternoon"])) {
+  if (q.length < 20 && m(["hi","hello","hey","sup","good morning","good afternoon"])) {
     return "Hi there! I'm Frantz's Safe Assistant. I can help with:\n\u2022 Safe won't open\n\u2022 Forgotten combination\n\u2022 Dead battery\n\u2022 Dialing instructions\n\u2022 Pricing and quotes\n\u2022 Safe buying advice\n\u2022 Real stories from Robert's 40+ years\n\nWhat can I help you with?";
   }
 
@@ -286,7 +302,7 @@ function respond(input) {
   }
 
   // ============ SAFE SHELL / BODY CONSTRUCTION ============
-  if (m(["safe shell","body wrap","body construction","welded body","seamless body","corner seam","seam welds","sheet metal safe","monolithic safe"])) {
+  if (m(["safe shell","body wrap","body construction","welded body","seamless body","corner seam","seam welds","sheet metal safe","monolithic safe","wrapped shell","safe body","safe build"])) {
     return "Safe body construction quality:\n\n\u2022 Wrapped shell: a single piece of sheet metal bent into a U-shape, welded at one corner. Found on budget safes. Attacked easily at the single welded seam.\n\u2022 Welded plate: individual steel plates welded together at every edge. Significantly stronger than a wrapped shell.\n\u2022 Monolithic: a single casting or forging. Extremely rare and expensive (TRTL-60 level).\n\u2022 Lamination: layers of steel and composite material bonded together. Used by AMSEC, Gardall, and other premium brands.\n\nThe number of welds and the thickness of the steel directly correlates with time to defeat. Most homeowners do not know their expensive-looking safe has a single seam that can be peeled open with a pry bar.";
   }
 
@@ -321,7 +337,7 @@ function respond(input) {
   }
 
   // ============ SOLENOID ISSUES (NOT JUST BIOMETRIC) ============
-  if (m(["solenoid","solenoid issue","solenoid stick","solenoid jam","solenoid failure","solenoid lock"]) && !m(["biometric","fingerprint"])) {
+  if (m(["solenoid","solenoid issue","solenoid stick","solenoid jam","solenoid failure","solenoid lock","keypad lights up","lights up but","beeps but","lights up nothing","handle does not turn","handle not turning","keypad works won't open","keypad beeps won't open"]) && !m(["biometric","fingerprint"])) {
     return "Solenoid problems are a common failure in electronic safe locks.\n\n\u2022 What a solenoid does: when the correct code is entered, the circuit board sends a pulse of power to a small electromagnet (solenoid) that pulls a pin out of the lock bar, allowing the bolts to retract.\n\u2022 Failure signs: keypad lights up and beeps, but the handle still will not turn. Or you hear a faint click but nothing releases.\n\u2022 Causes: solenoid wears out (mechanical failure), contacts corrode, low battery voltage, or the solenoid pin sticks from dirt or grease.\n\u2022 Fix: replacement solenoid is usually a $20-$50 part. Requires removing the lock, opening the solenoid housing, and swapping.\n\nDo not keep hammering the handle if the solenoid fails. You can bend the locking bar. Call me for solenoid service.";
   }
 
@@ -336,12 +352,12 @@ function respond(input) {
   }
 
   // ============ LOCKSMITH TOOLS ============
-  if (m(["locksmith tools","lock pick set","tension wrench","pick gun","electric pick","broken key extract","plug spinner","key extract","lock shim","decoder tool","lock lubricant","graphite","wd40 on locks","houdini lock"])) {
+  if (m(["locksmith tools","lock pick set","tension wrench","pick gun","electric pick","broken key extract","plug spinner","key extract","lock shim","decoder tool","lock lubricant","graphite","wd40","wd-40","wd 40","houdini lock"])) {
     return "Common locksmith tools:\n\n\u2022 Pick Set: hooks, rakes, diamonds, city rakes. Used for manual picking.\n\u2022 Tension Wrench: applies rotational pressure. Essential. A locksmith always has several sizes.\n\u2022 Pick Gun (electric/manual): strikes all pins simultaneously. Faster but less precise.\n\u2022 Broken Key Extractor: thin hook-ended tool to fish out snapped keys.\n\u2022 Plug Spinner: rotates the plug 180 degrees to align pins after picking.\n\u2022 Key Decoder: measures pin depths from a key or lock to cut replacement keys.\n\nRegarding lubricants: NEVER use WD-40 on locks. It attracts dust and gums up over time. Use graphite powder or Houdini lock lubricant. WD-40 is a cleaner, not a lubricant. For safes, white lithium grease on the bolts, silicone spray on hinges.";
   }
 
   // ============ SAFE MOVING / INSTALLATION ============
-  if (m(["safe moving","move a safe","safe delivery","safe install","install safe","safe position","leveling safe","anchor safe","bolt down","concrete anchor","hilti anchor","safe dolly","lifting strap","safe skates"])) {
+  if (m(["safe moving","move a safe","safe delivery","safe install","install safe","safe position","leveling safe","anchor safe","bolt down","bolting safe","bolt to floor","concrete anchor","hilti anchor","safe dolly","lifting strap","safe skates"])) {
     return "Safe moving and installation:\n\n\u2022 I do not move safes myself. But I can advise.\n\u2022 Professional safe movers use: piano dollies, safe skates, lifting straps, ratchet straps.\n\u2022 Always bolt your safe to the floor: use concrete wedge anchors (Hilti or similar) into the slab. A 500 lb unsecured safe can be tipped and wheeled out by two thieves in 3 minutes.\n\u2022 Leveling: if the safe door frame twists from being on uneven ground, the door will not close or open properly. Use steel shims under the corners.\n\u2022 Fire rating: bolting a fire safe to concrete does not affect its fire rating. Do it.\n\nFor safe installation anchoring and leveling advice, call (916) 534-4900.";
   }
 
@@ -386,7 +402,7 @@ function respond(input) {
   }
 
   // ============ GENERAL SAFE TROUBLESHOOTING ============
-  if (m(["troubleshoot","troubleshooting","safe checklist","quick check","safe diagnosis","diagnose safe","whats wrong","safe wont close","door wont close","door hits frame","sticks halfway","binds","drooping door","sagging door","door sag","door binding"])) {
+  if (m(["troubleshoot","troubleshooting","safe checklist","quick check","safe diagnosis","diagnose safe","whats wrong","safe wont close","door wont close","door hits frame","sticks halfway","binds","drooping door","sagging door","door sag","door binding","safe drooping","safe sagging","drooping safe","door sagging","noise","weird noise","strange noise","grinding noise","clicking noise","rattling","making a noise","loud noise","odd noise","strange sound","funny sound","safe making","clicking","clicking sound","grinding sound","making a sound","scraping"]) || (q.indexOf("sound") !== -1 && q.indexOf("safe") !== -1) || (q.indexOf("click") !== -1 && q.indexOf("safe") !== -1) || (q.indexOf("grind") !== -1 && q.indexOf("safe") !== -1)) {
     return "Common problems and quick checks:\n\n\u2022 Will not open at all: dead battery? Did you dial correctly? Is something blocking the door inside?\n\u2022 Dial spins freely: broken drive cam spring. Needs repair.\n\u2022 Handle turns but nothing happens: the locking bar is disconnected or the relocker fired.\n\u2022 Door will not close or sticks: hinges need adjustment or the safe settled (especially floor safes). Check for debris in the bolt holes.\n\u2022 Safe drooping (door sag): the lower hinge has worn or bent. Needs hinge pin replacement or shimming.\n\u2022 Keypad lights up but handle will not turn: solenoid failure or the lock bolt is binding.\n\nIf it is not obvious from the checklist, call (916) 534-4900. Quick diagnosis over the phone is free.";
   }
 
@@ -411,7 +427,7 @@ function respond(input) {
   }
 
   // ============ KEYPAD vs DIAL (Mechanical vs Electronic) ============
-  if (m(["keypad vs dial","mechanical vs electronic","dial vs keypad","dial vs electronic","mechanical lock vs electronic","which is better keypad","electronic lock pros and cons","mechanical lock pros and cons","simplex lock","push button lock","mechanical push button"])) {
+  if (m(["keypad vs dial","mechanical vs electronic","dial vs keypad","dial vs electronic","mechanical lock vs electronic","which is better keypad","electronic lock pros and cons","mechanical lock pros and cons","simplex lock","push button lock","mechanical push button","dial lock vs","mechanical lock better","keypad or dial"])) {
     return "Mechanical (dial) vs Electronic (keypad) locks:\n\n\u2022 Mechanical dial: no batteries, never dies, no electronics to fail. Lasts decades. Slower to open. More secure (harder to bypass). Best for long-term storage and gun safes that are accessed rarely.\n\u2022 Electronic keypad: quick open, easy code change. Vulnerable to battery failure, solenoid failure, circuit board failure. Convenient for daily use safes.\n\u2022 Simplex / mechanical push button: no batteries, uses a mechanical combination mechanism. Popular for gun safes and secure rooms. Best balance of speed and reliability.\n\nRoberts recommendation: mechanical or Simplex for anything you absolutely must secure. Electronic for everyday convenience safes. For guns, a Simplex lock is the gold standard.";
   }
 // ============ LOCKSMITH KNOWLEDGE ============
