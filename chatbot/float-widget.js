@@ -263,7 +263,158 @@ function respond(input) {
   }
 
   
-  // ============ LOCKSMITH KNOWLEDGE ============
+  
+
+  // ============ COMBINATION LOCK DIAL TYPES ============
+  if (m(["s&g green dial","s&g silver dial","la gard dial","kaba mas dial","digital safe","dial markings","preset dial","direct drive dial"])) {
+    return "Dial types you will encounter:\n\n\u2022 S&G (Sargent & Greenleaf): green or silver body. 3 numbers for Group 2, 4 numbers for Group 1 (GSA). Standard industry dial.\n\u2022 LaGard: common on older safes. Dial spins smoothly.\n\u2022 Kaba Mas: high-security electronic + mechanical hybrid. Touchscreen models available.\n\u2022 Preset Dials (S&G 3070): numbers are fixed at the factory, not changeable without a locksmith. Always labeled on the side.\n\u2022 Direct Drive: the dial is directly connected to the wheel pack. No spring drive. Must be careful not to overshoot the numbers.\n\nIf your dial feels different than usual or the numbers do not line up, call (916) 534-4900 to get it checked.";
+  }
+
+  // ============ WHEELPACK / DRIVE CAM / FLYWHEEL ============
+  if (m(["wheel pack","wheelpack","wheels","flywheel","drive cam","spider spring","snail cam","wheel alignment","wheel gate","false gate"])) {
+    return "Inside a safe combination lock:\n\n\u2022 Wheel Pack: stack of rotating wheels, each with a gate (notch). When all gates align, the fence drops in and allows retraction.\n\u2022 Drive Cam: connects the dial to the wheel pack. Has a flywheel that creates the snail motion feel when dialing.\n\u2022 Flywheel: allows the dial to spin freely when disengaged. You will feel it snap into engagement as you start dialing.\n\u2022 Gates: slots cut into each wheel. The lock opens when all gates line up under the fence. False gates exist to confuse manipulation attempts.\n\u2022 Spider Spring: holds the wheel pack together. If it breaks, the wheels can slide out of position.\n\nA misaligned wheel pack means the dial feels wrong and the safe will not open. This requires professional service.";
+  }
+
+  // ============ SAFE INSULATION / FIRE LINING ============
+  if (m(["fire insulation","fire lining material","concrete safe","gypsum","drywall safe","vermiculite","perlite","ceramic wool","insulation material","poured insulation"])) {
+    return "Safe fire insulation materials:\n\n\u2022 Gypsum/Drywall: common in entry-level gun safes. Minimal real fire protection.\n\u2022 Vermiculite: volcanic mineral, lightweight, excellent insulator. Used in older quality safes.\n\u2022 Perlite: similar to vermiculite, used in modern fire safes.\n\u2022 Ceramic wool: premium insulation used in high-end safes. Withstands extreme temperatures.\n\u2022 Poured concrete/cement mix: used in burglar-rated and TRTL safes. Massive, heavy, fire-resistant.\n\nThe difference between a cheap drywall-lined safe and a proper fire safe is the difference between a $300 replacement and keeping your documents through a house fire. When an amateur cuts into a fire safe with a sawzall, they destroy the insulation and void the fire rating permanently.";
+  }
+
+  // ============ SAFE LINKAGES ============
+  if (m(["linkage","locking bolt","bolt work","bolt retraction","drive bar","locking bar","linkage bar","connecting bar","scissor lock","scissor bolt"])) {
+    return "Safe locking mechanisms:\n\n\u2022 Standard bolts: solid steel bars that slide into the door frame. 3 sides (top, bottom, side) on most gun safes.\n\u2022 Re-locking linkage: a secondary bar or dead bar that activates when the primary lock is attacked.\n\u2022 Scissor link / lazy bolt: multiple bolts connected by a scissor mechanism. All retract simultaneously. Used in TL-rated safes.\n\u2022 Direct drive: handle connects directly to the bolt work through a simple cam. Less mechanical advantage but simpler.\n\u2022 Gear-driven: handle turns a gear that retracts a rack-and-pinion mechanism. Smoother and more reliable.\n\nCommon failure: connecting bars bend, shear pins break, welds fail on the drive cam. The handle may spin freely but the bolts do not move. This is fixable without replacing the safe.";
+  }
+
+  // ============ SAFE SHELL / BODY CONSTRUCTION ============
+  if (m(["safe shell","body wrap","body construction","welded body","seamless body","corner seam","seam welds","sheet metal safe","monolithic safe"])) {
+    return "Safe body construction quality:\n\n\u2022 Wrapped shell: a single piece of sheet metal bent into a U-shape, welded at one corner. Found on budget safes. Attacked easily at the single welded seam.\n\u2022 Welded plate: individual steel plates welded together at every edge. Significantly stronger than a wrapped shell.\n\u2022 Monolithic: a single casting or forging. Extremely rare and expensive (TRTL-60 level).\n\u2022 Lamination: layers of steel and composite material bonded together. Used by AMSEC, Gardall, and other premium brands.\n\nThe number of welds and the thickness of the steel directly correlates with time to defeat. Most homeowners do not know their expensive-looking safe has a single seam that can be peeled open with a pry bar.";
+  }
+
+  // ============ HARDPLATE ============
+  if (m(["hardplate","hard plate","drill plate","drill shield","ballistic plate","torch shield","hardened steel plate","armor plate"])) {
+    return "Hardplate is a piece of hardened steel (often 1/8-inch to 1/2-inch thick) positioned over the lock area of a quality safe. Purpose: prevent drilling attacks on the combination lock.\n\n\u2022 A standard drill bit will not penetrate hardplate. It just skids off.\n\u2022 Techs use: carbide burrs, solid carbide drills, magnetic drills, or center punches to get through.\n\u2022 Some high-end safes have multiple hardplates layered with torch-resistant materials.\n\nA real safe tech knows exactly which type of hardplate is in your safe and has the right tools to drill through it without destroying the safe. An amateur hits hardplate and either gives up or starts grinding through the door like a madman.";
+  }
+
+  // ============ SAFE HINGES ============
+  if (m(["safe hinge","hinge","exposed hinge","hidden hinge","soss hinge","external hinge","internal hinge","hinge pin","piano hinge","ball bearing hinge","knuckle hinge"])) {
+    return "Safe hinge types:\n\n\u2022 External hinges: visible when the door is closed. The hinge pin can be cut (but quality safes have hardened pins). Common on gun safes and budget models.\n\u2022 Internal hinges: hidden inside the door jamb when closed. Cannot be cut when the safe is locked. Found on TL-rated and higher safes.\n\u2022 Soss hinges: hidden hinges that are invisible when the door is closed. Rare on safes.\n\u2022 Hinge pin removal: a common amateur attack (grind off the hinge). Only works on safes with external hinges. Internal hinges eliminate this vulnerability.\n\nFor maximum security, always choose a safe with internal hinges. They cost more but eliminate a major vulnerability.";
+  }
+
+  // ============ DEPOSIT / DROP SLOT SAFES ============
+  if (m(["deposit safe","drop safe","deposit slot","drop slot","night drop","cash drop","rotary hopper","dip safe","drop drawer"])) {
+    return "Deposit safes allow money or items to be inserted without opening the main door. Types:\n\n\u2022 Rotary hopper: a rotating drum that accepts items, then dumps them inside when rotated. Common in convenience stores.\n\u2022 Drop slot: a trap-door slot. Items fall directly into the safe body. Less secure.\n\u2022 Drop drawer: a drawer that pulls out and the contents drop inside when pushed back in. Better for larger items.\n\nDeposit safes are vulnerable at the hopper/drawer mechanism. An informed thief knows to fish or string items through the slot. Some models have anti-fish baffles or trap plates inside. Good deposit safes are TL-15 or TL-30 rated with an anti-fish trap. Have yours inspected yearly.";
+  }
+
+  // ============ KEY OVERRIDE / KEY BYPASS ============
+  if (m(["key override","override key","bypass key","backup key","key bypass","keyed bypas","secondary override"])) {
+    return "Key overrides are emergency keys that bypass the electronic or combination lock. Common on digital keypad safes and some combination locks.\n\n\u2022 Location: often hidden behind a sliding panel, beneath the keypad, or on the side of the lock housing.\n\u2022 Tubular key: most common (7-pin round key). Code stamped on the key head. Duplicate from code.\n\u2022 Standard pin key: less common. May be Medeco or other restricted keyway.\n\nWARNING: If someone has access to your override key, they have access to your safe. Do NOT store the override key inside the safe. Do NOT tape it to the bottom. Do NOT hang it on a hook nearby. Give it to a trusted family member or put it in a safety deposit box.";
+  }
+
+  // ============ MANIPULATION LOCK READING ============
+  if (m(["manipulation","manipulation technique","manipulate","listening to wheels","feel manipulation","graphing manipulation","scope manipulation","lock reading","wheel reading"])) {
+    return "Manipulation is the art of opening a combination lock without damaging it by feeling and hearing the wheel pack through the dial. It is the highest skill in safe tech.\n\n\u2022 Contact points: the feel of each wheel dropping into position as you dial.\n\u2022 Gate detection: when a wheel gate passes under the fence, there is a subtle but detectable change in tension or sound.\n\u2022 Graphing: some techs use a dial indicator gauge to plot wheel positions on paper, then use those graphs to calculate the combination mathematically.\n\u2022 Average time: 15 minutes to 4 hours depending on lock complexity. No damage.\n\nRobert attempts manipulation on every service call before drilling. It costs more upfront ($150-$350) but saves the safe. Only experienced techs with 10+ years can do it reliably. A safe guy with a sawzall will not even try.";
+  }
+
+  // ============ SAFE SCOPING / BOROSCOPE ============
+  if (m(["boroscope","borescope","fiberscope","endoscope","wall scope","scope hole","scope safe","camera scope","inspection camera"])) {
+    return "Safe scoping uses a tiny camera (boroscope) inserted through a small drilled hole (1/8-inch or smaller) to see inside the lock mechanism.\n\n\u2022 Purpose: visually locate wheel positions, relockers, and wiring without fully dismantling anything.\n\u2022 Hole size: typically 1/16-inch to 1/8-inch. Barely visible afterwards and easy to plug.\n\u2022 What we see: wheel gates, relocker spring positions, solenoid placement, wiring conditions.\n\nScoping is a precision technique between manipulation and drilling. It gives the tech visual confirmation before committing to a drill point. Not all techs have or use a boroscope. Robert does for complex jobs.";
+  }
+
+  // ============ SOLENOID ISSUES (NOT JUST BIOMETRIC) ============
+  if (m(["solenoid","solenoid issue","solenoid stick","solenoid jam","solenoid failure","solenoid lock"]) && !m(["biometric","fingerprint"])) {
+    return "Solenoid problems are a common failure in electronic safe locks.\n\n\u2022 What a solenoid does: when the correct code is entered, the circuit board sends a pulse of power to a small electromagnet (solenoid) that pulls a pin out of the lock bar, allowing the bolts to retract.\n\u2022 Failure signs: keypad lights up and beeps, but the handle still will not turn. Or you hear a faint click but nothing releases.\n\u2022 Causes: solenoid wears out (mechanical failure), contacts corrode, low battery voltage, or the solenoid pin sticks from dirt or grease.\n\u2022 Fix: replacement solenoid is usually a $20-$50 part. Requires removing the lock, opening the solenoid housing, and swapping.\n\nDo not keep hammering the handle if the solenoid fails. You can bend the locking bar. Call me for solenoid service.";
+  }
+
+  // ============ SAFE BRAND KNOWLEDGE ============
+  if (m(["amsce","amsec","gardall","mosler","diebold","stellar","major safe","browning","fort knox","hayman","mcmahon","herring","merril","national safe","j j taylor","chubb","ratner","kaso","apacs","ketcham","ball","patterson","waltz","lebeaux"])) {
+    return "Quality safe brands Robert knows and works on:\n\n\u2022 AMSEC: American Security. Premium. Used by GSA. TL and TRTL ratings. One of the best.\n\u2022 Gardall: excellent U.S. made. Great value for serious protection.\n\u2022 Mosler: historic brand. Some of the best safes ever built (the GSA 5C vaults).\n\u2022 Diebold: bank vaults and safes. Massive and virtually impenetrable.\n\u2022 Liberty: most common gun safe brand. Robert is a preferred service tech.\n\u2022 Fort Knox: high-end gun safes. Full plate steel construction.\n\u2022 Hayman / Herring: antique safes. Cast iron, ornate, valuable.\n\u2022 National Safe: U.S. made commercial safes.\n\nI have 40+ years experience on all of these. Call (916) 534-4900.";
+  }
+
+  // ============ SAFE STANDARDS (UL / ETL / GSA) ============
+  if (m(["ul standard","ul 687","ul 768","ul 1030","ul 1040","etl","csa","ansi","iso 9001","safety standard","testing standard","safe certification"])) {
+    return "Safe safety standards:\n\n\u2022 UL 687: commercial burglar-resistant safes (TL-15, TL-30, TL-30x6, TRTL-30x6).\n\u2022 UL 768: combination locks (Group 1, Group 2, Group 2M).\n\u2022 UL 1030: residential security containers (RSC). Minimum standards.\n\u2022 UL 1037: anti-theft alarms.\n\u2022 ETL / CSA: alternate testing labs. Less recognized than UL for insurance purposes.\n\u2022 GSA Specification: Federal Specification AA-D-600-D (for government security containers). More stringent than UL.\n\nWhen buying a safe, trust UL or GSA ratings over marketing claims. A safe that says residential security container without a UL label is weaker than one with UL RSC certification.";
+  }
+
+  // ============ LOCKSMITH TOOLS ============
+  if (m(["locksmith tools","lock pick set","tension wrench","pick gun","electric pick","broken key extract","plug spinner","key extract","lock shim","decoder tool","lock lubricant","graphite","wd40 on locks","houdini lock"])) {
+    return "Common locksmith tools:\n\n\u2022 Pick Set: hooks, rakes, diamonds, city rakes. Used for manual picking.\n\u2022 Tension Wrench: applies rotational pressure. Essential. A locksmith always has several sizes.\n\u2022 Pick Gun (electric/manual): strikes all pins simultaneously. Faster but less precise.\n\u2022 Broken Key Extractor: thin hook-ended tool to fish out snapped keys.\n\u2022 Plug Spinner: rotates the plug 180 degrees to align pins after picking.\n\u2022 Key Decoder: measures pin depths from a key or lock to cut replacement keys.\n\nRegarding lubricants: NEVER use WD-40 on locks. It attracts dust and gums up over time. Use graphite powder or Houdini lock lubricant. WD-40 is a cleaner, not a lubricant. For safes, white lithium grease on the bolts, silicone spray on hinges.";
+  }
+
+  // ============ SAFE MOVING / INSTALLATION ============
+  if (m(["safe moving","move a safe","safe delivery","safe install","install safe","safe position","leveling safe","anchor safe","bolt down","concrete anchor","hilti anchor","safe dolly","lifting strap","safe skates"])) {
+    return "Safe moving and installation:\n\n\u2022 I do not move safes myself. But I can advise.\n\u2022 Professional safe movers use: piano dollies, safe skates, lifting straps, ratchet straps.\n\u2022 Always bolt your safe to the floor: use concrete wedge anchors (Hilti or similar) into the slab. A 500 lb unsecured safe can be tipped and wheeled out by two thieves in 3 minutes.\n\u2022 Leveling: if the safe door frame twists from being on uneven ground, the door will not close or open properly. Use steel shims under the corners.\n\u2022 Fire rating: bolting a fire safe to concrete does not affect its fire rating. Do it.\n\nFor safe installation anchoring and leveling advice, call (916) 534-4900.";
+  }
+
+  // ============ KEY CONTROL / RESTRICTED KEYWAYS ============
+  if (m(["key control","restricted key","key duplicate","cannot copy","do not duplicate","patented key","key patent","keyway patent","medeco keyway","mul-t-lock keyway","abloy keyway","m a s t e r keyway","security key","key access control"])) {
+    return "Key control systems prevent unauthorized key duplication:\n\n\u2022 Restricted keyways: special key blank profiles only available to authorized dealers and locksmiths.\n\u2022 Patented keyways: protected by patent. Only the manufacturer can produce blanks.\n\u2022 Medeco: patented key control. Keys have angled cuts plus standard bitting. Cannot be duplicated without authorization card.\n\u2022 Mul-T-Lock: telescoping pins, dimple key. Extremely difficult to pick or copy.\n\u2022 Abloy: disc detainer. Key can only be made by authorized Abloy dealers using a code card.\n\nThe Do Not Duplicate stamp is not legally enforceable. Only patented or restricted designs actually prevent duplication. Pros: tenant moves do not require rekeying entire buildings. Employees cannot make copies without escrow.";
+  }
+
+  // ============ PADLOCKS ============
+  if (m(["padlock","pad lock","combination padlock","key padlock","shrouded padlock","close shackle","hasp lock","master lock","american lock","abus","puck lock","laminated padlock","hardened padlock","s&g padlock"])) {
+    return "Padlock types and security:\n\n\u2022 Laminated: layers of steel riveted together. Master Lock, American Lock. Cheap and common, but susceptible to shimming and hammer attacks.\n\u2022 Hardened body: solid steel body, hardened shackle. Abloy, Abus, Sargent & Greenleaf. Much more secure.\n\u2022 Shrouded / Close Shackle: the shackle is covered by the lock body. Cannot be cut with bolt cutters. S&G 8077 is an example.\n\u2022 Combination: no key, resettable combo. Convenient but less secure.\n\nFor commercial security: use at least a hardened body padlock with close shackle. Pair it with a hardened hasp. The lock is only as strong as the hasp it connects to. Never use a Master Lock for anything you actually care about.";
+  }
+
+  // ============ KEY BLANK IDENTIFICATION ============
+  if (m(["key blank","identify key","what key is this","what lock uses this key","key identification","key type","flat key","key identify","ilco","curtis key","silca"])) {
+    return "Key identification basics:\n\n\u2022 Flat steel key: standard household key (Schlage, Kwikset). Blade has 5-6 cuts on one edge. Most common.\n\u2022 Double-sided key: cuts on both edges. Found on some deadbolts and padlocks.\n\u2022 Four-sided key: key works in 4 orientations. Rare. Found on some high-security locks.\n\u2022 Tubular key: round shaft with 7 pins on the end. Safes, vending machines, computers. Code on key head.\n\u2022 Dimple key: flat key with drilled holes instead of edge cuts. Mul-T-Lock, Kaba, some BMWs.\n\u2022 Laser-cut / sidewinder: groove in center of blade. Car keys mostly.\n\nIf you have a key and do not know what it is for, I can identify it. Call (916) 534-4900.";
+  }
+
+  // ============ COMMERCIAL LOCK INSTALLATION ============
+  if (m(["commercial installation","commercial install","store front lock","storefront door","glass door lock","aluminum door lock","mortise lock","bore lock","door prep","closer install","door hardware install"])) {
+    return "Commercial lock installation is different from residential:\n\n\u2022 Grades: Grade 1 (Heavy Duty Commercial), Grade 2 (Light Commercial), Grade 3 (Residential). Always use Grade 1 for business doors.\n\u2022 Mortise locks: the gold standard. Lock body fits inside a rectangular pocket cut into the door edge. Strongest option.\n\u2022 Bored / cylindrical locks: circular hole through the door. Common on interior offices. Grade 1 versions exist.\n\u2022 Panic bars: required by building code for most public-egress doors (NFPA 101). Fire code requires them to fail OPEN.\n\u2022 Electric trim: electrified lock trim on a panic bar. Allows remote release from a card reader or central system.\n\u2022 Door prep: requires precision. If the backset or bore is off by 1/16-inch, the lock will not work properly.\n\nI do precision commercial installs. Call (916) 534-4900 for business doors.";
+  }
+
+  // ============ SLIDING DOOR / WINDOW SECURITY ============
+  if (m(["sliding door","sliding glass","patio door","window lock","casement window","double hung window","window security","pin lock","charley bar","charlie bar","window latch","compression latch"])) {
+    return "Window and sliding door security:\n\n\u2022 Sliding glass door: place a Charley Bar (rigid metal bar) in the track. It prevents the door from being pried open even if the latch is bypassed. Or drill through the frame and insert a pin.\n\u2022 Double hung windows: drill a hole at an angle through the top of the lower sash into the bottom of the upper sash, insert a pin.\n\u2022 Casement windows: lock the crank handle. Many can be latched from the inside only.\n\nFor basic residential window security, the pin method is free and highly effective. For businesses with large windows, consider laminated glass or window film. Standard window locks are easily bypassed with a credit card or butter knife.";
+  }
+
+  // ============ SMART LOCKS ============
+  if (m(["smart lock","wifi lock","wi-fi lock","bluetooth lock","zwave lock","z wave lock","august lock","schlage encode","keyless entry","phone lock","app lock","smart home lock","homekit","alexa lock","google lock","geofence"])) {
+    return "Smart lock types and concerns:\n\n\u2022 WiFi locks (Schlage Encode, August Wi-Fi): connect directly to your home network. Convenient for remote access and monitoring.\n\u2022 Bluetooth/Z-Wave locks (Yale, Kwikset Halo): connect through a hub or phone. Usually simpler, less cloud dependency.\n\u2022 Biometric: fingerprint or face recognition. Convenience trade-off for reliability.\n\n\u2022 Smart lock downsides: firmware bugs, wifi outage, power outage, app updates breaking connectivity. Always keep the physical key override for backup. A smart lock is only as reliable as your wifi and your phone battery. Also: insurance might not cover a break-in if the door was unlocked via a compromised app.\n\nRobert's recommendation: use a traditional deadbolt as the primary lock and add a smart lock for convenience. Never rely on a smart lock as your sole defense.";
+  }
+
+  // ============ LOCK BYPASS METHODS ============
+  if (m(["lock bypass","bypass lock","credit card lock","loid","loiding","shim lock","slim jim","under the door","air wedge","door wedge","wire coat hanger","fish wire"])) {
+    return "Common lock bypass methods (and how to defend):\n\n\u2022 LOIDing / Credit Card: sliding a credit card between the door and frame to push the latch back. Prevention: use a deadbolt or a latch guard.\n\u2022 Shimming: inserting a thin metal shim to slide the latch back. Prevention: closed-shackle latch, guard plate.\n\u2022 Wire under the door: hooking the latch release through a gap. Prevention: weatherstripping that seals the gap.\n\u2022 Slim Jim (car doors): long tool that reaches inside the door to manipulate the linkage. Prevention: newer cars have linkage guards.\n\nMost of these methods work on unsecured locks with visible latches. A properly installed deadbolt prevents almost all of them. For commercial doors, a wrap-around latch guard or armored front plate is recommended.";
+  }
+
+  // ============ INSURANCE AND SAFES ============
+  if (m(["insurance","insurance requirement","safe for insurance","homeowner insurance","renters insurance","business insurance","jewelry rider","gun safe insurance","jewelry safe","safe contents","insurance rider"])) {
+    return "Insurance considerations for safes:\n\n\u2022 Homeowners insurance: a UL-rated safe (even just RSC) can lower your policy rate. Ask your agent.\n\u2022 Jewelry and Guns: standard homeowners has limited coverage. You need a separate rider or inland marine policy.\n\u2022 Business insurance: policies often mandate minimum safe ratings. TL-15 or higher for cash over certain thresholds.\n\u2022 Fire coverage: a fire-rated safe proves you took reasonable precautions. Claims denied if valuables stored in an unrated box.\n\nPro tip: photograph everything inside the safe. Keep the photos off-site (cloud or safety deposit box). Serial numbers for guns. Appraisals for jewelry. Without proof of ownership, insurance may not pay the full value.\n\nCall (916) 534-4900 for a safe consultation. I can tell you what rating you need for your coverage.";
+  }
+
+  // ============ GENERAL SAFE TROUBLESHOOTING ============
+  if (m(["troubleshoot","troubleshooting","safe checklist","quick check","safe diagnosis","diagnose safe","whats wrong","safe wont close","door wont close","door hits frame","sticks halfway","binds","drooping door","sagging door","door sag","door binding"])) {
+    return "Common problems and quick checks:\n\n\u2022 Will not open at all: dead battery? Did you dial correctly? Is something blocking the door inside?\n\u2022 Dial spins freely: broken drive cam spring. Needs repair.\n\u2022 Handle turns but nothing happens: the locking bar is disconnected or the relocker fired.\n\u2022 Door will not close or sticks: hinges need adjustment or the safe settled (especially floor safes). Check for debris in the bolt holes.\n\u2022 Safe drooping (door sag): the lower hinge has worn or bent. Needs hinge pin replacement or shimming.\n\u2022 Keypad lights up but handle will not turn: solenoid failure or the lock bolt is binding.\n\nIf it is not obvious from the checklist, call (916) 534-4900. Quick diagnosis over the phone is free.";
+  }
+
+  // ============ WALL / DIVERSION / SPECIALTY SAFES ============
+  if (m(["wall safe","diversion safe","fake book safe","medicine cabinet safe","can safe","soda can safe","book safe","clock safe","hidden safe","in wall safe","wall cavity","recessed safe","closet safe"])) {
+    return "Specialty safe types:\n\n\u2022 Wall safes: recessed between studs in a wall. Discreet, easy to conceal. Typically thin-walled and not fire-rated. Vulnerable to being cut out of the wall. Good for documents and spare cash, not for serious valuables.\n\u2022 Diversion safes: fake cans, books, rocks, outlets. Hidden in plain sight. Useful for small cash but a determined burglar knows to check the pantry and bookshelf. No fire protection.\n\u2022 Medicine cabinet safes: lockable cabinet. Gives a false sense of security. Thin metal, easily pried.\n\nRecommended: a wall safe from Gardall or AMSEC with proper anchoring. Ideally paired with a floor safe for heavier items. Anything screw-mounted or hollow can be ripped out.";
+  }
+
+  // ============ GUN SAFE SPECIFIC ============
+  if (m(["gun safe","gun safe size","gun safe weight","gun safe rating","gun safe fire","firearm safe","weapon safe","rifle safe","pistol safe","quick access gun safe","nightstand safe","bedside safe","gun vault","stack on","browning gun safe","cannon gun safe","winchester safe"])) {
+    return "Gun safe recommendations:\n\n\u2022 Size: a 24-gun safe holds about 12-15 long guns. Manufacturers count pistols to inflate numbers. Go one size larger than you think.\n\u2022 Fire rating: many gun safes advertise fire rating but the insulation is minimal sheetrock. Real fire-rated gun safes have poured ceramic or cement composite.\n\u2022 Steel thickness: 12-14 gauge is standard. 10-11 gauge is good. 7 gauge (1/8-inch) or thicker is excellent. Anything less than 14 gauge is a sheet metal box.\n\u2022 Quick-access bedside: mechanical simplex lock is more reliable than electronic. Electronic keypads fail at the worst time (adrenaline, dead batteries).\n\n\u2022 Brands Robert trusts: Liberty (preferred service tech), Fort Knox, AMSEC, Browning. Avoid Stack-On and Winchester for critical use (thin steel, poor locks).\n\nCall (916) 534-4900 for gun safe consultation. I can recommend the right size and lock type for your collection.";
+  }
+
+  // ============ EMERGENCY LOCKOUT ============
+  if (m(["lock out","lockout","locked out","emergency lock out","urgent safe","emergency open","emergency safe","emergency call"])) {
+    return "Locked out? Call immediately if:\n\n\u2022 You are locked out of your home or safe at an inconvenient time.\n\u2022 Someone is trapped inside a walk-in safe or vault.\n\u2022 A business cannot open for the day because the safe will not open.\n\u2022 You locked keys inside a car or building.\n\nDo NOT try to break in yourself. You will damage the door, frame, or lock. A $200 service call becomes a $2,000+ repair.\n\nCall (916) 534-4900. If I cannot answer, leave a message and I will call you back. Emergency after-hours service is available.";
+  }
+
+  // ============ COMBINATION CHANGE PROCEDURE ============
+  if (m(["change combination procedure","changing combo","how to change combination","recombination","recombination of lock","change combo mechanically","read the combo","decode combo"])) {
+    return "Changing a mechanical lock combination properly:\n\n\u2022 Tools required: wheel puller, combination change key (or special tool), new wheel pack set, lock mounting screws. Not a 5-minute DIY job.\n\u2022 Steps for a standard S&G lock:\n  1. Remove the lock from the door.\n  2. Use a wheel puller to remove each wheel.\n  3. Place each wheel at the correct new number on the drive cam.\n  4. Secure wheels with spacers and clip.\n  5. Test the new combination 5+ times with the door open.\n  6. Reinstall lock in safe.\n\n\u2022 Cost: $50-$150 including a technician coming to your site.\n\n\u2022 Warning: if you drop the wheels or put them back in the wrong order, the lock will jam and you will be locked out with an inoperable safe.\n\nCall (916) 534-4900 to schedule a combination change.";
+  }
+
+  // ============ KEYPAD vs DIAL (Mechanical vs Electronic) ============
+  if (m(["keypad vs dial","mechanical vs electronic","dial vs keypad","dial vs electronic","mechanical lock vs electronic","which is better keypad","electronic lock pros and cons","mechanical lock pros and cons","simplex lock","push button lock","mechanical push button"])) {
+    return "Mechanical (dial) vs Electronic (keypad) locks:\n\n\u2022 Mechanical dial: no batteries, never dies, no electronics to fail. Lasts decades. Slower to open. More secure (harder to bypass). Best for long-term storage and gun safes that are accessed rarely.\n\u2022 Electronic keypad: quick open, easy code change. Vulnerable to battery failure, solenoid failure, circuit board failure. Convenient for daily use safes.\n\u2022 Simplex / mechanical push button: no batteries, uses a mechanical combination mechanism. Popular for gun safes and secure rooms. Best balance of speed and reliability.\n\nRoberts recommendation: mechanical or Simplex for anything you absolutely must secure. Electronic for everyday convenience safes. For guns, a Simplex lock is the gold standard.";
+  }
+// ============ LOCKSMITH KNOWLEDGE ============
 
   // Pin tumbler locks
   if (m(["pin tumbler","pin lock","standard lock","cylinder lock","how a lock works","schlage","kwikset"])) {
