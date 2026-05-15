@@ -88,7 +88,7 @@ function respond(input) {
   const safeTopics = ["safe","lock","key","dial","combo","combination","code","keypad","biometric","bolt","handle","hinge","door","open","close","jammed","stuck","rust","corrosion","relocker","solenoid","spring","battery","dead","fire","burglary","burglar","thief","drill","manipulation","spin","right","left","turn","call","phone","email","number","hours","price","cost","quote","estimate","license","lco","insured","buy","purchase","choose","select","recommend","maintenance","service","repair","antique","vintage","floor","gun","rifle","pistol","document","cash","jewelry","commercial","tl-15","tl-30","trtl","amsce","gardall","sentry","s&g","sargent","lagard","kaba","mosler","liberty","cannon","stack-on","digital","electronic","mechanical","wheel pack","drive cam","change","reset","forgot","lost","hello","hi","hey","thanks","thank you","drop slot","deposit","tubular","emergency","weekend","after hours","frantz","sacramento","west sacramento","x-07","x-08","x-09","x-10","gsa","porta vault","probate","heirloom","scrapyard","restoration","walkthrough","photo","$3k","$6k","$3,000","$5,000","$7,000","$10,000","3,000","5,000","7,000","10,000","crush washer","bent wire","surgical","network","coverage","backup","protege","glazer","johnson pacific","macneale","macneale & urban","urban","tips","tip","tricks","article","story","read","blog","post","saw","guy","how to","ways to","method","noise","sound","warranty","guarantee","void"];
 
   if (!safeTopics.some(function(k) { return q.indexOf(k) !== -1; }) && !/^\d/.test(q)) {
-    return "I'm sorry, I only answer questions about safes and locks. I'm Frantz's Safe Assistant. Try asking about safe opening, combination help, maintenance, or some of my real job stories. Or call (916) 534-4900 to talk to Robert directly.";
+    return "I'm sorry, I only answer questions about safes and locks. I'm Frantz's Safe Assistant. Try asking about safe opening, combination help, maintenance, or some of my real job stories. Or call (916) 534-4900 to talk to Robert directly.\n\n\u{0001F4D6} Need a different kind of locksmith? See Robert's preferred network: network.html";
   }
 
   // ============ BLOG STORIES ============
@@ -101,6 +101,11 @@ function respond(input) {
   // ============ TIPS & TRICKS ============
   if (m(["dial sequence","dialing","how to dial","turn the dial","dial my safe","dial a combo","dial a combination","dial safe"]) || (q.indexOf("left") !== -1 && q.indexOf("right") !== -1 && q.indexOf("turn") !== -1 && q.indexOf("handle") === -1)) {
     return TIPS.dial_combo.content + "\n\n\u{0001F4D6} Full walkthrough: " + TIPS.dial_combo.url;
+  }
+
+  // Referral network — services I don't do (must come before buying guide to catch "recommend a locksmith")
+  if (m(["referral","refer","network page","preferred network","someone who","can you recommend","find a locksmith","other locksmith","recommend a locksmith","another locksmith"]) || (q.indexOf("recommend") !== -1 && (q.indexOf("locksmith") !== -1 || q.indexOf("person") !== -1 || q.indexOf("company") !== -1 || q.indexOf("someone") !== -1))) {
+    return "If I can't take your job or it's outside my specialty, I have a network of trusted professionals I personally recommend.\n\n\u{0001F4D6} See my Preferred Network: network.html\n\nThese are companies I've worked alongside for years. They send their safe work to me, and I send my overflow work to them.\n";
   }
 
   if (m(["buy","purchase","get a safe","new safe","what safe","recommend","looking for a","best safe","best brand","which brand","top brand","bought a safe","just bought"])) {
@@ -284,7 +289,7 @@ function respond(input) {
 
   // About Robert
   if (m(["who are you","who is","robert","about","tell me about","owner","company"])) {
-    return "I'm Frantz's Safe Assistant. Robert Frantz is the owner of Frantz Locksmith Service \u2014 a safe specialist in Sacramento since 1985. He's got 40+ years of experience, CA LCO 4160 license, GSA certified (X-07 through X-10), licensed and insured. He services safes of all types: gun safes, floor safes, antique safes, commercial safes, and government containers. Mobile service only \u2014 he comes to you.\n\n\u{0001F4DE} (916) 534-4900";
+    return "I'm Frantz's Safe Assistant. Robert Frantz is the owner of Frantz Locksmith Service \u2014 a safe specialist in Sacramento since 1985. He's got 40+ years of experience, CA LCO 4160 license, GSA certified (X-07 through X-10), licensed and insured. He works on safes, vaults, and containers of all types: gun safes, floor safes, antique safes, commercial safes, government containers, check cashing store vaults, and jewelry store safes. He also contracts with World Wide Safe out of Miami, FL for vault work. Mobile service only \u2014 he comes to you.\n\n\u{0001F4DE} (916) 534-4900";
   }
 
   
@@ -512,6 +517,12 @@ function respond(input) {
   if (m(["car key","car lock","transponder key","chip key","laser key","car unlock","locked out of car","automotive key","remote key","fob battery","program key"])) {
     return "I handle basic automotive lockout situations on-site.\n\nModern car keys:\n\u2022 Transponder chip: key has an embedded chip that communicates with the car's immobilizer. A simple copy won't start the car.\n\u2022 Proximity fob: keyless entry with push-button start. Expensive to replace.\n\nIf you're locked out of your vehicle in the Sacramento area, call (916) 534-4900. For basic unlock and standard keys I can help on-site. For complex transponder programming and chip keys it depends on the vehicle make/model \u2014 ask when you call.";
   }
+
+  // Referral network — services I don't do
+  if (m(["referral","refer","network page","preferred network","someone who","can you recommend","find a locksmith","other locksmith"])) {
+    return "If I can't take your job or it's outside my specialty, I have a network of trusted professionals I personally recommend.\n\n\u{0001F4D6} See my Preferred Network: network.html\n\nThese are companies I've worked alongside for years. They send their safe work to me, and I send my overflow work to them.\n";
+  }
+
 // ============ FALLBACK ============
   return "I'm sorry, I don't know the answer to that specific question yet. Try asking about:\n\n\u{0001F512} My safe won't open\n\u{0001F523} Forgot my combination\n\u{0001F50B} Dead battery\n\u{0001F4DE} How much to open a safe?\n\u{0001F4A1} Tell me about antique safes\n\u{0001F4D6} What blog stories do you have?\n\nOr call Robert at (916) 534-4900.";
 }
