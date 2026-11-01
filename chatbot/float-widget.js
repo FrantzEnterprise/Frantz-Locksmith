@@ -80,6 +80,125 @@ const TIPS = {
            url: "blog/safe-repair-costs.html" }
 };
 
+/* ==================== TRIAGE HANDOFF ==================== */
+/* Change TRIAGE_URL in ONE place when the site publishes. */
+const TRIAGE_URL = "https://frantzenterprise.github.io/SafePulse/";
+const TRIAGE_LABEL = "SafeTriage";
+
+function triageLink(why) {
+  return "\n\n\u{1F9EA} Want a precise answer? Run " + TRIAGE_LABEL + " \u2014 a 2-minute questionnaire that scores your safe and tells you exactly what to check next:\n" + TRIAGE_URL + (why ? "\n\n" + why : "");
+}
+
+/* Symptoms that mean: stop guessing, escalate to a technician */
+const ESCALATE_PATTERNS = ["relocker","relocked","drilled it","i drilled","tried to drill","crowbar","pried","vice grips","vise grips","pipe wrench","sledge","hammered","grinder","sawzall","cut into","wire cutters","torched","blown","smoke came out","sparks"];
+
+/* ==================== TROUBLESHOOTING MENU ==================== */
+const TROUBLESHOOT_MENU =
+  "\u{1F527} Let's narrow it down. Which sounds closest?\n\n" +
+  "1\uFE0F\u20E3 Electronic lock \u2014 keypad dead, no lights, no beeps\n" +
+  "2\uFE0F\u20E3 Electronic lock \u2014 lights up and beeps, but won't open\n" +
+  "3\uFE0F\u20E3 Dial lock \u2014 dial turns but the safe won't open\n" +
+  "4\uFE0F\u20E3 Handle loose, wobbly, or spinning freely\n" +
+  "5\uFE0F\u20E3 Dial feels wrong \u2014 stiff, grinding, or spins with no resistance\n" +
+  "6\uFE0F\u20E3 Door won't close, drags, or is hard to shut\n" +
+  "7\uFE0F\u20E3 Rust, corrosion, or the safe got wet\n\n" +
+  "Reply with a number, or describe it in your own words.\n" +
+  "\u{1F4DE} Prefer to just call? (916) 534-4900";
+
+const TROUBLESHOOT_PICKS = {
+  1: { text:
+    "\u{1F50B} Electronic lock, dead keypad \u2014 check these in order:\n\n" +
+    "1. Battery contacts. Many keypads have two small metal tabs under the keypad. Touch a fresh 9V to them \u2014 polarity usually doesn't matter \u2014 and enter your code while holding it there. If it opens, the issue is internal batteries (usually 4x AA).\n" +
+    "2. Battery compartment. Open it and LOOK at the batteries. White crusty powder = corrosion. That corrosion wicks into the terminals and the circuit board, and it will fail again even if you clean it.\n" +
+    "3. Keypad connector. On LaGard and some ILS/AMSEC models there's a ribbon cable behind the keypad. If it's loose, the keypad will be totally dead with good batteries.\n" +
+    "4. Key override. Look for a hidden keyhole \u2014 under a sliding panel, behind the logo badge, or at the bottom edge.\n\n" +
+    "\u{1F4A1} Use Duracell or Energizer. Cheap batteries are the #1 cause of repeat lockouts.\n\n" +
+    "\u26A0\uFE0F If you see corrosion on the board, don't keep trying codes. Call (916) 534-4900.",
+    escalate: true },
+
+  2: { text:
+    "\u{1F527} Keypad works but the safe won't open \u2014 that narrows it to the solenoid.\n\n" +
+    "The keypad lighting up and beeping means the electronics and the code are fine. What's NOT happening is the solenoid \u2014 a small electromagnet \u2014 pulling back the lock bar.\n\n" +
+    "Check in this order:\n" +
+    "1. Fresh batteries FIRST. Low voltage is the classic cause: enough juice for the keypad, not enough to throw the solenoid. This fixes it more often than anything else.\n" +
+    "2. Listen closely when you enter the code. A healthy solenoid gives a distinct CLICK. Silence or a weak tick = either no power or a dead solenoid.\n" +
+    "3. Try the handle immediately after entering the code \u2014 some locks only stay released for 3-5 seconds.\n" +
+    "4. Check the door isn't bound. Press the door IN while turning the handle. If the safe settled or is on uneven floor, the bolts can bind.\n" +
+    "5. Bolt work, not the lock. If you hear the click but the handle still won't budge, the problem is downstream \u2014 a sheared pin or disconnected linkage.\n\n" +
+    "\u26A0\uFE0F Do NOT hammer or force the handle. You'll bend the lock bar and turn a $200 repair into $500+.\n\n" +
+    "\u{1F4DE} (916) 534-4900",
+    escalate: true },
+
+  3: { text:
+    "\u{1F523} Dial turns but the safe won't open \u2014 check these before calling:\n\n" +
+    "1. Dial past zero 4 full turns before you start. This is the single most common mistake. If you don't clear the wheels first, the combination will never land right.\n" +
+    "2. Dial slowly and stop dead on each number. Overshooting by even one tick means the gate won't align.\n" +
+    "3. Is the handle in the right position to start? Some safes need the handle horizontal before dialing.\n" +
+    "4. Did you just change the combination? It may not have been set correctly \u2014 try the old one.\n" +
+    "5. Something inside blocking the door? A fallen shelf or shifted box can stop the bolts retracting.\n" +
+    "6. Uneven floor? Shim a corner. Settlement can bind the bolts.\n\n" +
+    "Standard Group 2 (3 numbers, L-R-L):\n" +
+    "1st \u2192 4 turns LEFT, pass 3x, stop on 4th\n" +
+    "2nd \u2192 3 turns RIGHT, pass 2x, stop on 3rd\n" +
+    "3rd \u2192 2 turns LEFT, pass 1x, stop on 2nd\n" +
+    "Then turn RIGHT slowly until the dial stops.\n\n" +
+    "\u26A0\uFE0F Don't force the handle or dial.\n\n" +
+    "\u{1F4DE} (916) 534-4900",
+    escalate: false },
+
+  4: { text:
+    "\u{1F527} Handle issues \u2014 the symptom tells you the cause:\n\n" +
+    "HANDLE IS LOOSE OR WOBBLY (still opens the safe):\n" +
+    "\u2022 Check the set screw on the handle hub. A loose set screw lets the handle wobble on the spindle. Snug it with an Allen wrench \u2014 don't overtighten, you'll strip it.\n" +
+    "\u2022 Dial loose too? The dial set screw is on the side of the knob. Same fix.\n" +
+    "\u2022 Wobble that comes back after tightening = worn spindle or stripped threads. Needs a technician.\n\n" +
+    "HANDLE SPINS FREELY, NOTHING HAPPENS:\n" +
+    "\u2022 This is not a loose screw \u2014 something is broken inside. Usually a sheared pin, a snapped weld on the drive cam, or a disconnected linkage bar.\n" +
+    "\u2022 The safe is currently inoperable. Don't keep spinning it.\n\n" +
+    "HANDLE TURNS BUT BOLTS DON'T MOVE:\n" +
+    "\u2022 Stripped drive cam, or the linkage has come apart.\n\n" +
+    "\u26A0\uFE0F Never use vice grips or a pipe wrench on a safe handle. You'll snap the spindle and make the repair much more expensive.\n\n" +
+    "\u{1F4DE} (916) 534-4900",
+    escalate: true },
+
+  5: { text:
+    "\u{1F523} Dial feel tells you a lot. Which of these matches?\n\n" +
+    "SPINS FREELY with no stops or resistance:\n" +
+    "\u2022 The drive cam spring is broken. The dial no longer engages the wheel pack, so the safe cannot open normally. Straightforward repair, but it does need the lock opened up.\n\n" +
+    "STIFF OR HARD TO TURN:\n" +
+    "\u2022 Dried or contaminated lubricant in the lock case, often with worn wheel pack bearings. This is the classic failure on a 15+ year old lock that's never been serviced.\n" +
+    "\u2022 If it takes real effort to turn, it's already degraded past the point where lubricant alone will fix it.\n\n" +
+    "GRINDING OR GRITTY:\n" +
+    "\u2022 Debris or failing bearings in the wheel pack. Don't keep dialing \u2014 you can score the wheels.\n\n" +
+    "WOBBLY DIAL with normal rotation:\n" +
+    "\u2022 Loose dial set screw, worn drive cam spring, or worn spindle bearings. Start with the set screw.\n\n" +
+    "\u26A0\uFE0F Don't add WD-40. It attracts dirt and gums up the lock case. Graphite or a proper dry-film lubricant only.\n\n" +
+    "\u{1F4DE} (916) 534-4900",
+    escalate: true },
+
+  6: { text:
+    "\u{1F6AA} Door won't close or drags \u2014 usually alignment, not the lock:\n\n" +
+    "1. Is it level? Safes settle. A safe on uneven floor will torque and the bolts won't line up with the frame. Shim the low corner and retest.\n" +
+    "2. Hinge wear. Over time the door sags on its hinges and drops a fraction of an inch \u2014 enough to drag on the bottom frame.\n" +
+    "3. Door drag on opening too? Same cause. Hinge adjustment or shimming usually fixes it.\n" +
+    "4. Something obstructing the frame \u2014 debris, a bent bolt, or insulation that's crumbled into the path.\n" +
+    "5. Bolts extended while trying to close? The handle must be in the open position before you shut the door.\n\n" +
+    "\u26A0\uFE0F Don't slam it or force it. You'll bend bolts or crack the fire seal, and the seal is what makes the safe fire-rated.\n\n" +
+    "\u{1F4DE} (916) 534-4900",
+    escalate: false },
+
+  7: { text:
+    "\u{1F9EA} Rust, corrosion, or the safe got wet \u2014 act quickly, this gets worse:\n\n" +
+    "1. Bolt slides and linkage first. Rust on sliding surfaces is what actually seizes a safe. Wire-brush the rust, then apply a dry-film lubricant to the slides and light oil to the pivots only.\n" +
+    "2. Don't lubricate the lock itself with oil. Oil attracts dust and turns into grinding paste. Graphite or dry-film only.\n" +
+    "3. Electronic locks + moisture = corrosion on the battery terminals and circuit board. If the safe got wet, open the battery compartment and dry it out immediately. Corrosion wicking into the board is what kills these locks.\n" +
+    "4. Hinges. Rusted hinges cause door drag and alignment problems later.\n" +
+    "5. Check the fire seal. If moisture has degraded the door seal, the fire rating is compromised even though the safe still works.\n\n" +
+    "\u{1F4A1} Garages and outbuildings are the worst offenders \u2014 humidity swings condense on cold steel. A dehumidifier rod keeps the interior dry.\n\n" +
+    "\u{1F4DE} (916) 534-4900",
+    escalate: true }
+};
+
 /* ==================== RESPONSE ENGINE ==================== */
 function respond(input) {
   const q = input.toLowerCase().trim();
@@ -89,10 +208,38 @@ function respond(input) {
   }
 
   // Off-topic detection
-  const safeTopics = ["safe","lock","key","dial","combo","combination","code","keypad","biometric","bolt","handle","hinge","door","open","close","jammed","stuck","rust","corrosion","relocker","solenoid","spring","battery","dead","fire","burglary","burglar","thief","drill","manipulation","spin","right","left","turn","call","phone","email","number","hours","price","cost","quote","estimate","license","lco","insured","buy","purchase","choose","select","recommend","maintenance","service","repair","antique","vintage","floor","gun","rifle","pistol","document","cash","jewelry","commercial","tl-15","tl-30","trtl","amsce","gardall","sentry","s&g","sargent","lagard","kaba","mosler","liberty","cannon","stack-on","digital","electronic","mechanical","wheel pack","drive cam","change","reset","forgot","lost","hello","hi","hey","thanks","thank you","drop slot","deposit","tubular","emergency","weekend","after hours","frantz","sacramento","west sacramento","x-07","x-08","x-09","x-10","gsa","porta vault","probate","heirloom","scrapyard","restoration","walkthrough","photo","$3k","$6k","$3,000","$5,000","$7,000","$10,000","3,000","5,000","7,000","10,000","crush washer","bent wire","surgical","network","coverage","backup","protege","glazer","johnson pacific","macneale","macneale & urban","urban","j. baum","j baum","baum","cincinnati","1906","patent","tips","tip","tricks","article","story","read","blog","post","saw","guy","how to","ways to","method","noise","sound","warranty","guarantee","void"];
+  const safeTopics = ["safe","lock","key","dial","combo","combination","code","keypad","biometric","bolt","handle","hinge","door","open","close","jammed","stuck","rust","corrosion","relocker","solenoid","spring","battery","dead","fire","burglary","burglar","thief","drill","manipulation","spin","right","left","turn","call","phone","email","number","hours","price","cost","quote","estimate","license","lco","insured","buy","purchase","choose","select","recommend","maintenance","service","repair","antique","vintage","floor","gun","rifle","pistol","document","cash","jewelry","commercial","tl-15","tl-30","trtl","amsce","gardall","sentry","s&g","sargent","lagard","kaba","mosler","liberty","cannon","stack-on","digital","electronic","mechanical","wheel pack","drive cam","change","reset","forgot","lost","hello","hi","hey","thanks","thank you","drop slot","deposit","tubular","emergency","weekend","after hours","frantz","sacramento","west sacramento","x-07","x-08","x-09","x-10","gsa","porta vault","probate","heirloom","scrapyard","restoration","walkthrough","photo","$3k","$6k","$3,000","$5,000","$7,000","$10,000","3,000","5,000","7,000","10,000","crush washer","bent wire","surgical","network","coverage","backup","protege","glazer","johnson pacific","macneale","macneale & urban","urban","j. baum","j baum","baum","cincinnati","1906","patent","tips","tip","tricks","article","story","read","blog","post","saw","guy","how to","ways to","method","noise","sound","warranty","guarantee","void","loose","wobbly","wobble","slipping","slips","spin","spins","grinding","grind","click","clicking","beep","beeping","noise","funny noise","squeak","stiff","hard to turn","budge","force","forcing","screw","set screw","allen","linkage","bolt slide","troubleshoot","diagnose","problem","issue","broken","break","damaged","damage","wet","water","moisture","humidity","garage","outside","shed","cold","hot","heat","summer","winter","moving","moved","new house","inherited","estate","passed away"];
 
   if (!safeTopics.some(function(k) { return q.indexOf(k) !== -1; }) && !/^\d/.test(q)) {
     return "I'm sorry, I only answer questions about safes and locks. I'm Frantz's Safe Assistant. Try asking about safe opening, combination help, maintenance, or some of my real job stories. Or call (916) 534-4900 to talk to Robert directly.\n\n\u{0001F4D6} Need a different kind of locksmith? See Robert's preferred network: network.html";
+  }
+
+  // ============ STOP -- destructive attempts ============
+  // If they've already tried to force it, do not troubleshoot further
+  for (let i = 0; i < ESCALATE_PATTERNS.length; i++) {
+    if (q.indexOf(ESCALATE_PATTERNS[i]) !== -1) {
+      return "\u{1F6D1} Stop. Don't do anything else to that safe.\n\n" +
+        "Once a relocker has fired, or the door has been pried, hammered, or drilled, the situation changes completely \u2014 and every additional attempt makes the repair more expensive. A relocker is a secondary lock designed to fire when the safe is attacked, and it will not reset on its own.\n\n" +
+        "Put the tools down and call:\n\n" +
+        "\u{1F4DE} (916) 534-4900 \u2014 Robert Frantz, CA LCO 4160\n\n" +
+        "Tell him what you've already tried. That's the most useful thing you can do right now, and there's no charge for the phone call.\n\n" +
+        "\u26A0\uFE0F Do not try to remove the door or cut into the body. That's what turns a repair into a replacement.";
+    }
+  }
+
+  // ============ GUIDED TROUBLESHOOTING MENU ============
+  // Triggers first so "my safe won't open, help me troubleshoot" lands here, not on a story
+  if (m(["troubleshoot","troubleshooting","fix it myself","fix myself","diagnose","diagnosis","walk me through","step by step","what should i check","help me figure","not sure what","figure out what","what could be wrong","what is wrong","whats wrong","what's wrong"])) {
+    return TROUBLESHOOT_MENU + triageLink("Best option for odd or combination symptoms \u2014 it scores the full picture in about 2 minutes.");
+  }
+
+  // Numbered menu selections (1-7) -- only when the message is essentially just a number
+  if (/^\s*[1-7]\s*$/.test(q)) {
+    const pick = parseInt(q, 10);
+    const entry = TROUBLESHOOT_PICKS[pick];
+    if (entry) {
+      return entry.text + (entry.escalate ? triageLink("This one benefits from the full questionnaire.") : "");
+    }
   }
 
   // ============ BLOG STORIES ============
@@ -146,6 +293,18 @@ function respond(input) {
   // Battery
   if (m(["battery","dead","no power","not lighting","not beeping","9v","9 volt","jump"])) {
     return "Dead battery on a digital lock? Try these:\n1. Look for small metal contacts below the keypad\n2. Touch a fresh 9V battery to those contacts (polarity usually doesn't matter)\n3. Enter your code while holding the 9V in place\n4. If it opens, replace the internal batteries (usually 4x AA)\n5. If no contacts, look for a key override \u2014 a hidden keyhole under a sliding panel\n\n\u{0001F4A1} Use Duracell or Energizer, not cheap brands. Change every 12 months.\n\n\u{0001F4D6} More help: " + TIPS.costs.url;
+  }
+
+  // Dial drag / stiffness / grinding (mirrors SafePulse critical_mechanical_seizure)
+  if (m(["dial drag","dial is dragging","dial dragging","dial stiff","dial stiff","stiff dial","dial hard to turn","hard to turn","dial grinding","grinding","dial tight","rough dial","dial roughness"])) {
+    return "\u{1F523} A dragging or stiff dial is usually the lock telling you it is running dry.\n\n" +
+      "What causes it:\n" +
+      "\u2022 Dried or contaminated lubricant inside the lock case \u2014 the most common cause on any lock over 15 years old.\n" +
+      "\u2022 Worn wheel pack bearings \u2014 bearing failure after 20 years is common on S&G 6730/6735 series.\n" +
+      "\u2022 Contamination \u2014 dust, or WD-40 someone sprayed in years ago that has since gummed up.\n\n" +
+      "Why it matters: a dial that takes real effort to turn is already binding, and binding gets worse. This is the pattern that ends in a lockout where the safe simply will not open at all.\n\n" +
+      "What NOT to do: do not spray WD-40 or general-purpose oil into the lock. It attracts dust and turns into grinding paste.\n\n" +
+      "\u{1F4DE} The fix is opening the lock case, cleaning out the old lubricant, inspecting the bearings, and re-lubricating properly. (916) 534-4900";
   }
 
   // Won't open
@@ -207,7 +366,7 @@ function respond(input) {
   }
 
   // Broken handle
-  if (m(["handle broken","handle won't turn","broken handle","handle spins","handle turns","handle not working"])) {
+  if (m(["handle broken","handle won't turn","broken handle","handle spins","handle turns","handle not working","loose handle","handle loose","handle is loose","handle wobbly","wobbly handle","handle is wobbly","handle wobble","handle slips","handle slipping","handle is slipping","handle stripped","set screw","setscrew"])) {
     return "Handle issues:\n\u2022 Handle spins freely: linkage is disconnected (broken weld or sheared pin)\n\u2022 Handle won't turn: locking bar is jammed or relocker is fired\n\u2022 Handle turns but bolts don't move: the drive cam is stripped\n\n\u26A0\uFE0F Don't use vice grips or a pipe wrench \u2014 you'll damage the handle spindle.\nMost handle repairs are under an hour. Call (916) 534-4900.";
   }
 
@@ -283,7 +442,7 @@ function respond(input) {
 
   // Hello / greeting
   if (q.length < 20 && m(["hi","hello","hey","sup","good morning","good afternoon"])) {
-    return "Hi there! I'm Frantz's Safe Assistant. I can help with:\n\u2022 Safe won't open\n\u2022 Forgotten combination\n\u2022 Dead battery\n\u2022 Dialing instructions\n\u2022 Pricing and quotes\n\u2022 Safe buying advice\n\u2022 Real stories from Robert's 40+ years\n\nWhat can I help you with?";
+    return "Hi there! I'm Frantz's Safe Assistant.\n\n\u{1F527} SAFE ACTING UP? Type TROUBLESHOOT and I'll walk you through it \u2014 dead keypad, handle spinning, dial dragging, door dragging, corrosion, and more.\n\nOr ask me about:\n\u2022 Forgotten combination\n\u2022 Dialing instructions\n\u2022 Pricing and quotes\n\u2022 Safe buying advice\n\u2022 Real stories from Robert's 40+ years\n\n\u{1F4DE} Or call Robert directly: (916) 534-4900";
   }
 
   // Thanks
