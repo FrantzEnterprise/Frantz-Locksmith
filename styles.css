@@ -521,9 +521,9 @@ ul { list-style: none; }
 .brand-logo {
   height: 40px;
   width: auto;
-  opacity: 0.6;
+  opacity: 0.85;
   transition: opacity var(--transition);
-  filter: grayscale(30%);
+  filter: grayscale(10%);
 }
 .brand-logo:hover { opacity: 1; filter: grayscale(0%); }
 
