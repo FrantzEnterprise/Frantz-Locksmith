@@ -704,6 +704,8 @@ const css = `#fcht-toggle{position:fixed;bottom:24px;right:24px;width:60px;heigh
 #fcht-msgs .m{max-width:88%;padding:7px 10px;border-radius:10px;font-size:.8rem;line-height:1.45;animation:fdi .25s ease;white-space:pre-wrap}
 @keyframes fdi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 #fcht-msgs .m.b{align-self:flex-start;background:#fff;border:1px solid #e0e3e8;border-bottom-left-radius:3px;color:#1a1d21}
+#fcht-msgs .m.b .fcht-link{color:#0f2440;font-weight:700;text-decoration:underline;text-decoration-color:#d4a843;text-underline-offset:2px;word-break:break-word}
+#fcht-msgs .m.b .fcht-link:hover{background:#fdf6e3;border-radius:3px}
 #fcht-msgs .m.b strong{color:#1a3a5c}
 #fcht-msgs .m.u{align-self:flex-end;background:#1a3a5c;color:#fff;border-bottom-right-radius:3px}
 #fcht-inp{border-top:1px solid #e0e3e8;padding:6px 8px;display:flex;gap:5px;flex-shrink:0;background:#fff}
@@ -753,6 +755,19 @@ function addMsg(text, role) {
     text = text.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
     text = text.replace(/\n/g,'<br>');
     text = text.replace(/\(916\) 534-4900/g,'<a href="tel:+19165344900" style="display:inline-block;margin-top:3px;background:#d4a843;color:#0f2440;padding:4px 10px;border-radius:5px;font-weight:700;text-decoration:none;font-size:.78rem">📞 (916) 534-4900</a>');
+    // Turn bare page paths into real links: blog/x.html, network.html
+    var onBlogPage = /\/blog\//i.test(location.pathname);
+    text = text.replace(/(^|[\s>])((?:blog\/)?[a-z0-9-]+\.html)(?=$|[\s<.,)])/gi, function(all, pad, path) {
+      var href;
+      if (path.indexOf('blog/') === 0) {
+        // already includes the folder; only add ../ when we're below the root
+        href = onBlogPage ? '../' + path : path;
+      } else {
+        // bare root page
+        href = onBlogPage ? '../' + path : path;
+      }
+      return pad + '<a class="fcht-link" href="' + href + '">' + path + '</a>';
+    });
     d.innerHTML = text;
   } else { d.textContent = text; }
   msgsEl.appendChild(d); msgsEl.scrollTop = msgsEl.scrollHeight;
