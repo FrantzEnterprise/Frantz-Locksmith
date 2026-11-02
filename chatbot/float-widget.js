@@ -50,6 +50,33 @@ const TIPS = {
                keywords: ["dial","combination","dialing","how to dial","group 1","group 2","4-3-2-1","5-4-3-2","L-R-L-R","R-L-R","turn left","turn right","s&g","sargent","lagard"],
                content: "For a standard Group 2 lock (3-number combo, L-R-L pattern):\n1st number \u2192 4 turns LEFT, pass it 3 times, stop on 4th\n2nd number \u2192 3 turns RIGHT, pass it 2 times, stop on 3rd\n3rd number \u2192 2 turns LEFT, pass it once, stop on 2nd\nTurn RIGHT slowly until the dial stops (85-95 range)\n\nGroup 1 locks (high security, GSA): 4 numbers, 5-4-3-2 pattern.\nAlways dial past zero 4 full turns before starting!",
                url: "blog/how-to-dial-safe-combination.html" },
+  dial_full: { title: "Full Dialing Sequence (S&G, LaGard, Mosler, Big Red)",
+               keywords: ["full sequence","step by step dialing","how exactly","explain the turns","3-2-1","4-3-2-1","alternative sequence","not working","doesn't open","dialed it right","keep spinning"],
+               content: "\u{1F4CC} THE ONE RULE THAT TRIPS EVERYONE UP\nYour target number IS your combination number. Any time you pass it, that counts as one turn. After you reach the target, the NEXT number becomes your target.\n\n" +
+                        "THREE-NUMBER COMBO (e.g. 25-50-75) \u2014 the standard 4-3-2:\n" +
+                        "1st # \u2192 4 X LEFT (counterclockwise): pass 25 three times, stop on your 4th pass of 25\n" +
+                        "2nd # \u2192 3 X RIGHT (clockwise): pass 50 two times, stop on your 3rd pass of 50\n" +
+                        "3rd # \u2192 2 X LEFT: pass 75 once, stop on your 2nd pass of 75\n" +
+                        "Then turn the dial RIGHT slowly until it stops (usually somewhere between 85-95)\n" +
+                        "Turn the handle to open\n\n" +
+                        "It doesn't matter how close the next number is to the last one. If you pass it, that counts \u2014 start that number again.\n\n" +
+                        "\u26A0\uFE0F NOT ALL LOCKS USE 4-3-2\n" +
+                        "If the standard sequence fails, try these before assuming something's broken:\n\n" +
+                        "3-WHEEL PACK (3-2-1 pattern):\n" +
+                        "\u2022 Option A: 1st # \u2192 3 X RIGHT \u2014 2nd # \u2192 2 X LEFT \u2014 3rd # \u2192 1 X RIGHT \u2014 then handle\n" +
+                        "\u2022 Option B (opposite): 1st # \u2192 3 X LEFT \u2014 2nd # \u2192 2 X RIGHT \u2014 3rd # \u2192 1 X LEFT \u2014 then handle\n\n" +
+                        "4-WHEEL PACK (4-3-2-1, common on antique locks):\n" +
+                        "\u2022 1st # \u2192 4 X LEFT \u2014 2nd # \u2192 3 X RIGHT \u2014 3rd # \u2192 2 X LEFT \u2014 4th # \u2192 1 X RIGHT\n" +
+                        "\u2022 You must stop on the 4th number yourself, then turn the handle\n\n" +
+                        "HOW TO FIGURE OUT WHICH LOCK YOU HAVE:\n" +
+                        "1. Try turning the handle toward open while dialing\n" +
+                        "2. If the dial won't rotate, or feels very rough/grindy, the drive wheel is the number you stop on \u2014 that is NOT a standard 4-3-2\n" +
+                        "3. Try the 3-2-1 patterns first\n" +
+                        "4. Then try 4-3-2-1\n" +
+                        "5. If none work, stop guessing and call me\n\n" +
+                        "\u{1F4A1} A dial that hooks in, gets harder to turn, then keeps spinning without hitting a dead stop means something is wrong or you mis-dialed.\n\n" +
+                        "Antique safes have unique mechanisms that don't follow modern standards. It takes patience, and that's normal. Call (916) 534-4900 and I'll walk you through it \u2014 or come out and open it non-destructively.",
+               url: "blog/how-to-dial-safe-combination.html" },
   buying: { title: "Choosing the Right Safe",
             keywords: ["buy","purchase","choose","select","recommend","which safe","what safe","looking for","new safe","guide"],
             content: "Ask yourself: 1) What are you protecting? 2) Where will it go? 3) Main threat: fire/burglary/both? 4) How often accessed? 5) Budget?\n\nQuick guide: Documents \u2192 fire-rated safe | Guns \u2192 quality gun safe (Liberty, Cannon, AMSEC) | Cash/jewelry \u2192 TL-15 or TL-30 burglar rated | Quick daily access \u2192 electronic keypad\nFire ratings: Class 350 (documents), Class 150 (media). Burglary ratings: RSC (basic), TL-15/30 (serious), TRTL (maximum).",
@@ -250,8 +277,8 @@ function respond(input) {
   }
 
   // ============ TIPS & TRICKS ============
-  if (m(["dial sequence","dialing","how to dial","turn the dial","dial my safe","dial a combo","dial a combination","dial safe"]) || (q.indexOf("left") !== -1 && q.indexOf("right") !== -1 && q.indexOf("turn") !== -1 && q.indexOf("handle") === -1)) {
-    return TIPS.dial_combo.content + "\n\n\u{0001F4D6} Full walkthrough: " + TIPS.dial_combo.url;
+  if (m(["dial sequence","dialing","how to dial","turn the dial","dial my safe","dial a combo","dial a combination","dial safe","full sequence","step by step","3-2-1","4-3-2-1","alternative sequence","what order","which direction","how many turns"]) || (q.indexOf("left") !== -1 && q.indexOf("right") !== -1 && q.indexOf("turn") !== -1 && q.indexOf("handle") === -1)) {
+    return TIPS.dial_full.content + "\n\n\u{0001F4D6} Full walkthrough: " + TIPS.dial_full.url;
   }
 
   // Referral network — services I don't do (must come before buying guide to catch "recommend a locksmith")
@@ -273,7 +300,7 @@ function respond(input) {
 
   // ============ LOCK TYPES ============
   if (m(["s&g","sargent","sargent & greenleaf","group 1","group 2"])) {
-    return "Sargent & Greenleaf (S&G) are the industry standard for safe combination locks. They make Group 2 locks (3 numbers, 4-3-2-1 pattern) and Group 1 locks (4 numbers, 5-4-3-2 pattern, used in GSA containers).\n\nDial sequence: " + TIPS.dial_combo.content;
+    return "Sargent & Greenleaf (S&G) are the industry standard for safe combination locks. They make Group 2 locks (3 numbers, 4-3-2-1 pattern) and Group 1 locks (4 numbers, 5-4-3-2 pattern, used in GSA containers).\n\nDial sequence: " + TIPS.dial_full.content;
   }
 
   if (m(["tubular","ace lock","chicago lock","barrel key","round key"])) {
