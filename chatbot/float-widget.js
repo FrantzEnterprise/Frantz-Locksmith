@@ -52,7 +52,7 @@ const TIPS = {
                url: "blog/how-to-dial-safe-combination.html" },
   dial_full: { title: "Full Dialing Sequence (S&G, LaGard, Mosler, Big Red)",
                keywords: ["full sequence","step by step dialing","how exactly","explain the turns","3-2-1","4-3-2-1","alternative sequence","not working","doesn't open","dialed it right","keep spinning"],
-               content: "\u{1F4CC} THE ONE RULE THAT TRIPS EVERYONE UP\nYour target number IS your combination number. Any time you pass it, that counts as one turn. After you reach the target, the NEXT number becomes your target.\n\n" +
+               content: "\u{1F4CC}THE ONE RULE THAT TRIPS EVERYONE UP\nYour target is the combination number you are currently dialing.\nYour next number may be very close to the last number.\nAny time you pass the targeted number, no matter how close to the last combination number it counts as one pass.\n\n" +
                         "THREE-NUMBER COMBO (e.g. 25-50-75) \u2014 the standard 4-3-2:\n" +
                         "1st # \u2192 4 X LEFT (counterclockwise): pass 25 three times, stop on your 4th pass of 25\n" +
                         "2nd # \u2192 3 X RIGHT (clockwise): pass 50 two times, stop on your 3rd pass of 50\n" +
