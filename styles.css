@@ -466,10 +466,10 @@ ul { list-style: none; }
 }
 .service-card > * { position: relative; z-index: 1; }
 
-.service-card.card-bg-opening::after { background-image: url('assets/images/cards/card-safe-repair.jpg'); }
+.service-card.card-bg-opening::after { background-image: url('assets/images/cards/card-safe-opening.jpg'); }
 .service-card.card-bg-combination::after  { background-image: url('assets/images/cards/card-combination-change.jpg'); }
-.service-card.card-bg-repair::after       { background-image: url('assets/images/cards/card-safe-opening.jpg'); }
-.service-card.card-bg-advice::after       { background-image: url('assets/images/cards/card-advice-referrals.jpg'); }
+.service-card.card-bg-repair::after       { background-image: url('assets/images/cards/card-safe-repair.jpg'); }
+.service-card.card-bg-advice::after       { background-image: url('assets/images/cards/card-advice-referrals.jpg'); background-position: right center; }
 .service-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
