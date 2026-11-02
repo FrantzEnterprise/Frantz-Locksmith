@@ -515,7 +515,7 @@ ul { list-style: none; }
 .why-item p { font-size: 0.95rem; color: var(--gray-600); }
 
 /* --- Service Areas --- */
-.areas-section { background: var(--light); }
+.areas-section { background: var(--white); }
 
 .areas-grid {
   display: grid;
@@ -534,7 +534,7 @@ ul { list-style: none; }
 .area-card p { font-size: 0.95rem; color: var(--gray-600); }
 
 /* --- Brands --- */
-.brands-section { background: var(--white); }
+.brands-section { background: var(--light); }
 
 .brands-grid {
   display: flex;
@@ -596,6 +596,14 @@ ul { list-style: none; }
 
 /* --- About Section --- */
 .about-section { background: var(--white); }
+
+/* --- Section rhythm ---
+   Homepage reads top to bottom as:
+     hero (dark) / services / about / locksmith / areas / brands / testimonials (dark) / cta (dark)
+   Two pairs used to share a background, which made four sections read as one
+   long undifferentiated block. Alternating white and --light gives every band
+   an edge against its neighbour. */
+.safe-focus-section { background: var(--light); }
 
 .about-grid {
   display: grid;
