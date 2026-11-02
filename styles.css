@@ -605,6 +605,28 @@ ul { list-style: none; }
    an edge against its neighbour. */
 .safe-focus-section { background: var(--light); }
 
+/* --- Interior pages ---
+   Each interior page is page-hero (dark) then a single content block, so the
+   content block carries --light to separate it from the white page body.
+   .pricing-section already sits on a bare .section, so it is left alone.
+   --white modifier exists so a section can opt back out. */
+.section--light { background: var(--light); }
+.section--white { background: var(--white); }
+
+/* Tips index: hero then a list of cards. The list sits on --light so the
+   white cards lift off the page, same idea as the homepage service grid. */
+.tips-hero {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: var(--white);
+  padding: 64px 0;
+  text-align: center;
+}
+.tips-hero h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+.tips-hero p { font-size: 1.05rem; opacity: 0.9; max-width: 720px; margin: 0 auto; }
+
+/* .blog-list is a constrained 800px column in tips.html, so it stays transparent.
+   The band colour belongs on the element's parent, not on the column. */
+
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -930,7 +952,7 @@ ul { list-style: none; }
 .form-success { text-align: center; padding: 24px; }
 
 /* Privacy Section */
-.privacy-section { background: var(--gray-100); }
+.privacy-section { background: var(--white); }
 .privacy-section h2 { color: var(--primary); font-size: 1.6rem; font-weight: 800; margin-bottom: 20px; }
 .privacy-content { max-width: 800px; }
 .privacy-content p { margin-bottom: 14px; font-size: 0.95rem; }
