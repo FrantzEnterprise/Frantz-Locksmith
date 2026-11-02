@@ -342,17 +342,32 @@ ul { list-style: none; }
 
 .section-header {
   text-align: center;
-  max-width: 700px;
-  margin: 0 auto 48px;
+  max-width: 720px;
+  margin: 0 auto 56px;
+}
+/* Small gold rule above each section heading. Gives the eye a stopping point
+   at the top of the block and makes the heading read as a deliberate title
+   rather than the first line of body copy. */
+.section-header::before {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin: 0 auto 22px;
 }
 .section-header h2 {
-  font-size: 2rem;
+  font-size: 2.15rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   color: var(--primary);
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   font-weight: 800;
 }
 .section-header p {
-  font-size: 1.1rem;
+  font-size: 1.12rem;
+  line-height: 1.65;
   color: var(--gray-600);
 }
 
@@ -556,6 +571,7 @@ ul { list-style: none; }
 /* --- Testimonials --- */
 .testimonials-section { background: var(--primary); color: var(--white); }
 .testimonials-section .section-header h2 { color: var(--white); }
+.testimonials-section .section-header::before { background: var(--accent); }
 .testimonials-section .section-header p { color: rgba(255,255,255,0.7); }
 
 .testimonials-grid {
@@ -779,9 +795,20 @@ ul { list-style: none; }
   text-align: center;
 }
 .page-hero h1 {
-  font-size: 2.2rem;
+  font-size: 2.3rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   font-weight: 800;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+}
+.page-hero::before {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin: 0 auto 22px;
 }
 .page-hero p {
   font-size: 1.1rem;
