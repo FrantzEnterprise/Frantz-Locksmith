@@ -443,7 +443,30 @@ ul { list-style: none; }
   box-shadow: var(--shadow-sm);
   transition: all var(--transition);
   border: 1px solid var(--gray-200);
+  position: relative;
+  overflow: hidden;
 }
+
+/* Faint topic image behind the card copy. Pinned to the card, clipped by
+   overflow:hidden, and kept well under the text so contrast is unaffected.
+   Each card supplies its own file via .card-bg-* below. */
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+.service-card > * { position: relative; z-index: 1; }
+
+.service-card.card-bg-opening::before { background-image: url('assets/images/cards/card-safe-opening.jpg'); }
+.service-card.card-bg-combination::before  { background-image: url('assets/images/cards/card-combination-change.jpg'); }
+.service-card.card-bg-repair::before       { background-image: url('assets/images/cards/card-safe-repair.jpg'); }
+.service-card.card-bg-advice::before       { background-image: url('assets/images/cards/card-advice-referrals.jpg'); }
 .service-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
