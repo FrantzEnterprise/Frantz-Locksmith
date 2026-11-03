@@ -553,7 +553,7 @@ ul { list-style: none; }
 @media (max-width: 768px) {
   .areas-section::before {
     background-size: contain;
-    background-position: center 40%;
+    background-position: center top;
   }
   /* Same crop problem: once the about grid collapses to one column the text
      block is tall and narrow, so cover-fit blows the exterior shot up. */
