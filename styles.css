@@ -545,6 +545,24 @@ ul { list-style: none; }
 }
 .areas-section > .container { position: relative; z-index: 1; }
 
+/* On phones the three area cards stack, so the section becomes tall and narrow.
+   Cover-fit then scales the landscape photo to fill the height and crops away
+   two thirds of its width -- which reads as a hard zoom into one corner.
+   Contain-fit keeps the whole van in frame; the empty space either side is
+   invisible at 15% opacity on a white band. */
+@media (max-width: 768px) {
+  .areas-section::before {
+    background-size: contain;
+    background-position: center 40%;
+  }
+  /* Same crop problem: once the about grid collapses to one column the text
+     block is tall and narrow, so cover-fit blows the exterior shot up. */
+  .about-text::before {
+    background-size: contain;
+    background-position: center top;
+  }
+}
+
 .areas-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
