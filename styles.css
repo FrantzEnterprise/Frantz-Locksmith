@@ -538,7 +538,7 @@ ul { list-style: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background: url('assets/images/bg/van-side-bg.jpg') center / cover no-repeat;
+  background: url('assets/images/bg/van-desk-bg.jpg') center / cover no-repeat;
   opacity: 0.15;
   pointer-events: none;
   z-index: 0;
@@ -679,7 +679,7 @@ ul { list-style: none; }
   content: '';
   position: absolute;
   inset: -24px -24px -24px -16px;
-  background: url('assets/images/bg/van-desk-bg.jpg') center / cover no-repeat;
+  background: url('assets/images/bg/van-side-bg.jpg') center / cover no-repeat;
   opacity: 0.15;
   border-radius: var(--radius);
   pointer-events: none;
